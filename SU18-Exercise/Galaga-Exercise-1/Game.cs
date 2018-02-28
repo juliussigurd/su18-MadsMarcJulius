@@ -13,14 +13,15 @@
         private Window win;
         private Entity player;
         private GameEventBus<object> eventBus;
+        //Fik af vide, fra instruktor, at det skulle gøres på nedstående måde
         private DynamicShape playerDynamicShape;
 
         public Game() {
             // look at the Window.cs file for possible constructors.
             // We recommend using 500×500 as window dimensions,
             // which is most easily done using a predefined aspect ratio.
-            
             win = new Window("Galaga", 500, 500);
+            
             eventBus = new GameEventBus<object>();
             eventBus.InitializeEventBus(new List<GameEventType>() {
                 GameEventType.InputEvent, // key press / key release
@@ -57,22 +58,17 @@
                 eventBus.RegisterEvent(
                     GameEventFactory<object>.CreateGameEventForAllProcessors(
                         GameEventType.WindowEvent, this, "CLOSE_WINDOW", "", ""));
-            break;
-            case "KEY_RIGHT":
-                eventBus.RegisterEvent(
-                    GameEventFactory<object>.CreateGameEventForAllProcessors(
-                        GameEventType.WindowEvent, this, "MOVE_RIGHT", "", ""));
-            break;
-            case "KEY_Left":
-                eventBus.RegisterEvent(
-                    GameEventFactory<object>.CreateGameEventForAllProcessors(
-                        GameEventType.WindowEvent, this, "MOVE_LEFT", "", ""));
-                
+                break;
             }
 
             // match on e.g. "KEY_UP", "KEY_1", "KEY_A", etc.
             // TODO: use this method to start moving your player object
             playerDynamicShape.Direction.X = 0.0001f; // choose a fittingly small number
+        }
+
+        public void KeyRelease(string key) {
+            // match on e.g. "KEY_UP", "KEY_1", "KEY_A", etc.
+            playerDynamicShape.Direction.X = 0.0f;
         }
 
         public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent) {
@@ -82,6 +78,7 @@
                     win.CloseWindow();
                     break;
                 default:
+                    break;
                     
                 }
             } else if (eventType == GameEventType.InputEvent) {
