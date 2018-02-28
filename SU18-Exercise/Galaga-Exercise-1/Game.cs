@@ -15,7 +15,9 @@
         private GameEventBus<object> eventBus;
         //Fik af vide, fra instruktor, at det skulle gøres på nedstående måde
         private DynamicShape playerDynamicShape;
-
+        
+            
+        
         public Game() {
             // look at the Window.cs file for possible constructors.
             // We recommend using 500×500 as window dimensions,
@@ -36,7 +38,7 @@
             player = new Entity(
                 new DynamicShape(new Vec2F(0.45f, 0.1f), new Vec2F(0.1f, 0.1f)),
                 new Image(Path.Combine("Assets", "Images", "Player.png")));
-            DynamicShape playerdDynamicShape = player.Shape as DynamicShape;
+                playerDynamicShape = player.Shape as DynamicShape;
 
         }
 
@@ -47,28 +49,41 @@
                 win.Clear();
                 player.RenderEntity();
                 win.SwapBuffers();
-                playerDynamicShape.Move();
+                player.Shape.Move();
                 player.RenderEntity();
             }
         }
 
         public void KeyPress(string key) {
             switch (key) {
+            
             case "KEY_ESCAPE":
                 eventBus.RegisterEvent(
                     GameEventFactory<object>.CreateGameEventForAllProcessors(
                         GameEventType.WindowEvent, this, "CLOSE_WINDOW", "", ""));
                 break;
+                
+            case "KEY_RIGHT":
+                playerDynamicShape.Direction.X = 0.0045f; // choose a fittingly small number
+                break;
+                
+            case "KEY_LEFT":
+                playerDynamicShape.Direction.X = -0.0045f; // choose a fittingly small number
+                break;
             }
-
-            // match on e.g. "KEY_UP", "KEY_1", "KEY_A", etc.
-            // TODO: use this method to start moving your player object
-            playerDynamicShape.Direction.X = 0.0001f; // choose a fittingly small number
         }
-
+        
         public void KeyRelease(string key) {
-            // match on e.g. "KEY_UP", "KEY_1", "KEY_A", etc.
-            playerDynamicShape.Direction.X = 0.0f;
+            switch (key) {
+            
+            case "KEY_RIGHT":
+                playerDynamicShape.Direction.X = 0.0f; // choose a fittingly small number
+                break;
+                
+            case "KEY_LEFT":
+                playerDynamicShape.Direction.X = 0.0f; // choose a fittingly small number
+                break;
+            }
         }
 
         public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent) {
@@ -92,6 +107,5 @@
                 }
             }
         }
-        
     }
 }
