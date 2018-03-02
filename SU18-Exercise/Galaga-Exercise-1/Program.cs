@@ -2,8 +2,8 @@
     internal class Program {
         public static void Main(string[] args) {
             
-            Game _game = new Game();
-            _game.GameLoop();
+            Game game = new Game();
+            game.GameLoop();
         }
     }
 }
