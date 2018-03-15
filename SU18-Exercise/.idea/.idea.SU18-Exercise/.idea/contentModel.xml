@@ -94,6 +94,10 @@
       <e p="packages" t="ExcludeRecursive" />
       <e p="SU18-Exercise.sln" t="IncludeFlat" />
     </e>
+<<<<<<< HEAD
     <e p="$USER_HOME$/Library/Caches/Rider2017.3/resharper-host/local/Transient/ReSharperHost/v11/SolutionCaches/_SU18-Exercise.-136063352.00" t="ExcludeRecursive" />
+=======
+    <e p="$USER_HOME$/Library/Caches/Rider2017.3/resharper-host/local/Transient/ReSharperHost/v11/SolutionCaches/_SU18-Exercise.-525153488.00" t="ExcludeRecursive" />
+>>>>>>> 63f689abeac03e5cd6062ee104e87e5a4b4809df
   </component>
 </project>

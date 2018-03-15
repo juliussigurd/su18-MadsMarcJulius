@@ -47,6 +47,7 @@ C:/Users/Massi/OneDrive/Dokumenter/DIKU/SoftwareU/Aflevering/Assignment4/su18-Ma
 C:/Users/Massi/OneDrive/Dokumenter/DIKU/SoftwareU/Aflevering/Assignment4/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-1/obj/Debug/Galaga-Exercise-1.csprojResolveAssemblyReference.cache
 C:/Users/Massi/OneDrive/Dokumenter/DIKU/SoftwareU/Aflevering/Assignment4/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-1/obj/Debug/Galaga_Exercise_1.exe
 C:/Users/Massi/OneDrive/Dokumenter/DIKU/SoftwareU/Aflevering/Assignment4/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-1/obj/Debug/Galaga_Exercise_1.pdb
+<<<<<<< HEAD
 /Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/Aflevering6/Gruppe/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-1/bin/Debug/Galaga_Exercise_1.exe
 /Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/Aflevering6/Gruppe/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-1/bin/Debug/Galaga_Exercise_1.pdb
 /Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/Aflevering6/Gruppe/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-1/bin/Debug/DIKUArcade.dll
@@ -57,3 +58,15 @@ C:/Users/Massi/OneDrive/Dokumenter/DIKU/SoftwareU/Aflevering/Assignment4/su18-Ma
 /Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/Aflevering6/Gruppe/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-1/obj/Debug/Galaga-Exercise-1.csproj.CoreCompileInputs.cache
 /Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/Aflevering6/Gruppe/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-1/obj/Debug/Galaga_Exercise_1.exe
 /Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/Aflevering6/Gruppe/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-1/obj/Debug/Galaga_Exercise_1.pdb
+=======
+/Users/juliussigurd/Desktop/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-1/bin/Debug/Galaga_Exercise_1.exe
+/Users/juliussigurd/Desktop/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-1/bin/Debug/Galaga_Exercise_1.pdb
+/Users/juliussigurd/Desktop/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-1/bin/Debug/DIKUArcade.dll
+/Users/juliussigurd/Desktop/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-1/bin/Debug/OpenTK.dll
+/Users/juliussigurd/Desktop/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-1/bin/Debug/DIKUArcade.pdb
+/Users/juliussigurd/Desktop/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-1/bin/Debug/OpenTK.xml
+/Users/juliussigurd/Desktop/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-1/obj/Debug/Galaga-Exercise-1.csprojResolveAssemblyReference.cache
+/Users/juliussigurd/Desktop/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-1/obj/Debug/Galaga-Exercise-1.csproj.CoreCompileInputs.cache
+/Users/juliussigurd/Desktop/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-1/obj/Debug/Galaga_Exercise_1.exe
+/Users/juliussigurd/Desktop/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-1/obj/Debug/Galaga_Exercise_1.pdb
+>>>>>>> 63f689abeac03e5cd6062ee104e87e5a4b4809df

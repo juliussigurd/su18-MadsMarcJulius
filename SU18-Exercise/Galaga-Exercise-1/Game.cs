@@ -45,7 +45,7 @@ namespace Galaga_Exercise_1 {
             // the image path of both enemies and explosions,
             // and a container for all sprites
             enemyStrides = ImageStride.CreateStrides(4,
-                Path.Combine("Assets", "Images", "BlueMonster.png"));
+                Path.Combine("Assets", "Images", "Elias.png"));
             enemies = new EntityContainer();
             bullets = new EntityContainer();
             explosionStrides = ImageStride.CreateStrides(8,
@@ -64,7 +64,7 @@ namespace Galaga_Exercise_1 {
             for (int i = 0; i <= amountEnemy; i++) {
                 enemies.AddDynamicEntity(
                     new DynamicShape(new Vec2F((0.1f* i), 0.9f), new Vec2F(0.1f, 0.1f)),
-                    new ImageStride(80, enemyStrides));
+                    new ImageStride(300, enemyStrides));
             }
         }
         
