@@ -1,0 +1,10 @@
+/Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/Aflevering6/Gruppe/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-2/bin/Debug/Galaga_Exercise_2.exe
+/Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/Aflevering6/Gruppe/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-2/bin/Debug/Galaga_Exercise_2.pdb
+/Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/Aflevering6/Gruppe/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-2/bin/Debug/DIKUArcade.dll
+/Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/Aflevering6/Gruppe/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-2/bin/Debug/OpenTK.dll
+/Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/Aflevering6/Gruppe/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-2/bin/Debug/DIKUArcade.pdb
+/Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/Aflevering6/Gruppe/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-2/bin/Debug/OpenTK.xml
+/Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/Aflevering6/Gruppe/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-2/obj/Debug/Galaga-Exercise-2.csprojResolveAssemblyReference.cache
+/Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/Aflevering6/Gruppe/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-2/obj/Debug/Galaga-Exercise-2.csproj.CoreCompileInputs.cache
+/Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/Aflevering6/Gruppe/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-2/obj/Debug/Galaga_Exercise_2.exe
+/Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/Aflevering6/Gruppe/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-2/obj/Debug/Galaga_Exercise_2.pdb

@@ -51,7 +51,7 @@ namespace Galaga_Exercise_1 {
             explosionStrides = ImageStride.CreateStrides(8,
                 Path.Combine("Assets", "Images", "Explosion.png"));
             explosions = new AnimationContainer(8);
-            
+
             
             //adding 10 enemies
             AddEnemies(10);
@@ -60,7 +60,6 @@ namespace Galaga_Exercise_1 {
         private void AddEnemies(int amountEnemy) {
             // add the enemies to the container
             // using a forloop, to get em positioned as a line
-            float counter = 0.01f;
             for (int i = 0; i <= amountEnemy; i++) {
                 enemies.AddDynamicEntity(
                     new DynamicShape(new Vec2F((0.1f* i), 0.9f), new Vec2F(0.1f, 0.1f)),
