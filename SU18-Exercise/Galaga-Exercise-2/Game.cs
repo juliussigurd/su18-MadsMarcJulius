@@ -26,6 +26,8 @@ namespace Galaga_Exercise_2 {
         private Squadron2 iSquadron2;
         private Squadron3 iSquadron3;
         private Down MoveDown;
+        private NoMove noMove;
+        private ZigZagDown ZigZag;
         GameTimer gameTimer = new GameTimer(60, 60);
 
         public Game() {
@@ -35,6 +37,8 @@ namespace Galaga_Exercise_2 {
             // new player
             player = new Player();
             MoveDown = new Down();
+            noMove = new NoMove();
+            ZigZag = new ZigZagDown();
             iSquadron1 = new Squadron1(10);
             iSquadron2 = new Squadron2(15);
             iSquadron3 = new Squadron3(10);
@@ -134,7 +138,7 @@ namespace Galaga_Exercise_2 {
                     explosions.RenderAnimations();
                     player.RenderEntity();
                     enemies1.RenderEntities();
-                    MoveDown.MoveEnemies(enemies1);
+                    ZigZag.MoveEnemies(enemies1);
                     bullets.RenderEntities();
                     win.SwapBuffers();
                 }

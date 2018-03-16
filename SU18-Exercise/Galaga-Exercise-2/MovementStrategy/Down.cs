@@ -16,7 +16,7 @@ namespace Galaga_Exercise_2.MovementStrategy
     {
         public void MoveEnemy(Enemy enemy)
         {
-            enemy.GetPosition.Y -= 0.0003f;
+            enemy.Shape.Position.Y -= 0.0003f;
         }
 
         public void MoveEnemies(EntityContainer<GalagaEntities.Enemy> enemies)

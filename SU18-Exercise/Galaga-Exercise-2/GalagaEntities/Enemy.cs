@@ -15,7 +15,7 @@ namespace Galaga_Exercise_2.GalagaEntities
     {
         public Vec2F position;
         
-        public Enemy (StationaryShape shape, IBaseImage image) : base (shape, image)
+        public Enemy (StationaryShape shape, IBaseImage image) : base ((DynamicShape)shape, image)
         {
             position = shape.Position.Copy();
         }

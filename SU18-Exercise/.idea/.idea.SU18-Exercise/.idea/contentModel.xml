@@ -74,8 +74,6 @@
         <e p="Galaga-Exercise-1.csproj" t="IncludeRecursive" />
         <e p="Game.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
-        <e p="OpenTK.dll.config" t="Include" />
-        <e p="packages.config" t="Include" />
         <e p="Player.cs" t="Include" />
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
@@ -93,10 +91,9 @@
           <e p="Down.cs" t="Include" />
           <e p="IMovementStrategy.cs" t="Include" />
           <e p="NoMove.cs" t="Include" />
+          <e p="ZigZagDown.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive" />
-        <e p="OpenTK.dll.config" t="Include" />
-        <e p="packages.config" t="Include" />
         <e p="Player.cs" t="Include" />
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
