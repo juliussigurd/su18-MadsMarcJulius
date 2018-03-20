@@ -1,0 +1,8 @@
+/Users/juliussigurd/Desktop/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-2/obj/Debug/.NETFramework,Version=v4.7.AssemblyAttribute.cs
+/Users/juliussigurd/Desktop/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-2/bin/Debug/Galaga_Exercise_2.pdb
+/Users/juliussigurd/Desktop/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-2/bin/Debug/Galaga_Exercise_2.exe
+/Users/juliussigurd/Desktop/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-2/obj/Debug/Galaga_Exercise_2.exe
+/Users/juliussigurd/Desktop/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-2/obj/Debug/Galaga_Exercise_2.pdb
+/Users/juliussigurd/Desktop/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-2/bin/Debug/OpenTK.dll
+/Users/juliussigurd/Desktop/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-2/bin/Debug/DIKUArcade.dll
+/Users/juliussigurd/Desktop/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-2/bin/Debug/DIKUArcade.pdb
