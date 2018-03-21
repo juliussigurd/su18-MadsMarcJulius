@@ -1,5 +1,4 @@
 ﻿using System;
-using Galaga_Exercise_2;
 
 namespace Galaga_Exercise_3.GalagaStates {
     public class StateTransformer {

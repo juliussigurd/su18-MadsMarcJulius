@@ -1,10 +1,10 @@
 ﻿using System.IO;
 using DIKUArcade.Entities;
+using DIKUArcade.EventBus;
 using DIKUArcade.Graphics;
 using DIKUArcade.Math;
-using DIKUArcade.EventBus;
 
-namespace Galaga_Exercise_2 {
+namespace Galaga_Exercise_3 {
    
     public class Player : IGameEventProcessor<object> {
         private Entity player;

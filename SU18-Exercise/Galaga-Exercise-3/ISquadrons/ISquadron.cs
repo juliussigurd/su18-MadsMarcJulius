@@ -1,13 +1,8 @@
-﻿using System.IO;
-using DIKUArcade;
+﻿using System.Collections.Generic;
 using DIKUArcade.Entities;
 using DIKUArcade.Graphics;
-using DIKUArcade.Math;
-using DIKUArcade.EventBus;
-using System.Collections.Generic;
 
-
-namespace Galaga_Exercise_2.Squadrons
+namespace Galaga_Exercise_3.ISquadrons
 {
     public interface ISquadron
     {

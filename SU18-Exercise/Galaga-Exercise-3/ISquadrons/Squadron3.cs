@@ -1,19 +1,10 @@
-﻿using System.IO;
-using DIKUArcade;
+﻿using System.Collections.Generic;
 using DIKUArcade.Entities;
 using DIKUArcade.Graphics;
-using DIKUArcade.Math;
-using DIKUArcade.EventBus;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.Serialization.Formatters;
-using DIKUArcade.Physics;
-using DIKUArcade.Timers;
-using Galaga_Exercise_2.GalagaEntities;
+using Galaga_Exercise_3.GalagaEntities;
 
-
-namespace Galaga_Exercise_2 {
-    public class Squadron3 : Squadrons.ISquadron {
+namespace Galaga_Exercise_3.ISquadrons {
+    public class Squadron3 : ISquadron {
         public int maxEnemies;
 
         public EntityContainer<Enemy> Enemies { get; }

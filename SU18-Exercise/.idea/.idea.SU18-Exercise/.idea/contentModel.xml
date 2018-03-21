@@ -123,6 +123,7 @@
           <e p="StateTransformer.cs" t="Include" />
         </e>
         <e p="Game.cs" t="Include" />
+        <e p="GameRunning.cs" t="Include" />
         <e p="ISquadrons" t="Include">
           <e p="ISquadron.cs" t="Include" />
           <e p="Squadron1.cs" t="Include" />
@@ -141,6 +142,7 @@
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
+        <e p="StateMachine.cs" t="Include" />
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="SU18-Exercise.sln" t="IncludeFlat" />

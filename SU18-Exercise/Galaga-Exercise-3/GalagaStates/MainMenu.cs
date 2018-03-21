@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.ComponentModel;
+using System.Drawing;
 using System.IO;
 using DIKUArcade.Entities;
 using DIKUArcade.EventBus;
 using DIKUArcade.Graphics;
 using DIKUArcade.Math;
 using DIKUArcade.State;
+using Image = DIKUArcade.Graphics.Image;
 
 namespace Galaga_Exercise_3.GalagaStates {
     public class MainMenu : IGameState {
@@ -55,7 +57,7 @@ namespace Galaga_Exercise_3.GalagaStates {
             menuButtons[1] = new Text("Quit", new Vec2F(0.3f, 0.2f), new Vec2F(0.4f, 0.2f));
             
             //Sets the color of the active button to green
-            menuButtons[activeMenuButton].SetColor(new Vec3F(0, 255, 0));
+            menuButtons[activeMenuButton].SetColor(Color.Aquamarine);
             
             //Draws the two buttons 
             menuButtons[0].RenderText();
@@ -77,6 +79,10 @@ namespace Galaga_Exercise_3.GalagaStates {
                         GameEventType.GameStateEvent, this, "Enter", "", ""));
                 break;
             }
+            
+        }
+
+        public void GameRunning() {
             
         }
     }
