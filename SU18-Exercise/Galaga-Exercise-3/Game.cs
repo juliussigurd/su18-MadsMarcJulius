@@ -27,7 +27,8 @@ namespace Galaga_Exercise_3 {
             GalagaBus.GetBus().InitializeEventBus(new List<GameEventType>() {
                 GameEventType.WindowEvent, // messages to the window
                 GameEventType.InputEvent,
-                GameEventType.GameStateEvent
+                GameEventType.GameStateEvent,
+                GameEventType.PlayerEvent
             }); // e.g. move, destroy, receive health, etc.
                  
             win.RegisterEventBus(GalagaBus.GetBus());

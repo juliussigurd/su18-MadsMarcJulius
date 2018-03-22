@@ -32,11 +32,10 @@ namespace GalagaGame.GalagaState {
 
             case GameStateType.GameStateTypes.GameRunning:
                 ActiveState = GameRunning.GetInstance();
-                ActiveState.InitializeGameState();
                 break;
 
             case GameStateType.GameStateTypes.GamePaused:
-                ActiveState = new GamePaused();
+                ActiveState = GamePaused.GetInstance();
                 ActiveState.InitializeGameState();
                 break;
 

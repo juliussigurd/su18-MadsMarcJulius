@@ -16,7 +16,6 @@ using Galaga_Exercise_3.ISquadrons;
 namespace Galaga_Exercise_3 {
     public class GameRunning : IGameEventProcessor<object>, IGameState {
         private Player player;
-        private GameEventBus<object> eventBus;
         private List<Image> enemyStrides;
         private EntityContainer bullets;
         private List<Image> explosionStrides;
@@ -31,8 +30,45 @@ namespace Galaga_Exercise_3 {
         GameTimer gameTimer = new GameTimer(60, 60);
         private static GameRunning instance = null;
 
+        public static void ResetGameRunning() {
+            GameRunning.instance = null;
+        }
+        
         public GameRunning() {
-            
+            // new player
+            player = new Player();
+            MoveDown = new Down();
+            noMove = new NoMove();
+            ZigZag = new ZigZagDown();
+            iSquadron1 = new Squadron1(10);
+            iSquadron2 = new Squadron2(15);
+            iSquadron3 = new Squadron3(10);
+            // defines the different events
+
+            GalagaBus.GetBus().Subscribe(GameEventType.InputEvent, this);
+            GalagaBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
+
+            // the image path of both enemies and explosions,
+            // and a container for all sprites
+            enemyStrides = ImageStride.CreateStrides(4,
+                Path.Combine("Assets", "Images", "Elias.png"));
+            enemies = new EntityContainer<GalagaEntities.Enemy>();
+            bullets = new EntityContainer();
+            explosionStrides = ImageStride.CreateStrides(8,
+                Path.Combine("Assets", "Images", "Explosion.png"));
+            explosions = new AnimationContainer(8);
+
+            iSquadron1.CreateEnemies(enemyStrides);
+            iSquadron2.CreateEnemies(enemyStrides);
+            iSquadron3.CreateEnemies(enemyStrides);
+            //adding 10 enemies
+            //AddEnemies(10);
+            enemies = iSquadron3.Enemies;   
+        }
+        
+        public static GameRunning GetInstance() {
+            return GameRunning.instance ?? (GameRunning.instance = new GameRunning());
+
         }
 
         private int explosionLength = 500;
@@ -82,116 +118,15 @@ namespace Galaga_Exercise_3 {
             });
         }
 
-        public void KeyPress(string key) {
-            switch (key) {
-            case "KEY_RIGHT":
-                // Sends event if right key is pressed
-                eventBus.RegisterEvent(
-                    GameEventFactory<object>.CreateGameEventForAllProcessors(
-                        GameEventType.PlayerEvent, this, "Move_right", "", ""));
-                break;
-
-            case "KEY_LEFT":
-                // Sends event if left key is pressed
-                eventBus.RegisterEvent(
-                    GameEventFactory<object>.CreateGameEventForAllProcessors(
-                        GameEventType.PlayerEvent, this, "Move_left", "", ""));
-                break;
-            case "KEY_SPACE":
-                eventBus.RegisterEvent(
-                    GameEventFactory<object>.CreateGameEventForAllProcessors(
-                        GameEventType.InputEvent, this, "Bullet_fire", "", ""));
-                break;
-            }
-        }
-
-        public void KeyRelease(string key) {
-            switch (key) {
-
-            case "KEY_RIGHT":
-                // event on release of right key
-                eventBus.RegisterEvent(
-                    GameEventFactory<object>.CreateGameEventForAllProcessors(
-                        GameEventType.PlayerEvent, this, "release_right", "", ""));
-                break;
-
-            case "KEY_LEFT":
-                // event on release of left key
-                eventBus.RegisterEvent(
-                    GameEventFactory<object>.CreateGameEventForAllProcessors(
-                        GameEventType.PlayerEvent, this, "release_left", "", ""));
-                break;
-            }
-        }
-
-        public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent) {
-            // if the event window is called, process it here
-            if (eventType == GameEventType.InputEvent) {
-                // if event input is called, process here
-                switch (gameEvent.Parameter1) {
-                case "KEY_PRESS":
-                    KeyPress(gameEvent.Message);
-                    break;
-                case "KEY_RELEASE":
-                    KeyRelease(gameEvent.Message);
-                    break;
-                case "Bullet_fire":
-                    AddBullets();
-                    break;
-                default:
-                    break;
-                }
-            }
-        }
-
         public void GameLoop() {
 
         }
-
-        public void InitializeGameState() {
-            // new player
-            player = new Player();
-            MoveDown = new Down();
-            noMove = new NoMove();
-            ZigZag = new ZigZagDown();
-            iSquadron1 = new Squadron1(10);
-            iSquadron2 = new Squadron2(15);
-            iSquadron3 = new Squadron3(10);
-            // defines the different events
-            eventBus = new GameEventBus<object>();
-            eventBus.InitializeEventBus(new List<GameEventType>() {
-                GameEventType.InputEvent, // key press / key release
-                GameEventType.WindowEvent, // messages to the window
-                GameEventType.PlayerEvent // commands issued to the player objec-t,
-            }); // e.g. move, destroy, receive health, etc.
-
-            eventBus.Subscribe(GameEventType.InputEvent, this);
-            eventBus.Subscribe(GameEventType.PlayerEvent, player);
-
-            // the image path of both enemies and explosions,
-            // and a container for all sprites
-            enemyStrides = ImageStride.CreateStrides(4,
-                Path.Combine("Assets", "Images", "Elias.png"));
-            enemies = new EntityContainer<GalagaEntities.Enemy>();
-            bullets = new EntityContainer();
-            explosionStrides = ImageStride.CreateStrides(8,
-                Path.Combine("Assets", "Images", "Explosion.png"));
-            explosions = new AnimationContainer(8);
-
-            iSquadron1.CreateEnemies(enemyStrides);
-            iSquadron2.CreateEnemies(enemyStrides);
-            iSquadron3.CreateEnemies(enemyStrides);
-            //adding 10 enemies
-            //AddEnemies(10);
-            enemies = iSquadron3.Enemies;
-        }
-
+        
         public void UpdateGameLogic() {
             RenderState();
             player.Move();
             ZigZag.MoveEnemies(enemies);
-            
-            
+            bullets.Iterate(IterateShots);
         }
 
         public void RenderState() {
@@ -200,18 +135,74 @@ namespace Galaga_Exercise_3 {
             bullets.RenderEntities();
             explosions.RenderAnimations();
             
-            
-            
-           
+        }
+
+        public void InitializeGameState() {
         }
 
         public void HandleKeyEvent(string keyValue, string keyAction) {
-                    
-        }
-        
-        public static GameRunning GetInstance() {
-            return GameRunning.instance ?? GameRunning.instance;
+            if (keyAction == "KEY_PRESS") {
+                
+                switch (keyValue) {
+                case "KEY_RIGHT":
+                    // Sends event if right key is pressed
+                    GalagaBus.GetBus().RegisterEvent(
+                        GameEventFactory<object>.CreateGameEventForAllProcessors(
+                            GameEventType.PlayerEvent, this, "Move_right", "", ""));
+                    break;
+
+                case "KEY_LEFT":
+                    // Sends event if left key is pressed
+                    GalagaBus.GetBus().RegisterEvent(
+                        GameEventFactory<object>.CreateGameEventForAllProcessors(
+                            GameEventType.PlayerEvent, this, "Move_left", "", ""));
+                    break;
+                case "KEY_SPACE":
+                    GalagaBus.GetBus().RegisterEvent(
+                        GameEventFactory<object>.CreateGameEventForAllProcessors(
+                            GameEventType.InputEvent, this, "Bullet_fire", "", ""));
+                    break;
+                case "KEY_ESCAPE":
+                        GalagaBus.GetBus().RegisterEvent(
+                            GameEventFactory<object>.CreateGameEventForAllProcessors(
+                                GameEventType.GameStateEvent, this, "GAME_PAUSED", "", ""));
+                        break;
+                    }
+                }
             
+
+            if (keyAction == "KEY_RELEASE") {
+
+                switch (keyValue) {
+                case "KEY_RIGHT":
+                    // event on release of right key
+                    GalagaBus.GetBus().RegisterEvent(
+                        GameEventFactory<object>.CreateGameEventForAllProcessors(
+                            GameEventType.PlayerEvent, this, "release_right", "", ""));
+                    break;
+
+                case "KEY_LEFT":
+                    // event on release of left key
+                    GalagaBus.GetBus().RegisterEvent(
+                        GameEventFactory<object>.CreateGameEventForAllProcessors(
+                            GameEventType.PlayerEvent, this, "release_left", "", ""));
+                    break;
+                }
+            }
+        }
+
+        public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent) {
+            // if the event window is called, process it here
+            if (eventType == GameEventType.InputEvent) {
+                // if event input is called, process here
+                switch (gameEvent.Message) {
+                case "Bullet_fire":
+                    AddBullets();
+                    break;
+                default:
+                    break;
+                }
+            }
         }
     }
 }

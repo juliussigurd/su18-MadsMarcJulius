@@ -49,8 +49,8 @@ namespace Galaga_Exercise_3.GalagaStates {
         public void RenderState() {
             //Sets the color of the active button to green
             InitializeGameState();
-            menuButtons[(activeMenuButton + 1) % 2].SetColor(Color.DarkBlue);
-            menuButtons[activeMenuButton].SetColor(Color.PapayaWhip);
+            menuButtons[(activeMenuButton + 1) % 2].SetColor(Color.White);
+            menuButtons[activeMenuButton].SetColor(Color.PaleVioletRed);
             
 
             backGroundImage.RenderEntity();
@@ -85,6 +85,7 @@ namespace Galaga_Exercise_3.GalagaStates {
                 case "KEY_ENTER":
                     switch (activeMenuButton) {
                     case 0:
+                        GameRunning.ResetGameRunning();
                         GalagaBus.GetBus().RegisterEvent(
                             GameEventFactory<object>.CreateGameEventForAllProcessors(
                                 GameEventType.GameStateEvent, this, "GAME_RUNNING", "", ""));
@@ -98,9 +99,7 @@ namespace Galaga_Exercise_3.GalagaStates {
 
                     break;
                 }
-
             }
         }
-
     }
 }
