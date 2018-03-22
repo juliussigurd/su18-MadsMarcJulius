@@ -15,20 +15,6 @@ namespace Galaga_Exercise_3 {
 
     public class Game : IGameEventProcessor<object> {
         private Window win;
-       // private Player player;
-       // private List<Image> enemyStrides;
-       // private EntityContainer bullets;
-       // private List<Image> explosionStrides;
-        //private AnimationContainer explosions;
-       // private EntityContainer<GalagaEntities.Enemy> enemies1;
-       //private EntityContainer<GalagaEntities.Enemy> enemies2;
-       // private EntityContainer<GalagaEntities.Enemy> enemies3;
-       // private Squadron1 iSquadron1;
-        //private Squadron2 iSquadron2;
-       // private Squadron3 iSquadron3;
-       // private Down MoveDown;
-       // private NoMove noMove;
-        //private ZigZagDown ZigZag;
         private StateMachine stateMachine;
         GameTimer gameTimer = new GameTimer(60, 60);
 

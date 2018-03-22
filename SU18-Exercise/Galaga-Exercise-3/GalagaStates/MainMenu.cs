@@ -39,8 +39,8 @@ namespace Galaga_Exercise_3.GalagaStates {
                 new Image(Path.Combine("Assets", "Images", "TitleImage.png")));
 
             //Size of the buttons
-            menuButtons[0] = new Text("New Game", new Vec2F(0.3f, 0.6f), new Vec2F(0.4f, 0.2f));
-            menuButtons[1] = new Text("Quit", new Vec2F(0.3f, 0.2f), new Vec2F(0.4f, 0.2f));
+            menuButtons[0] = new Text("New Game", new Vec2F(0.15f, 0.2f), new Vec2F(0.4f, 0.3f));
+            menuButtons[1] = new Text("Quit", new Vec2F(0.15f, 0.1f), new Vec2F(0.4f, 0.3f));
 
         }
 
@@ -49,7 +49,9 @@ namespace Galaga_Exercise_3.GalagaStates {
         public void RenderState() {
             //Sets the color of the active button to green
             InitializeGameState();
-            menuButtons[activeMenuButton].SetColor(Color.Aquamarine);
+            menuButtons[(activeMenuButton + 1) % 2].SetColor(Color.DarkBlue);
+            menuButtons[activeMenuButton].SetColor(Color.PapayaWhip);
+            
 
             backGroundImage.RenderEntity();
 
