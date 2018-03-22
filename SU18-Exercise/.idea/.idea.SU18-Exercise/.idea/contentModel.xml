@@ -118,12 +118,13 @@
           <e p="Enemy.cs" t="Include" />
         </e>
         <e p="GalagaStates" t="Include">
+          <e p="GamePaused.cs" t="Include" />
+          <e p="GameRunning.cs" t="Include" />
           <e p="GameStateType.cs" t="Include" />
           <e p="MainMenu.cs" t="Include" />
           <e p="StateTransformer.cs" t="Include" />
         </e>
         <e p="Game.cs" t="Include" />
-        <e p="GameRunning.cs" t="Include" />
         <e p="ISquadrons" t="Include">
           <e p="ISquadron.cs" t="Include" />
           <e p="Squadron1.cs" t="Include" />

@@ -41,11 +41,12 @@
   <ItemGroup>
     <Compile Include="GalagaEntities\Enemy.cs" />
     <Compile Include="GalagaBus.cs" />
+    <Compile Include="GalagaStates\GamePaused.cs" />
+    <Compile Include="GalagaStates\GameRunning.cs" />
     <Compile Include="GalagaStates\GameStateType.cs" />
     <Compile Include="GalagaStates\MainMenu.cs" />
     <Compile Include="GalagaStates\StateTransformer.cs" />
     <Compile Include="Game.cs" />
-    <Compile Include="GameRunning.cs" />
     <Compile Include="ISquadrons\ISquadron.cs" />
     <Compile Include="ISquadrons\Squadron1.cs" />
     <Compile Include="ISquadrons\Squadron2.cs" />

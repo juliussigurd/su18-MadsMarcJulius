@@ -29,45 +29,10 @@ namespace Galaga_Exercise_3 {
         private NoMove noMove;
         private ZigZagDown ZigZag;
         GameTimer gameTimer = new GameTimer(60, 60);
+        private static GameRunning instance = null;
 
         public GameRunning() {
-
-            // new player
-            player = new Player();
-            MoveDown = new Down();
-            noMove = new NoMove();
-            ZigZag = new ZigZagDown();
-            iSquadron1 = new Squadron1(10);
-            iSquadron2 = new Squadron2(15);
-            iSquadron3 = new Squadron3(10);
-            // defines the different events
-            eventBus = new GameEventBus<object>();
-            eventBus.InitializeEventBus(new List<GameEventType>() {
-                GameEventType.InputEvent, // key press / key release
-                GameEventType.WindowEvent, // messages to the window
-                GameEventType.PlayerEvent // commands issued to the player objec-t,
-            }); // e.g. move, destroy, receive health, etc.
-
-            eventBus.Subscribe(GameEventType.InputEvent, this);
-            eventBus.Subscribe(GameEventType.PlayerEvent, player);
-
-            // the image path of both enemies and explosions,
-            // and a container for all sprites
-            enemyStrides = ImageStride.CreateStrides(4,
-                Path.Combine("Assets", "Images", "Elias.png"));
-            enemies = new EntityContainer<GalagaEntities.Enemy>();
-            bullets = new EntityContainer();
-            explosionStrides = ImageStride.CreateStrides(8,
-                Path.Combine("Assets", "Images", "Explosion.png"));
-            explosions = new AnimationContainer(8);
-
-            iSquadron1.CreateEnemies(enemyStrides);
-            iSquadron2.CreateEnemies(enemyStrides);
-            iSquadron3.CreateEnemies(enemyStrides);
-            //adding 10 enemies
-            //AddEnemies(10);
-            enemies = iSquadron3.Enemies;
-
+            
         }
 
         private int explosionLength = 500;
@@ -180,18 +145,52 @@ namespace Galaga_Exercise_3 {
         }
 
         public void GameLoop() {
-            while () {
-                bullets.Iterate(IterateShots);
-            }
-          
-            
+
         }
 
         public void InitializeGameState() {
-            
+            // new player
+            player = new Player();
+            MoveDown = new Down();
+            noMove = new NoMove();
+            ZigZag = new ZigZagDown();
+            iSquadron1 = new Squadron1(10);
+            iSquadron2 = new Squadron2(15);
+            iSquadron3 = new Squadron3(10);
+            // defines the different events
+            eventBus = new GameEventBus<object>();
+            eventBus.InitializeEventBus(new List<GameEventType>() {
+                GameEventType.InputEvent, // key press / key release
+                GameEventType.WindowEvent, // messages to the window
+                GameEventType.PlayerEvent // commands issued to the player objec-t,
+            }); // e.g. move, destroy, receive health, etc.
+
+            eventBus.Subscribe(GameEventType.InputEvent, this);
+            eventBus.Subscribe(GameEventType.PlayerEvent, player);
+
+            // the image path of both enemies and explosions,
+            // and a container for all sprites
+            enemyStrides = ImageStride.CreateStrides(4,
+                Path.Combine("Assets", "Images", "Elias.png"));
+            enemies = new EntityContainer<GalagaEntities.Enemy>();
+            bullets = new EntityContainer();
+            explosionStrides = ImageStride.CreateStrides(8,
+                Path.Combine("Assets", "Images", "Explosion.png"));
+            explosions = new AnimationContainer(8);
+
+            iSquadron1.CreateEnemies(enemyStrides);
+            iSquadron2.CreateEnemies(enemyStrides);
+            iSquadron3.CreateEnemies(enemyStrides);
+            //adding 10 enemies
+            //AddEnemies(10);
+            enemies = iSquadron3.Enemies;
         }
 
         public void UpdateGameLogic() {
+            RenderState();
+            player.Move();
+            ZigZag.MoveEnemies(enemies);
+            
             
         }
 
@@ -207,7 +206,12 @@ namespace Galaga_Exercise_3 {
         }
 
         public void HandleKeyEvent(string keyValue, string keyAction) {
-           
+                    
+        }
+        
+        public static GameRunning GetInstance() {
+            return GameRunning.instance ?? GameRunning.instance;
+            
         }
     }
 }

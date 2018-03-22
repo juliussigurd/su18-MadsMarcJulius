@@ -13,7 +13,7 @@ using Image = DIKUArcade.Graphics.Image;
 namespace Galaga_Exercise_3.GalagaStates {
     public class MainMenu : IGameState {
         
-        //Constructor
+        
         private static MainMenu instance = null;
 
         //Fields
@@ -24,11 +24,9 @@ namespace Galaga_Exercise_3.GalagaStates {
         private GameEventBus<object> eventBus;
 
         
-        
-        
         //Methods
         public static MainMenu GetInstance() {
-            return MainMenu.instance ?? MainMenu.instance;
+            return MainMenu.instance ?? (MainMenu.instance = new MainMenu());
             
         }
 
@@ -40,24 +38,26 @@ namespace Galaga_Exercise_3.GalagaStates {
             eventBus = new GameEventBus<object>();
             activeMenuButton = 0;
             maxMenuButtons = 2;
-
-        }
-
-        public void UpdateGameLogic() {
-            
-        }
-
-        public void RenderState() {
+            menuButtons = new Text[maxMenuButtons];
             backGroundImage = new Entity(new StationaryShape(0.0f, 0.0f, 1.0f, 1.0f), 
                 new Image(Path.Combine("Assets", "Images", "TitleImage.png")));
-            backGroundImage.RenderEntity();
             
             //Size of the buttons
             menuButtons[0] = new Text("New Game", new Vec2F(0.3f, 0.6f), new Vec2F(0.4f, 0.2f));
             menuButtons[1] = new Text("Quit", new Vec2F(0.3f, 0.2f), new Vec2F(0.4f, 0.2f));
+
+        }
+
+        public void UpdateGameLogic() {     
             
+        }
+
+        public void RenderState() {
             //Sets the color of the active button to green
+            InitializeGameState();
             menuButtons[activeMenuButton].SetColor(Color.Aquamarine);
+
+            backGroundImage.RenderEntity();
             
             //Draws the two buttons 
             menuButtons[0].RenderText();
@@ -66,7 +66,7 @@ namespace Galaga_Exercise_3.GalagaStates {
 
         public void HandleKeyEvent(string keyValue, string keyAction) {
             switch (keyValue) {
-            
+
             case "KEY_UP":
                 activeMenuButton = (activeMenuButton + 1) % maxMenuButtons;
                 break;
@@ -79,11 +79,36 @@ namespace Galaga_Exercise_3.GalagaStates {
                         GameEventType.GameStateEvent, this, "Enter", "", ""));
                 break;
             }
-            
+
         }
 
-        public void GameRunning() {
-            
+        public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent) {
+            Console.WriteLine(eventType);
+            if (eventType == GameEventType.GameStateEvent) {
+                switch (gameEvent.Message) {
+                case "Enter":
+
+                    break;
+                }
+
+            } else if (eventType == GameEventType.InputEvent) {
+                switch (gameEvent.Message) {
+                case "Enter":
+                    if (activeMenuButton == 1) {
+                        GameEventFactory<object>.CreateGameEventForAllProcessors(
+                            GameEventType.GameStateEvent, this, "Quit", "", "");
+
+                    }
+                    else if (activeMenuButton == 0) {
+                        GameEventFactory<object>.CreateGameEventForAllProcessors(
+                            GameEventType.GameStateEvent, this, "Game_Running", "", "");
+                    }
+                    break;
+                
+                
+
+                }
+            }
         }
     }
 }
