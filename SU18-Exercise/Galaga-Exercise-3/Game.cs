@@ -43,9 +43,12 @@ namespace Galaga_Exercise_3 {
                 GameEventType.InputEvent,
                 GameEventType.GameStateEvent
             }); // e.g. move, destroy, receive health, etc.
+                 
+            win.RegisterEventBus(GalagaBus.GetBus());
+            GalagaBus.GetBus().Subscribe(GameEventType.GameStateEvent, stateMachine);
+            GalagaBus.GetBus().Subscribe(GameEventType.InputEvent, stateMachine);
             
             // when the event.x is registered, which place is it processed
-            win.RegisterEventBus(GalagaBus.GetBus());
             GalagaBus.GetBus().Subscribe(GameEventType.WindowEvent, this);
             }
 
@@ -78,10 +81,13 @@ namespace Galaga_Exercise_3 {
             // if the event window is called, process it here
             if (eventType == GameEventType.WindowEvent) {
                 switch (gameEvent.Message) {
-                case "CLOSE_WINDOW":
+                case "EnterQuit":
                     win.CloseWindow();
                     break;
                 }
+            }
+            if (eventType == GameEventType.InputEvent) {
+                stateMachine.ActiveState.HandleKeyEvent(gameEvent.Message, gameEvent.Parameter1);
             }
         }
     }

@@ -47,14 +47,12 @@ namespace GalagaGame.GalagaState {
 
         public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent) {
             // if the event window is called, process it here
-            if (eventType == GameEventType.WindowEvent) {
-                switch (gameEvent.Message) {
-                case "Quit":
-                    GameEventFactory<object>.CreateGameEventForAllProcessors(
-                        GameEventType.GameStateEvent, this, "CLOSE_WINDOW", "", "");
-                    break;
-
-                }
+            if (eventType == GameEventType.GameStateEvent) {
+                    SwitchState(StateTransformer.TransformStringToState(gameEvent.Message));
+               
+            }
+            else if (eventType == GameEventType.InputEvent) {
+                ActiveState.HandleKeyEvent(gameEvent.Message, gameEvent.Parameter1);
             }
         }
     }
