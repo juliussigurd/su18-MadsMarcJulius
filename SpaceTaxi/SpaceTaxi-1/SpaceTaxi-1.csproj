@@ -42,7 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Game.cs" />
+    <Compile Include="Goal.cs" />
+    <Compile Include="Level.cs" />
+    <Compile Include="Obstacle.cs" />
     <Compile Include="Orientation.cs" />
+    <Compile Include="Passenger.cs" />
+    <Compile Include="Platform.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
