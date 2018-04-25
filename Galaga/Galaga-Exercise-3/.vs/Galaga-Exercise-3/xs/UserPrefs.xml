@@ -1,0 +1,24 @@
+﻿<Properties StartupConfiguration="{8A5C1095-838A-4FB6-A14F-B8DC6FFFEECF}|Default">
+  <MonoDevelop.Ide.ItemProperties.Galaga-Exercise-3 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="GalagaStates/GameRunning.cs">
+    <Files>
+      <File FileName="Game.cs" Line="1" Column="1" />
+      <File FileName="ISquadrons/ISquadron.cs" Line="1" Column="1" />
+      <File FileName="Program.cs" Line="1" Column="1" />
+      <File FileName="GalagaBus.cs" Line="1" Column="1" />
+      <File FileName="GalagaStates/MainMenu.cs" Line="1" Column="1" />
+      <File FileName="player.cs" Line="41" Column="9" />
+      <File FileName="ISquadrons/Squadron1.cs" Line="1" Column="1" />
+      <File FileName="MovementStrategy/IMovementStrategy.cs" Line="1" Column="1" />
+      <File FileName="MovementStrategy/NoMove.cs" Line="1" Column="1" />
+      <File FileName="MovementStrategy/ZigZagDown.cs" Line="1" Column="1" />
+      <File FileName="GalagaStates/GameRunning.cs" Line="120" Column="9" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>
