@@ -18,6 +18,12 @@ namespace SpaceTaxi_1
 
         private Entity _backGroundImage;
         private Player _player;
+        private Level _level;
+
+        private string[] _filePath = Directory.GetFiles("Levels");
+        private string[] _levelInfo;
+        private Dictionary<char, string> _legendsDictionary;
+        private EntityContainer _entities;
 
         public Game()
         {
@@ -52,6 +58,13 @@ namespace SpaceTaxi_1
             _eventBus.Subscribe(GameEventType.InputEvent, this);
             _eventBus.Subscribe(GameEventType.WindowEvent, this);
             _eventBus.Subscribe(GameEventType.PlayerEvent, _player);
+            
+            _level = new Level();
+            _levelInfo = _level.ReadFile(_filePath[0]);
+            _legendsDictionary = new Dictionary<char, string>();
+            _legendsDictionary = _level.readLegend(_levelInfo);
+            _entities = _level.CreateMap(_levelInfo,_legendsDictionary);
+            
         }
 
         public void GameLoop()
@@ -64,6 +77,7 @@ namespace SpaceTaxi_1
                 {
                     _win.PollEvents();
                     _eventBus.ProcessEvents();
+                    _player.Gravity();
                 }
 
                 if (_gameTimer.ShouldRender())
@@ -71,6 +85,7 @@ namespace SpaceTaxi_1
                     _win.Clear();
                     _backGroundImage.RenderEntity();
                     _player.RenderPlayer();
+                    _entities.RenderEntities();
                    
                     _win.SwapBuffers();
                 }

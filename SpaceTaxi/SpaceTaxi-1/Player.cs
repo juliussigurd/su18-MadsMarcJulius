@@ -14,6 +14,7 @@ namespace SpaceTaxi_1
         private readonly Image _taxiBoosterOffImageLeft;
         private readonly Image _taxiBoosterOffImageRight;
         private Orientation _taxiOrientation;
+        
 
         public Player()
         {
@@ -22,12 +23,19 @@ namespace SpaceTaxi_1
             _taxiBoosterOffImageRight = new Image(Path.Combine("Assets", "Images", "Taxi_Thrust_None_Right.png"));
 
             Entity = new Entity(shape, _taxiBoosterOffImageLeft);
+            
         }
 
         public void SetPosition(float x, float y)
         {
             shape.Position.X = x;
             shape.Position.Y = y;
+        }
+
+        //selfmade gravity
+        public void Gravity()
+        {
+            shape.Position.Y -= 0.00045f;
         }
 
         public void SetExtent(float width, float height)
@@ -51,7 +59,32 @@ namespace SpaceTaxi_1
             {
                 switch (gameEvent.Message)
                 {
-                    // in the future, we will be handling movement here
+                     case "BOOSTER_UPWARDS":
+                         shape.Position.Y += 0.0045f;
+                         break;
+                     
+                    case "BOOSTER_TO_LEFT":
+                        shape.Position.X -= 0.0045f;
+                        break;
+                    
+                    case "BOOSTER_TO_RIGHT":
+                        shape.Position.X += 0.0045f;
+                        break;
+                    
+                    case "STOP_ACCELERATE_LEFT":
+                        shape.Position.X += 0.0f;
+                        break;
+
+                    case "STOP_ACCELERATE_RIGHT":
+                        shape.Position.X += 0.0f;
+                        break;
+
+                    case "STOP_ACCELERATE_UP":
+                        shape.Position.Y += 0.0f;
+                        break;
+
+                    default:
+                        break;
                 }
             }
         }

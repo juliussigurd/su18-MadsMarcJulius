@@ -72,9 +72,14 @@
       <e p="App.config" t="Include" />
       <e p="bin" t="ExcludeRecursive" />
       <e p="Game.cs" t="Include" />
+      <e p="Goal.cs" t="Include" />
+      <e p="Level.cs" t="Include" />
       <e p="obj" t="ExcludeRecursive" />
+      <e p="Obstacle.cs" t="Include" />
       <e p="Orientation.cs" t="Include" />
       <e p="packages" t="ExcludeRecursive" />
+      <e p="Passenger.cs" t="Include" />
+      <e p="Platform.cs" t="Include" />
       <e p="Player.cs" t="Include" />
       <e p="Program.cs" t="Include" />
       <e p="Properties" t="Include">
