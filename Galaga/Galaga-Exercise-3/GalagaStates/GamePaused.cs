@@ -30,7 +30,9 @@ namespace Galaga_Exercise_3.GalagaStates {
 
         }
 
-        public void GameLoop() { }
+        public void GameLoop() {
+        // Left empty on purpose
+        }
 
         public void InitializeGameState() {
             maxMenuButtons = 2;

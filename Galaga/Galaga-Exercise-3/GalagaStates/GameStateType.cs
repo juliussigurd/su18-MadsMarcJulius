@@ -1,10 +1,7 @@
 ﻿namespace Galaga_Exercise_3.GalagaStates {
-    public class GameStateType {
-
-       public enum GameStateTypes {
+    public enum GameStateType {
             GameRunning,
             GamePaused,
             MainMenu
-        };
     }
 }

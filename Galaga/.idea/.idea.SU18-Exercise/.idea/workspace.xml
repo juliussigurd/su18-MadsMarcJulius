@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="39c27e58-b923-4550-b864-c1a0d53af9d4" name="Default" comment="" />
+    <list default="true" id="a309768d-5647-47bd-ada0-5030e33647cb" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10,108 +10,20 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Game.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Galaga-Exercise-1/Game.cs">
+    <leaf>
+      <file leaf-file-name="StateTransformer.cs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Galaga-Exercise-3/GalagaStates/StateTransformer.cs">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-            <state relative-caret-position="431">
-              <caret line="219" column="1" lean-forward="false" selection-start-line="219" selection-start-column="1" selection-end-line="219" selection-end-column="1" />
-              <folding>
-                <marker date="1521024344000" expanded="false" signature="6:223" ph="..." />
-                <marker date="1521024344000" expanded="true" signature="253:8752" ph="{...}" />
-                <marker date="1521024344000" expanded="true" signature="308:8750" ph="{...}" />
-                <marker date="1521024344000" expanded="true" signature="709:2264" ph="{...}" />
-                <marker date="1521024344000" expanded="true" signature="1051:1288" ph="{...}" />
-                <marker date="1521024344000" expanded="true" signature="1676:1772" ph="/* the image path of both enemies and explosions, ... */" />
-                <marker date="1521024344000" expanded="true" signature="2323:2734" ph="{...}" />
-                <marker date="1521024344000" expanded="true" signature="2337:2435" ph="/* add the enemies to the container ... */" />
-                <marker date="1521024344000" expanded="true" signature="2522:2724" ph="{...}" />
-                <marker date="1521024344000" expanded="true" signature="2875:3202" ph="{...}" />
-                <marker date="1521024344000" expanded="true" signature="3239:3729" ph="{...}" />
-                <marker date="1521024344000" expanded="true" signature="3253:3362" ph="/* sets the bullet to dynamic shape, with a position from where to start ... */" />
-                <marker date="1521024344000" expanded="true" signature="3779:4742" ph="{...}" />
-                <marker date="1521024344000" expanded="true" signature="3793:3889" ph="/* uses iterate instead of foreach ... */" />
-                <marker date="1521024344000" expanded="true" signature="4034:4135" ph="{...}" />
-                <marker date="1521024344000" expanded="true" signature="4173:4730" ph="{...}" />
-                <marker date="1521024344000" expanded="true" signature="4249:4716" ph="{...}" />
-                <marker date="1521024344000" expanded="true" signature="4271:4387" ph="/* uses the collision method from physics, ... */" />
-                <marker date="1521024344000" expanded="true" signature="4775:5814" ph="{...}" />
-                <marker date="1521024344000" expanded="true" signature="4813:5804" ph="{...}" />
-                <marker date="1521024344000" expanded="true" signature="4905:5127" ph="{...}" />
-                <marker date="1521024344000" expanded="true" signature="5175:5496" ph="{...}" />
-                <marker date="1521024344000" expanded="true" signature="5543:5790" ph="{...}" />
-                <marker date="1521024344000" expanded="true" signature="5857:7078" ph="{...}" />
-                <marker date="1521024344000" expanded="true" signature="5884:7068" ph="{...}" />
-                <marker date="1521024344000" expanded="true" signature="7123:7782" ph="{...}" />
-                <marker date="1521024344000" expanded="true" signature="7150:7772" ph="{...}" />
-                <marker date="1521024344000" expanded="true" signature="7871:8744" ph="{...}" />
-                <marker date="1521024344000" expanded="true" signature="7991:8270" ph="{...}" />
-                <marker date="1521024344000" expanded="true" signature="8036:8256" ph="{...}" />
-                <marker date="1521024344000" expanded="true" signature="8319:8734" ph="{...}" />
-                <marker date="1521024344000" expanded="true" signature="8425:8720" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Program.cs" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Galaga-Exercise-2/Program.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-              <folding>
-                <marker date="1521029206000" expanded="true" signature="27:137" ph="{...}" />
-                <marker date="1521029206000" expanded="true" signature="56:135" ph="{...}" />
-                <marker date="1521029206000" expanded="true" signature="109:129" ph="{...}" />
-=======
             <state relative-caret-position="285">
-              <caret line="27" column="25" lean-forward="true" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
+              <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
               <folding>
-                <marker date="1521024746494" expanded="false" signature="6:223" ph="..." />
-                <marker date="1521024746494" expanded="true" signature="253:8747" ph="{...}" />
-                <marker date="1521024746494" expanded="true" signature="308:8745" ph="{...}" />
-                <marker date="1521024746494" expanded="true" signature="709:2258" ph="{...}" />
-                <marker date="1521024746494" expanded="true" signature="1051:1288" ph="{...}" />
-                <marker date="1521024746494" expanded="true" signature="1676:1772" ph="/* the image path of both enemies and explosions, ... */" />
-                <marker date="1521024746494" expanded="true" signature="2317:2729" ph="{...}" />
-                <marker date="1521024746494" expanded="true" signature="2331:2429" ph="/* add the enemies to the container ... */" />
-                <marker date="1521024746494" expanded="true" signature="2516:2719" ph="{...}" />
-                <marker date="1521024746494" expanded="true" signature="2870:3197" ph="{...}" />
-                <marker date="1521024746494" expanded="true" signature="3234:3724" ph="{...}" />
-                <marker date="1521024746494" expanded="true" signature="3248:3357" ph="/* sets the bullet to dynamic shape, with a position from where to start ... */" />
-                <marker date="1521024746494" expanded="true" signature="3774:4737" ph="{...}" />
-                <marker date="1521024746494" expanded="true" signature="3788:3884" ph="/* uses iterate instead of foreach ... */" />
-                <marker date="1521024746494" expanded="true" signature="4029:4130" ph="{...}" />
-                <marker date="1521024746494" expanded="true" signature="4168:4725" ph="{...}" />
-                <marker date="1521024746494" expanded="true" signature="4244:4711" ph="{...}" />
-                <marker date="1521024746494" expanded="true" signature="4266:4382" ph="/* uses the collision method from physics, ... */" />
-                <marker date="1521024746494" expanded="true" signature="4770:5809" ph="{...}" />
-                <marker date="1521024746494" expanded="true" signature="4808:5799" ph="{...}" />
-                <marker date="1521024746494" expanded="true" signature="4900:5122" ph="{...}" />
-                <marker date="1521024746494" expanded="true" signature="5170:5491" ph="{...}" />
-                <marker date="1521024746494" expanded="true" signature="5538:5785" ph="{...}" />
-                <marker date="1521024746494" expanded="true" signature="5852:7073" ph="{...}" />
-                <marker date="1521024746494" expanded="true" signature="5879:7063" ph="{...}" />
-                <marker date="1521024746494" expanded="true" signature="7118:7777" ph="{...}" />
-                <marker date="1521024746494" expanded="true" signature="7145:7767" ph="{...}" />
-                <marker date="1521024746494" expanded="true" signature="7866:8739" ph="{...}" />
-                <marker date="1521024746494" expanded="true" signature="7986:8265" ph="{...}" />
-                <marker date="1521024746494" expanded="true" signature="8031:8251" ph="{...}" />
-                <marker date="1521024746494" expanded="true" signature="8314:8729" ph="{...}" />
-                <marker date="1521024746494" expanded="true" signature="8420:8715" ph="{...}" />
->>>>>>> 63f689abeac03e5cd6062ee104e87e5a4b4809df
+                <marker date="1525093565639" expanded="true" signature="56:1007" ph="{...}" />
+                <marker date="1525093565639" expanded="true" signature="92:1005" ph="{...}" />
+                <marker date="1525093565639" expanded="true" signature="168:546" ph="{...}" />
+                <marker date="1525093565639" expanded="true" signature="198:535" ph="{...}" />
+                <marker date="1525093565639" expanded="true" signature="621:999" ph="{...}" />
+                <marker date="1525093565639" expanded="true" signature="651:989" ph="{...}" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Player.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Galaga-Exercise-1/Player.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="795">
-              <caret line="53" column="17" lean-forward="false" selection-start-line="53" selection-start-column="17" selection-end-line="53" selection-end-column="17" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -120,56 +32,41 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Direction</find>
+      <find>shot</find>
     </findStrings>
   </component>
   <component name="HighlightingSettingsPerFile">
-<<<<<<< HEAD
-    <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Math/Vec2F.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Input/KeyTransformer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Timers/GameTimer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Physics/CollisionDetection.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Physics/CollisionData.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Physics/CollisionDirection.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Physics/NewtonianForce.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Entities/DynamicShape.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Entities/EntityContainer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Galaga-Exercise-3/ISquadrons/Squadron1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Entities/Shape.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Entities/Entity.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/EventBus/GameEventType.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/EventBus/GameEventProcessor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/EventBus/GameEvent.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/EventBus/GameEventQueue.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/EventBus/GameEventFactory.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/EventBus/GameEventBus.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Graphics/IBaseImage.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Graphics/Text.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Graphics/Texture.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Graphics/ImageStride.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Graphics/AnimationContainer.cs" root0="FORCE_HIGHLIGHTING" />
-=======
-    <setting file="file://$PROJECT_DIR$/Galaga-Exercise-1/Player.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Galaga-Exercise-1/Game.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Galaga-Exercise-1/Program.cs" root0="FORCE_HIGHLIGHTING" />
->>>>>>> 63f689abeac03e5cd6062ee104e87e5a4b4809df
-    <setting file="file://$PROJECT_DIR$/SU18-Exercise/Program.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Properties/AssemblyInfo.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Galaga-Exercise-1/Player.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Galaga-Exercise-1/Game.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Galaga-Exercise-2/Program.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Galaga-Exercise-1/Program.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Window.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Math/Vec2D.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Entities/EntityContainer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Galaga-Exercise-3/MovementStrategy/Down.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Galaga-Exercise-3/MovementStrategy/ZigZagDown.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Galaga-Exercise-3/GalagaEntities/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Galaga-Exercise-3/GalagaStates/GameRunning.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Galaga-Exercise-3/GalagaStates/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Galaga-Exercise-3/GalagaStates/GameStateType.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Galaga-Exercise-2/Game.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Galaga-Exercise-3/player.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Galaga-Exercise-3/Game.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Galaga-Exercise-3/GalagaStates/StateTransformer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Galaga-Exercise-3/GalagaStates/GamePaused.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Galaga-Exercise-3/ISquadrons/Squadron2.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Galaga-Exercise-3/ISquadrons/ISquadron.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Galaga-Exercise-3/StateMachine.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Galaga-Exercise-3/ISquadrons/Squadron3.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Window.cs" />
-        <option value="$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Graphics/Texture.cs" />
-        <option value="$PROJECT_DIR$/Galaga-Exercise-1/Program.cs" />
-        <option value="$PROJECT_DIR$/Galaga-Exercise-1/Player.cs" />
-        <option value="$PROJECT_DIR$/Galaga-Exercise-1/Game.cs" />
-        <option value="$PROJECT_DIR$/Galaga-Exercise-2/Program.cs" />
+        <option value="$PROJECT_DIR$/Galaga-Exercise-3/GalagaStates/GamePaused.cs" />
+        <option value="$PROJECT_DIR$/Galaga-Exercise-3/GalagaStates/GameStateType.cs" />
+        <option value="$PROJECT_DIR$/Galaga-Exercise-3/GalagaStates/StateTransformer.cs" />
+        <option value="$PROJECT_DIR$/Galaga-Exercise-3/StateMachine.cs" />
+        <option value="$PROJECT_DIR$/Galaga-Exercise-3/Game.cs" />
+        <option value="$PROJECT_DIR$/Galaga-Exercise-3/MovementStrategy/ZigZagDown.cs" />
+        <option value="$PROJECT_DIR$/Galaga-Exercise-3/GalagaStates/GameRunning.cs" />
+        <option value="$PROJECT_DIR$/Galaga-Exercise-3/ISquadrons/Squadron3.cs" />
+        <option value="$PROJECT_DIR$/Galaga-Exercise-3/GalagaStates/MainMenu.cs" />
       </list>
     </option>
   </component>
@@ -179,15 +76,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-<<<<<<< HEAD
-    <option name="width" value="1440" />
-    <option name="height" value="806" />
-=======
-    <option name="width" value="1680" />
-    <option name="height" value="1027" />
->>>>>>> 63f689abeac03e5cd6062ee104e87e5a4b4809df
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="752" />
+    <option name="y" value="16" />
+    <option name="width" value="976" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectView">
     <navigator currentView="SolutionExplorer" proportions="" version="1">
@@ -204,18 +97,28 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="SolutionExplorer">
         <subPane>
           <expand>
             <path>
               <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-              <item name="SU18-Exercise (3 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="SU18-Exercise (4 projects)" type="977d5f41:SolutionExplorerNodeRider" />
             </path>
             <path>
               <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-              <item name="SU18-Exercise (3 projects)" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="DIKUArcade" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="SU18-Exercise (4 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Galaga-Exercise-2" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="SU18-Exercise (4 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Galaga-Exercise-3" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="SU18-Exercise (4 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Galaga-Exercise-3" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="GalagaStates" type="977d5f41:SolutionExplorerNodeRider" />
             </path>
           </expand>
           <select />
@@ -223,11 +126,11 @@
         <option name="show-file-system" value="false" />
         <option name="show-all-items" value="false" />
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="SolutionBuilderGeneralOptionsPageId" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -243,19 +146,19 @@
   </component>
   <component name="RunManager">
     <configuration name="Default" type="DotNetProject" factoryName=".NET Project">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/Galaga-Exercise-1/bin/Debug/Galaga_Exercise_1.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/Galaga-Exercise-3/bin/Debug/Galaga_Exercise_3.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Galaga-Exercise-1/bin/Debug" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Galaga-Exercise-3/bin/Debug" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <envs />
       <option name="USE_MONO" value="0" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
-      <option name="PROJECT_PATH" value="$PROJECT_DIR$/Galaga-Exercise-1/Galaga-Exercise-1.csproj" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/Galaga-Exercise-3/Galaga-Exercise-3.csproj" />
       <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
       <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
       <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
       <option name="PROJECT_KIND" value="Console" />
-      <option name="PROJECT_TFM" value=".NETFramework,Version=v4.5" />
+      <option name="PROJECT_TFM" value=".NETFramework,Version=v4.7" />
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
@@ -266,44 +169,17 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="39c27e58-b923-4550-b864-c1a0d53af9d4" name="Default" comment="" />
-      <created>1519752261294</created>
+      <changelist id="a309768d-5647-47bd-ada0-5030e33647cb" name="Default" comment="" />
+      <created>1525090139235</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1519752261294</updated>
-      <workItem from="1519752262822" duration="3404000" />
-      <workItem from="1519757178032" duration="1116000" />
-      <workItem from="1519758440154" duration="117000" />
-      <workItem from="1519758565310" duration="8005000" />
-      <workItem from="1519812706034" duration="281000" />
-      <workItem from="1519814110965" duration="380000" />
-      <workItem from="1519815219756" duration="10380000" />
-      <workItem from="1519902002551" duration="499000" />
-      <workItem from="1519902554379" duration="203000" />
-      <workItem from="1519902939252" duration="338000" />
-      <workItem from="1519903306101" duration="68000" />
-      <workItem from="1519903548159" duration="2929000" />
-      <workItem from="1519907106203" duration="54000" />
-      <workItem from="1519907247758" duration="41172000" />
-      <workItem from="1519994683025" duration="748000" />
-<<<<<<< HEAD
-      <workItem from="1521024529953" duration="1135000" />
-=======
-      <workItem from="1521023033292" duration="27000" />
-      <workItem from="1521023232901" duration="18000" />
-      <workItem from="1521023312256" duration="1009000" />
-      <workItem from="1521025004800" duration="22000" />
-      <workItem from="1521025047306" duration="1120000" />
->>>>>>> 63f689abeac03e5cd6062ee104e87e5a4b4809df
+      <updated>1525090139235</updated>
+      <workItem from="1525090147832" duration="8530000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-<<<<<<< HEAD
-    <option name="totallyTimeSpent" value="70835000" />
-=======
-    <option name="totallyTimeSpent" value="71896000" />
->>>>>>> 63f689abeac03e5cd6062ee104e87e5a4b4809df
+    <option name="totallyTimeSpent" value="8530000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -315,45 +191,29 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-<<<<<<< HEAD
-    <frame x="0" y="23" width="1440" height="806" extended-state="6" />
-    <editor active="true" />
-=======
-    <frame x="0" y="23" width="1680" height="1027" extended-state="0" />
->>>>>>> 63f689abeac03e5cd6062ee104e87e5a4b4809df
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Errors In Solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.320442" sideWeight="0.50416666" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Unit Tests" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-<<<<<<< HEAD
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23569483" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893288" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31880108" sideWeight="0.49583334" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17291667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32561308" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-=======
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23542354" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893288" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31955308" sideWeight="0.49583334" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18253969" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.326257" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
->>>>>>> 63f689abeac03e5cd6062ee104e87e5a4b4809df
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Errors In Solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Unit Tests" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893288" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -364,831 +224,371 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <option name="time" value="10" />
-    </breakpoint-manager>
+    <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-<<<<<<< HEAD
-=======
-    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-1/Game.cs">
+    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-2/Game.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="23" lean-forward="false" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+        <state relative-caret-position="-1482">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1521024746494" expanded="false" signature="6:223" ph="..." />
-            <marker date="1521024746494" expanded="true" signature="253:8747" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="308:8745" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="709:2258" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="1051:1288" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="1676:1772" ph="/* the image path of both enemies and explosions, ... */" />
-            <marker date="1521024746494" expanded="true" signature="2317:2729" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="2331:2429" ph="/* add the enemies to the container ... */" />
-            <marker date="1521024746494" expanded="true" signature="2516:2719" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="2870:3197" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="3234:3724" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="3248:3357" ph="/* sets the bullet to dynamic shape, with a position from where to start ... */" />
-            <marker date="1521024746494" expanded="true" signature="3774:4737" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="3788:3884" ph="/* uses iterate instead of foreach ... */" />
-            <marker date="1521024746494" expanded="true" signature="4029:4130" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4168:4725" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4244:4711" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4266:4382" ph="/* uses the collision method from physics, ... */" />
-            <marker date="1521024746494" expanded="true" signature="4770:5809" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4808:5799" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4900:5122" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="5170:5491" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="5538:5785" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="5852:7073" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="5879:7063" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="7118:7777" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="7145:7767" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="7866:8739" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="7986:8265" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="8031:8251" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="8314:8729" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="8420:8715" ph="{...}" />
+            <marker date="1524916591650" expanded="false" signature="6:265" ph="..." />
+            <marker date="1524916591650" expanded="true" signature="295:9331" ph="{...}" />
+            <marker date="1524916591650" expanded="true" signature="350:9329" ph="{...}" />
+            <marker date="1524916591650" expanded="true" signature="1113:3262" ph="{...}" />
+            <marker date="1524916591650" expanded="true" signature="1695:1932" ph="{...}" />
+            <marker date="1524916591650" expanded="true" signature="2320:2416" ph="/* the image path of both enemies and explosions, ... */" />
+            <marker date="1524916591650" expanded="true" signature="3147:3196" ph="/* adding 10 enemies ... */" />
+            <marker date="1524916591650" expanded="true" signature="3403:3730" ph="{...}" />
+            <marker date="1524916591650" expanded="true" signature="3767:4257" ph="{...}" />
+            <marker date="1524916591650" expanded="true" signature="3781:3890" ph="/* sets the bullet to dynamic shape, with a position from where to start ... */" />
+            <marker date="1524916591650" expanded="true" signature="4307:5271" ph="{...}" />
+            <marker date="1524916591650" expanded="true" signature="4321:4417" ph="/* uses iterate instead of foreach ... */" />
+            <marker date="1524916591650" expanded="true" signature="4562:4663" ph="{...}" />
+            <marker date="1524916591650" expanded="true" signature="4702:5259" ph="{...}" />
+            <marker date="1524916591650" expanded="true" signature="4778:5245" ph="{...}" />
+            <marker date="1524916591650" expanded="true" signature="4800:4916" ph="/* uses the collision method from physics, ... */" />
+            <marker date="1524916591650" expanded="true" signature="5304:6394" ph="{...}" />
+            <marker date="1524916591650" expanded="true" signature="5342:6384" ph="{...}" />
+            <marker date="1524916591650" expanded="true" signature="5434:5656" ph="{...}" />
+            <marker date="1524916591650" expanded="true" signature="5704:6076" ph="{...}" />
+            <marker date="1524916591650" expanded="true" signature="6123:6370" ph="{...}" />
+            <marker date="1524916591650" expanded="true" signature="6437:7657" ph="{...}" />
+            <marker date="1524916591650" expanded="true" signature="6464:7647" ph="{...}" />
+            <marker date="1524916591650" expanded="true" signature="7702:8361" ph="{...}" />
+            <marker date="1524916591650" expanded="true" signature="7729:8351" ph="{...}" />
+            <marker date="1524916591650" expanded="true" signature="8450:9323" ph="{...}" />
+            <marker date="1524916591650" expanded="true" signature="8570:8849" ph="{...}" />
+            <marker date="1524916591650" expanded="true" signature="8615:8835" ph="{...}" />
+            <marker date="1524916591650" expanded="true" signature="8898:9313" ph="{...}" />
+            <marker date="1524916591650" expanded="true" signature="9004:9299" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
->>>>>>> 63f689abeac03e5cd6062ee104e87e5a4b4809df
-    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-1/Program.cs">
+    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-3/StateMachine.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="1" lean-forward="false" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SU18-Exercise/SU18-Exercise.csproj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SU18-Exercise/Program.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="48" lean-forward="false" selection-start-line="2" selection-start-column="48" selection-end-line="2" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-1/Program.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="1" lean-forward="false" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Window.cs" />
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Graphics/Text.cs" />
-    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-1/Game.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="69" column="20" lean-forward="false" selection-start-line="69" selection-start-column="20" selection-end-line="69" selection-end-column="20" />
+        <state relative-caret-position="646">
+          <caret line="39" column="22" lean-forward="false" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
           <folding>
-<<<<<<< HEAD
-            <marker date="1521024344000" expanded="false" signature="6:223" ph="..." />
-            <marker date="1521024344000" expanded="true" signature="253:8752" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="308:8750" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="709:2264" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="1051:1288" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="1676:1772" ph="/* the image path of both enemies and explosions, ... */" />
-            <marker date="1521024344000" expanded="true" signature="2323:2734" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="2337:2435" ph="/* add the enemies to the container ... */" />
-            <marker date="1521024344000" expanded="true" signature="2522:2724" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="2875:3202" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="3239:3729" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="3253:3362" ph="/* sets the bullet to dynamic shape, with a position from where to start ... */" />
-            <marker date="1521024344000" expanded="true" signature="3779:4742" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="3793:3889" ph="/* uses iterate instead of foreach ... */" />
-            <marker date="1521024344000" expanded="true" signature="4034:4135" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="4173:4730" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="4249:4716" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="4271:4387" ph="/* uses the collision method from physics, ... */" />
-            <marker date="1521024344000" expanded="true" signature="4775:5814" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="4813:5804" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="4905:5127" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="5175:5496" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="5543:5790" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="5857:7078" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="5884:7068" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="7123:7782" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="7150:7772" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="7871:8744" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="7991:8270" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="8036:8256" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="8319:8734" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="8425:8720" ph="{...}" />
-=======
-            <marker date="1521024746494" expanded="false" signature="6:223" ph="..." />
-            <marker date="1521024746494" expanded="true" signature="253:8747" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="308:8745" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="709:2258" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="1051:1288" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="1676:1772" ph="/* the image path of both enemies and explosions, ... */" />
-            <marker date="1521024746494" expanded="true" signature="2317:2729" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="2331:2429" ph="/* add the enemies to the container ... */" />
-            <marker date="1521024746494" expanded="true" signature="2516:2719" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="2870:3197" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="3234:3724" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="3248:3357" ph="/* sets the bullet to dynamic shape, with a position from where to start ... */" />
-            <marker date="1521024746494" expanded="true" signature="3774:4737" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="3788:3884" ph="/* uses iterate instead of foreach ... */" />
-            <marker date="1521024746494" expanded="true" signature="4029:4130" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4168:4725" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4244:4711" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4266:4382" ph="/* uses the collision method from physics, ... */" />
-            <marker date="1521024746494" expanded="true" signature="4770:5809" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4808:5799" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4900:5122" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="5170:5491" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="5538:5785" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="5852:7073" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="5879:7063" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="7118:7777" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="7145:7767" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="7866:8739" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="7986:8265" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="8031:8251" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="8314:8729" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="8420:8715" ph="{...}" />
->>>>>>> 63f689abeac03e5cd6062ee104e87e5a4b4809df
+            <marker date="1525094280678" expanded="false" signature="6:159" ph="..." />
+            <marker date="1525094280678" expanded="true" signature="194:1708" ph="{...}" />
+            <marker date="1525094280678" expanded="true" signature="256:1706" ph="{...}" />
+            <marker date="1525094280678" expanded="true" signature="351:604" ph="{...}" />
+            <marker date="1525094280678" expanded="true" signature="666:1193" ph="{...}" />
+            <marker date="1525094280678" expanded="true" signature="699:1183" ph="{...}" />
+            <marker date="1525094280678" expanded="true" signature="1282:1700" ph="{...}" />
+            <marker date="1525094280678" expanded="true" signature="1405:1529" ph="{...}" />
+            <marker date="1525094280678" expanded="true" signature="1590:1690" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-1/Program.cs">
+    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-3/MovementStrategy/Down.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="1" lean-forward="false" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-1/Game.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="14" column="46" lean-forward="true" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-<<<<<<< HEAD
-            <marker date="1521024344000" expanded="false" signature="6:223" ph="..." />
-            <marker date="1521024344000" expanded="true" signature="253:8752" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="308:8750" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="709:2264" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="1051:1288" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="1676:1772" ph="/* the image path of both enemies and explosions, ... */" />
-            <marker date="1521024344000" expanded="true" signature="2323:2734" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="2337:2435" ph="/* add the enemies to the container ... */" />
-            <marker date="1521024344000" expanded="true" signature="2522:2724" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="2875:3202" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="3239:3729" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="3253:3362" ph="/* sets the bullet to dynamic shape, with a position from where to start ... */" />
-            <marker date="1521024344000" expanded="true" signature="3779:4742" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="3793:3889" ph="/* uses iterate instead of foreach ... */" />
-            <marker date="1521024344000" expanded="true" signature="4034:4135" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="4173:4730" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="4249:4716" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="4271:4387" ph="/* uses the collision method from physics, ... */" />
-            <marker date="1521024344000" expanded="true" signature="4775:5814" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="4813:5804" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="4905:5127" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="5175:5496" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="5543:5790" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="5857:7078" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="5884:7068" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="7123:7782" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="7150:7772" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="7871:8744" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="7991:8270" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="8036:8256" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="8319:8734" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="8425:8720" ph="{...}" />
-=======
-            <marker date="1521024746494" expanded="false" signature="6:223" ph="..." />
-            <marker date="1521024746494" expanded="true" signature="253:8747" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="308:8745" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="709:2258" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="1051:1288" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="1676:1772" ph="/* the image path of both enemies and explosions, ... */" />
-            <marker date="1521024746494" expanded="true" signature="2317:2729" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="2331:2429" ph="/* add the enemies to the container ... */" />
-            <marker date="1521024746494" expanded="true" signature="2516:2719" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="2870:3197" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="3234:3724" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="3248:3357" ph="/* sets the bullet to dynamic shape, with a position from where to start ... */" />
-            <marker date="1521024746494" expanded="true" signature="3774:4737" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="3788:3884" ph="/* uses iterate instead of foreach ... */" />
-            <marker date="1521024746494" expanded="true" signature="4029:4130" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4168:4725" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4244:4711" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4266:4382" ph="/* uses the collision method from physics, ... */" />
-            <marker date="1521024746494" expanded="true" signature="4770:5809" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4808:5799" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4900:5122" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="5170:5491" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="5538:5785" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="5852:7073" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="5879:7063" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="7118:7777" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="7145:7767" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="7866:8739" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="7986:8265" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="8031:8251" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="8314:8729" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="8420:8715" ph="{...}" />
->>>>>>> 63f689abeac03e5cd6062ee104e87e5a4b4809df
+            <marker date="1521735530725" expanded="false" signature="6:66" ph="..." />
+            <marker date="1521735530725" expanded="true" signature="112:502" ph="{...}" />
+            <marker date="1521735530725" expanded="true" signature="156:500" ph="{...}" />
+            <marker date="1521735530725" expanded="true" signature="205:272" ph="{...}" />
+            <marker date="1521735530725" expanded="true" signature="352:494" ph="{...}" />
+            <marker date="1521735530725" expanded="true" signature="422:484" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Window.cs" />
-    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-1/Program.cs">
+    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-3/GalagaEntities/Enemy.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="1" lean-forward="false" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-1/Game.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="37" lean-forward="true" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-<<<<<<< HEAD
-            <marker date="1521024344000" expanded="false" signature="6:223" ph="..." />
-            <marker date="1521024344000" expanded="true" signature="253:8752" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="308:8750" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="709:2264" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="1051:1288" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="1676:1772" ph="/* the image path of both enemies and explosions, ... */" />
-            <marker date="1521024344000" expanded="true" signature="2323:2734" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="2337:2435" ph="/* add the enemies to the container ... */" />
-            <marker date="1521024344000" expanded="true" signature="2522:2724" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="2875:3202" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="3239:3729" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="3253:3362" ph="/* sets the bullet to dynamic shape, with a position from where to start ... */" />
-            <marker date="1521024344000" expanded="true" signature="3779:4742" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="3793:3889" ph="/* uses iterate instead of foreach ... */" />
-            <marker date="1521024344000" expanded="true" signature="4034:4135" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="4173:4730" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="4249:4716" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="4271:4387" ph="/* uses the collision method from physics, ... */" />
-            <marker date="1521024344000" expanded="true" signature="4775:5814" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="4813:5804" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="4905:5127" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="5175:5496" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="5543:5790" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="5857:7078" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="5884:7068" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="7123:7782" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="7150:7772" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="7871:8744" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="7991:8270" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="8036:8256" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="8319:8734" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="8425:8720" ph="{...}" />
-=======
-            <marker date="1521024746494" expanded="false" signature="6:223" ph="..." />
-            <marker date="1521024746494" expanded="true" signature="253:8747" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="308:8745" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="709:2258" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="1051:1288" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="1676:1772" ph="/* the image path of both enemies and explosions, ... */" />
-            <marker date="1521024746494" expanded="true" signature="2317:2729" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="2331:2429" ph="/* add the enemies to the container ... */" />
-            <marker date="1521024746494" expanded="true" signature="2516:2719" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="2870:3197" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="3234:3724" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="3248:3357" ph="/* sets the bullet to dynamic shape, with a position from where to start ... */" />
-            <marker date="1521024746494" expanded="true" signature="3774:4737" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="3788:3884" ph="/* uses iterate instead of foreach ... */" />
-            <marker date="1521024746494" expanded="true" signature="4029:4130" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4168:4725" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4244:4711" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4266:4382" ph="/* uses the collision method from physics, ... */" />
-            <marker date="1521024746494" expanded="true" signature="4770:5809" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4808:5799" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4900:5122" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="5170:5491" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="5538:5785" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="5852:7073" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="5879:7063" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="7118:7777" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="7145:7767" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="7866:8739" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="7986:8265" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="8031:8251" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="8314:8729" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="8420:8715" ph="{...}" />
->>>>>>> 63f689abeac03e5cd6062ee104e87e5a4b4809df
+            <marker date="1521735530715" expanded="false" signature="6:76" ph="..." />
+            <marker date="1521735530715" expanded="true" signature="120:488" ph="{...}" />
+            <marker date="1521735530715" expanded="true" signature="178:486" ph="{...}" />
+            <marker date="1521735530715" expanded="true" signature="323:389" ph="{...}" />
+            <marker date="1521735530715" expanded="true" signature="423:480" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Window.cs" />
-    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-1/Game.cs">
+    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-3/player.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="9" lean-forward="false" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+        <state relative-caret-position="-474">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-<<<<<<< HEAD
-            <marker date="1521024344000" expanded="false" signature="6:223" ph="..." />
-            <marker date="1521024344000" expanded="true" signature="253:8752" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="308:8750" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="709:2264" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="1051:1288" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="1676:1772" ph="/* the image path of both enemies and explosions, ... */" />
-            <marker date="1521024344000" expanded="true" signature="2323:2734" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="2337:2435" ph="/* add the enemies to the container ... */" />
-            <marker date="1521024344000" expanded="true" signature="2522:2724" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="2875:3202" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="3239:3729" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="3253:3362" ph="/* sets the bullet to dynamic shape, with a position from where to start ... */" />
-            <marker date="1521024344000" expanded="true" signature="3779:4742" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="3793:3889" ph="/* uses iterate instead of foreach ... */" />
-            <marker date="1521024344000" expanded="true" signature="4034:4135" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="4173:4730" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="4249:4716" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="4271:4387" ph="/* uses the collision method from physics, ... */" />
-            <marker date="1521024344000" expanded="true" signature="4775:5814" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="4813:5804" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="4905:5127" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="5175:5496" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="5543:5790" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="5857:7078" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="5884:7068" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="7123:7782" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="7150:7772" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="7871:8744" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="7991:8270" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="8036:8256" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="8319:8734" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="8425:8720" ph="{...}" />
-=======
-            <marker date="1521024746494" expanded="false" signature="6:223" ph="..." />
-            <marker date="1521024746494" expanded="true" signature="253:8747" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="308:8745" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="709:2258" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="1051:1288" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="1676:1772" ph="/* the image path of both enemies and explosions, ... */" />
-            <marker date="1521024746494" expanded="true" signature="2317:2729" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="2331:2429" ph="/* add the enemies to the container ... */" />
-            <marker date="1521024746494" expanded="true" signature="2516:2719" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="2870:3197" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="3234:3724" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="3248:3357" ph="/* sets the bullet to dynamic shape, with a position from where to start ... */" />
-            <marker date="1521024746494" expanded="true" signature="3774:4737" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="3788:3884" ph="/* uses iterate instead of foreach ... */" />
-            <marker date="1521024746494" expanded="true" signature="4029:4130" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4168:4725" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4244:4711" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4266:4382" ph="/* uses the collision method from physics, ... */" />
-            <marker date="1521024746494" expanded="true" signature="4770:5809" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4808:5799" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4900:5122" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="5170:5491" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="5538:5785" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="5852:7073" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="5879:7063" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="7118:7777" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="7145:7767" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="7866:8739" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="7986:8265" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="8031:8251" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="8314:8729" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="8420:8715" ph="{...}" />
->>>>>>> 63f689abeac03e5cd6062ee104e87e5a4b4809df
+            <marker date="1521735530776" expanded="false" signature="6:120" ph="..." />
+            <marker date="1521735530776" expanded="true" signature="150:2824" ph="{...}" />
+            <marker date="1521735530776" expanded="true" signature="210:2822" ph="{...}" />
+            <marker date="1521735530776" expanded="true" signature="434:1244" ph="{...}" />
+            <marker date="1521735530776" expanded="true" signature="492:1234" ph="{...}" />
+            <marker date="1521735530776" expanded="true" signature="537:1220" ph="{...}" />
+            <marker date="1521735530776" expanded="true" signature="1311:1575" ph="{...}" />
+            <marker date="1521735530776" expanded="true" signature="1604:2290" ph="{...}" />
+            <marker date="1521735530776" expanded="true" signature="1806:2280" ph="{...}" />
+            <marker date="1521735530776" expanded="true" signature="1986:2071" ph="{...}" />
+            <marker date="1521735530776" expanded="true" signature="2182:2266" ph="{...}" />
+            <marker date="1521735530776" expanded="true" signature="2327:2373" ph="{...}" />
+            <marker date="1521735530776" expanded="true" signature="2469:2530" ph="{...}" />
+            <marker date="1521735530776" expanded="true" signature="2567:2628" ph="{...}" />
+            <marker date="1521735530776" expanded="true" signature="2663:2722" ph="{...}" />
+            <marker date="1521735530776" expanded="true" signature="2757:2816" ph="{...}" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-1/Program.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="20" lean-forward="false" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-1/Program.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="20" lean-forward="false" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-1/Game.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="9" lean-forward="false" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
-          <folding>
-<<<<<<< HEAD
-            <marker date="1521024344000" expanded="false" signature="6:223" ph="..." />
-            <marker date="1521024344000" expanded="true" signature="253:8752" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="308:8750" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="709:2264" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="1051:1288" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="1676:1772" ph="/* the image path of both enemies and explosions, ... */" />
-            <marker date="1521024344000" expanded="true" signature="2323:2734" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="2337:2435" ph="/* add the enemies to the container ... */" />
-            <marker date="1521024344000" expanded="true" signature="2522:2724" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="2875:3202" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="3239:3729" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="3253:3362" ph="/* sets the bullet to dynamic shape, with a position from where to start ... */" />
-            <marker date="1521024344000" expanded="true" signature="3779:4742" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="3793:3889" ph="/* uses iterate instead of foreach ... */" />
-            <marker date="1521024344000" expanded="true" signature="4034:4135" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="4173:4730" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="4249:4716" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="4271:4387" ph="/* uses the collision method from physics, ... */" />
-            <marker date="1521024344000" expanded="true" signature="4775:5814" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="4813:5804" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="4905:5127" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="5175:5496" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="5543:5790" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="5857:7078" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="5884:7068" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="7123:7782" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="7150:7772" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="7871:8744" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="7991:8270" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="8036:8256" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="8319:8734" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="8425:8720" ph="{...}" />
-=======
-            <marker date="1521024746494" expanded="false" signature="6:223" ph="..." />
-            <marker date="1521024746494" expanded="true" signature="253:8747" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="308:8745" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="709:2258" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="1051:1288" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="1676:1772" ph="/* the image path of both enemies and explosions, ... */" />
-            <marker date="1521024746494" expanded="true" signature="2317:2729" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="2331:2429" ph="/* add the enemies to the container ... */" />
-            <marker date="1521024746494" expanded="true" signature="2516:2719" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="2870:3197" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="3234:3724" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="3248:3357" ph="/* sets the bullet to dynamic shape, with a position from where to start ... */" />
-            <marker date="1521024746494" expanded="true" signature="3774:4737" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="3788:3884" ph="/* uses iterate instead of foreach ... */" />
-            <marker date="1521024746494" expanded="true" signature="4029:4130" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4168:4725" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4244:4711" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4266:4382" ph="/* uses the collision method from physics, ... */" />
-            <marker date="1521024746494" expanded="true" signature="4770:5809" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4808:5799" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4900:5122" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="5170:5491" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="5538:5785" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="5852:7073" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="5879:7063" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="7118:7777" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="7145:7767" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="7866:8739" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="7986:8265" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="8031:8251" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="8314:8729" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="8420:8715" ph="{...}" />
->>>>>>> 63f689abeac03e5cd6062ee104e87e5a4b4809df
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-1/Game.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="23" lean-forward="false" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
-          <folding>
-<<<<<<< HEAD
-            <marker date="1521024344000" expanded="false" signature="6:223" ph="..." />
-            <marker date="1521024344000" expanded="true" signature="253:8752" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="308:8750" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="709:2264" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="1051:1288" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="1676:1772" ph="/* the image path of both enemies and explosions, ... */" />
-            <marker date="1521024344000" expanded="true" signature="2323:2734" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="2337:2435" ph="/* add the enemies to the container ... */" />
-            <marker date="1521024344000" expanded="true" signature="2522:2724" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="2875:3202" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="3239:3729" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="3253:3362" ph="/* sets the bullet to dynamic shape, with a position from where to start ... */" />
-            <marker date="1521024344000" expanded="true" signature="3779:4742" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="3793:3889" ph="/* uses iterate instead of foreach ... */" />
-            <marker date="1521024344000" expanded="true" signature="4034:4135" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="4173:4730" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="4249:4716" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="4271:4387" ph="/* uses the collision method from physics, ... */" />
-            <marker date="1521024344000" expanded="true" signature="4775:5814" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="4813:5804" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="4905:5127" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="5175:5496" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="5543:5790" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="5857:7078" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="5884:7068" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="7123:7782" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="7150:7772" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="7871:8744" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="7991:8270" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="8036:8256" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="8319:8734" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="8425:8720" ph="{...}" />
-=======
-            <marker date="1521024746494" expanded="false" signature="6:223" ph="..." />
-            <marker date="1521024746494" expanded="true" signature="253:8747" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="308:8745" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="709:2258" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="1051:1288" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="1676:1772" ph="/* the image path of both enemies and explosions, ... */" />
-            <marker date="1521024746494" expanded="true" signature="2317:2729" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="2331:2429" ph="/* add the enemies to the container ... */" />
-            <marker date="1521024746494" expanded="true" signature="2516:2719" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="2870:3197" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="3234:3724" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="3248:3357" ph="/* sets the bullet to dynamic shape, with a position from where to start ... */" />
-            <marker date="1521024746494" expanded="true" signature="3774:4737" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="3788:3884" ph="/* uses iterate instead of foreach ... */" />
-            <marker date="1521024746494" expanded="true" signature="4029:4130" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4168:4725" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4244:4711" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4266:4382" ph="/* uses the collision method from physics, ... */" />
-            <marker date="1521024746494" expanded="true" signature="4770:5809" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4808:5799" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4900:5122" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="5170:5491" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="5538:5785" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="5852:7073" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="5879:7063" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="7118:7777" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="7145:7767" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="7866:8739" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="7986:8265" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="8031:8251" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="8314:8729" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="8420:8715" ph="{...}" />
->>>>>>> 63f689abeac03e5cd6062ee104e87e5a4b4809df
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-1/Program.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="1" lean-forward="false" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SU18-Exercise/SU18-Exercise.csproj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SU18-Exercise/Program.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="48" lean-forward="false" selection-start-line="2" selection-start-column="48" selection-end-line="2" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Properties/AssemblyInfo.cs" />
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Physics/CollisionData.cs" />
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Input/KeyTransformer.cs" />
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Physics/NewtonianForce.cs" />
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Math/Vec2D.cs" />
-    <entry file="file://$USER_HOME$/Downloads/pedersenmarcchristoffer_feedback (3).md" />
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Physics/CollisionDirection.cs" />
-    <entry file="file://$PROJECT_DIR$/SU18-Exercise.sln">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Entities/Shape.cs" />
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Graphics/Texture.cs" />
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Graphics/IBaseImage.cs" />
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/EventBus/GameEvent.cs" />
-    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-1/Program.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="12" lean-forward="false" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/EventBus/GameEventFactory.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/EventBus/GameEventType.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/EventBus/GameEventQueue.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="81" column="8" lean-forward="false" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Math/Vec2F.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Timers/GameTimer.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="52" column="39" lean-forward="false" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/EventBus/GameEventProcessor.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="75" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/EventBus/GameEventBus.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="102" column="28" lean-forward="false" selection-start-line="102" selection-start-column="28" selection-end-line="102" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Entities/Entity.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Physics/CollisionDetection.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="6" lean-forward="false" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Entities/DynamicShape.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="836">
-          <caret line="44" column="8" lean-forward="false" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Window.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Graphics/AnimationContainer.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Graphics/ImageStride.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-57">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Entities/EntityContainer.cs">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="20" column="20" lean-forward="false" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+          <folding>
+            <marker date="1521735776661" expanded="false" signature="6:138" ph="..." />
+            <marker date="1521735776661" expanded="true" signature="170:3713" ph="{...}" />
+            <marker date="1521735776661" expanded="true" signature="219:3711" ph="{...}" />
+            <marker date="1521735776661" expanded="true" signature="302:360" ph="{...}" />
+            <marker date="1521735776661" expanded="true" signature="488:547" ph="{...}" />
+            <marker date="1521735776661" expanded="true" signature="620:679" ph="{...}" />
+            <marker date="1521735776661" expanded="true" signature="689:952" ph="/// Delegate method for iterating through an EntityContainer. ... " />
+            <marker date="1521735776661" expanded="true" signature="1022:1323" ph="///Iterate through all Entities in this EntityContainer. ... " />
+            <marker date="1521735776661" expanded="true" signature="1377:1900" ph="{...}" />
+            <marker date="1521735776661" expanded="true" signature="1555:1609" ph="{...}" />
+            <marker date="1521735776661" expanded="true" signature="1741:1858" ph="{...}" />
+            <marker date="1521735776661" expanded="true" signature="1784:1844" ph="{...}" />
+            <marker date="1521735776661" expanded="true" signature="1910:2002" ph="/// Render all entities in this EntityContainer ... " />
+            <marker date="1521735776661" expanded="true" signature="2040:2166" ph="{...}" />
+            <marker date="1521735776661" expanded="true" signature="2090:2156" ph="{...}" />
+            <marker date="1521735776661" expanded="true" signature="2176:2264" ph="/// Remove all entities from this container ... " />
+            <marker date="1521735776661" expanded="true" signature="2302:2343" ph="{...}" />
+            <marker date="1521735776661" expanded="true" signature="2353:2453" ph="/// Count the number of entities in the EntityContainer ... " />
+            <marker date="1521735776661" expanded="true" signature="2489:2535" ph="{...}" />
+            <marker date="1521735776661" expanded="true" signature="2579:3704" ph="IEnumerable" />
+            <marker date="1521735776661" expanded="true" signature="2647:2703" ph="{...}" />
+            <marker date="1521735776661" expanded="true" signature="2748:2813" ph="{...}" />
+            <marker date="1521735776661" expanded="true" signature="2871:3684" ph="{...}" />
+            <marker date="1521735776661" expanded="true" signature="3032:3102" ph="{...}" />
+            <marker date="1521735776661" expanded="true" signature="3139:3232" ph="{...}" />
+            <marker date="1521735776661" expanded="true" signature="3266:3312" ph="{...}" />
+            <marker date="1521735776661" expanded="true" signature="3400:3674" ph="{...}" />
+            <marker date="1521735776661" expanded="true" signature="3422:3660" ph="{...}" />
+            <marker date="1521735776661" expanded="true" signature="3448:3522" ph="{...}" />
+            <marker date="1521735776661" expanded="true" signature="3556:3642" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Entities/Shape.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="80" column="28" lean-forward="false" selection-start-line="80" selection-start-column="28" selection-end-line="80" selection-end-column="28" />
+          <folding>
+            <marker date="1521735776663" expanded="true" signature="54:3203" ph="{...}" />
+            <marker date="1521735776663" expanded="true" signature="79:3201" ph="{...}" />
+            <marker date="1521735776663" expanded="true" signature="89:183" ph="/// Shape's rotational angle measured in radians. ... " />
+            <marker date="1521735776663" expanded="true" signature="237:308" ph="/// Basic Shape properties ... " />
+            <marker date="1521735776663" expanded="true" signature="391:731" ph="/// Performs a downcast on this Shape instance to a ... " />
+            <marker date="1521735776663" expanded="true" signature="777:898" ph="{...}" />
+            <marker date="1521735776663" expanded="true" signature="908:1204" ph="/// Performs a downcast on this Shape instance to a ... " />
+            <marker date="1521735776663" expanded="true" signature="1256:1379" ph="{...}" />
+            <marker date="1521735776663" expanded="true" signature="1420:1460" ph="{...}" />
+            <marker date="1521735776663" expanded="true" signature="1502:1604" ph="{...}" />
+            <marker date="1521735776663" expanded="true" signature="1646:1688" ph="{...}" />
+            <marker date="1521735776663" expanded="true" signature="1730:1772" ph="{...}" />
+            <marker date="1521735776663" expanded="true" signature="1824:1953" ph="{...}" />
+            <marker date="1521735776663" expanded="true" signature="2005:2132" ph="{...}" />
+            <marker date="1521735776663" expanded="true" signature="2183:2268" ph="{...}" />
+            <marker date="1521735776663" expanded="true" signature="2320:2411" ph="{...}" />
+            <marker date="1521735776663" expanded="true" signature="2421:2509" ph="/// Default Move method which does nothing. ... " />
+            <marker date="1521735776663" expanded="true" signature="2587:2629" ph="{...}" />
+            <marker date="1521735776663" expanded="true" signature="2669:2712" ph="{...}" />
+            <marker date="1521735776663" expanded="true" signature="2752:2795" ph="{...}" />
+            <marker date="1521735776663" expanded="true" signature="2840:2895" ph="{...}" />
+            <marker date="1521735776663" expanded="true" signature="2944:2993" ph="{...}" />
+            <marker date="1521735776663" expanded="true" signature="3047:3095" ph="{...}" />
+            <marker date="1521735776663" expanded="true" signature="3148:3195" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-3/ISquadrons/ISquadron.cs">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-=======
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/EventBus/GameEventFactory.cs" />
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/EventBus/GameEventType.cs" />
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/EventBus/GameEventQueue.cs" />
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Math/Vec2F.cs" />
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Timers/GameTimer.cs" />
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/EventBus/GameEventProcessor.cs" />
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/EventBus/GameEventBus.cs" />
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Entities/Entity.cs" />
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Physics/CollisionDetection.cs" />
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Entities/DynamicShape.cs" />
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Window.cs" />
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Graphics/AnimationContainer.cs" />
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Graphics/ImageStride.cs" />
-    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Entities/EntityContainer.cs" />
->>>>>>> 63f689abeac03e5cd6062ee104e87e5a4b4809df
-    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-1/Player.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="53" column="17" lean-forward="false" selection-start-line="53" selection-start-column="17" selection-end-line="53" selection-end-column="17" />
-          <folding />
-<<<<<<< HEAD
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-1/Game.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="219" column="1" lean-forward="false" selection-start-line="219" selection-start-column="1" selection-end-line="219" selection-end-column="1" />
           <folding>
-            <marker date="1521024344000" expanded="false" signature="6:223" ph="..." />
-            <marker date="1521024344000" expanded="true" signature="253:8752" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="308:8750" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="709:2264" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="1051:1288" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="1676:1772" ph="/* the image path of both enemies and explosions, ... */" />
-            <marker date="1521024344000" expanded="true" signature="2323:2734" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="2337:2435" ph="/* add the enemies to the container ... */" />
-            <marker date="1521024344000" expanded="true" signature="2522:2724" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="2875:3202" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="3239:3729" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="3253:3362" ph="/* sets the bullet to dynamic shape, with a position from where to start ... */" />
-            <marker date="1521024344000" expanded="true" signature="3779:4742" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="3793:3889" ph="/* uses iterate instead of foreach ... */" />
-            <marker date="1521024344000" expanded="true" signature="4034:4135" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="4173:4730" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="4249:4716" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="4271:4387" ph="/* uses the collision method from physics, ... */" />
-            <marker date="1521024344000" expanded="true" signature="4775:5814" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="4813:5804" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="4905:5127" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="5175:5496" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="5543:5790" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="5857:7078" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="5884:7068" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="7123:7782" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="7150:7772" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="7871:8744" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="7991:8270" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="8036:8256" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="8319:8734" ph="{...}" />
-            <marker date="1521024344000" expanded="true" signature="8425:8720" ph="{...}" />
+            <marker date="1521735530722" expanded="false" signature="6:87" ph="..." />
+            <marker date="1521735530722" expanded="true" signature="127:324" ph="{...}" />
+            <marker date="1521735530722" expanded="true" signature="160:322" ph="{...}" />
           </folding>
-=======
->>>>>>> 63f689abeac03e5cd6062ee104e87e5a4b4809df
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-2/Program.cs">
+    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-3/ISquadrons/Squadron1.cs">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="120">
-          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+        <state relative-caret-position="247">
+          <caret line="22" column="43" lean-forward="false" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
           <folding>
-            <marker date="1521029206000" expanded="true" signature="27:137" ph="{...}" />
-            <marker date="1521029206000" expanded="true" signature="56:135" ph="{...}" />
-            <marker date="1521029206000" expanded="true" signature="109:129" ph="{...}" />
-=======
+            <marker date="1521735530722" expanded="false" signature="6:127" ph="..." />
+            <marker date="1521735530722" expanded="true" signature="168:1126" ph="{...}" />
+            <marker date="1521735530722" expanded="true" signature="209:1124" ph="{...}" />
+            <marker date="1521735530722" expanded="true" signature="329:379" ph="{...}" />
+            <marker date="1521735530722" expanded="true" signature="422:527" ph="{...}" />
+            <marker date="1521735530722" expanded="true" signature="589:1118" ph="{...}" />
+            <marker date="1521735530722" expanded="true" signature="673:1108" ph="{...}" />
+            <marker date="1521735530722" expanded="true" signature="707:760" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-3/MovementStrategy/ZigZagDown.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="14" column="78" lean-forward="true" selection-start-line="14" selection-start-column="78" selection-end-line="14" selection-end-column="78" />
+          <folding>
+            <marker date="1521735530728" expanded="false" signature="6:66" ph="..." />
+            <marker date="1521735530728" expanded="true" signature="112:777" ph="{...}" />
+            <marker date="1521735530728" expanded="true" signature="162:775" ph="{...}" />
+            <marker date="1521735530728" expanded="true" signature="226:547" ph="{...}" />
+            <marker date="1521735530728" expanded="true" signature="627:769" ph="{...}" />
+            <marker date="1521735530728" expanded="true" signature="697:759" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-3/ISquadrons/Squadron2.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-228">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1521735530723" expanded="false" signature="6:127" ph="..." />
+            <marker date="1521735530723" expanded="true" signature="167:1482" ph="{...}" />
+            <marker date="1521735530723" expanded="true" signature="216:1435" ph="{...}" />
+            <marker date="1521735530723" expanded="true" signature="465:524" ph="{...}" />
+            <marker date="1521735530723" expanded="true" signature="566:680" ph="{...}" />
+            <marker date="1521735530723" expanded="true" signature="741:1429" ph="{...}" />
+            <marker date="1521735530723" expanded="true" signature="866:1419" ph="{...}" />
+            <marker date="1521735530723" expanded="true" signature="912:1027" ph="{...}" />
+            <marker date="1521735530723" expanded="true" signature="1048:1126" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-3/ISquadrons/Squadron3.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="21" column="31" lean-forward="false" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+          <folding>
+            <marker date="1525098341679" expanded="false" signature="6:127" ph="..." />
+            <marker date="1525098341679" expanded="true" signature="168:1483" ph="{...}" />
+            <marker date="1525098341679" expanded="true" signature="209:1481" ph="{...}" />
+            <marker date="1525098341679" expanded="true" signature="329:379" ph="{...}" />
+            <marker date="1525098341679" expanded="true" signature="422:527" ph="{...}" />
+            <marker date="1525098341679" expanded="true" signature="589:1475" ph="{...}" />
+            <marker date="1525098341679" expanded="true" signature="681:1070" ph="{...}" />
+            <marker date="1525098341679" expanded="true" signature="720:773" ph="{...}" />
+            <marker date="1525098341679" expanded="true" signature="1130:1465" ph="{...}" />
+            <marker date="1525098341679" expanded="true" signature="1169:1223" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-3/Game.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="665">
+          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding>
+            <marker date="1525095933114" expanded="false" signature="6:331" ph="..." />
+            <marker date="1525095933114" expanded="true" signature="361:3040" ph="{...}" />
+            <marker date="1525095933114" expanded="true" signature="416:3038" ph="{...}" />
+            <marker date="1525095933114" expanded="true" signature="565:1528" ph="{...}" />
+            <marker date="1525095933114" expanded="true" signature="851:1065" ph="{...}" />
+            <marker date="1525095933114" expanded="true" signature="1561:2466" ph="{...}" />
+            <marker date="1525095933114" expanded="true" signature="1599:2456" ph="{...}" />
+            <marker date="1525095933114" expanded="true" signature="1691:1905" ph="{...}" />
+            <marker date="1525095933114" expanded="true" signature="1953:2148" ph="{...}" />
+            <marker date="1525095933114" expanded="true" signature="2195:2442" ph="{...}" />
+            <marker date="1525095933114" expanded="true" signature="2555:3032" ph="{...}" />
+            <marker date="1525095933114" expanded="true" signature="2675:2853" ph="{...}" />
+            <marker date="1525095933114" expanded="true" signature="2720:2839" ph="{...}" />
+            <marker date="1525095933114" expanded="true" signature="2909:3022" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-3/GalagaStates/GameRunning.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1273">
+          <caret line="119" column="4" lean-forward="true" selection-start-line="119" selection-start-column="4" selection-end-line="119" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-3/GalagaStates/GamePaused.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-528">
+          <caret line="36" column="43" lean-forward="false" selection-start-line="36" selection-start-column="43" selection-end-line="36" selection-end-column="43" />
+          <folding>
+            <marker date="1525093565611" expanded="false" signature="6:311" ph="..." />
+            <marker date="1525093565611" expanded="true" signature="354:3439" ph="{...}" />
+            <marker date="1525093565611" expanded="true" signature="397:3437" ph="{...}" />
+            <marker date="1525093565611" expanded="true" signature="691:787" ph="{...}" />
+            <marker date="1525093565611" expanded="true" signature="820:864" ph="{...}" />
+            <marker date="1525093565611" expanded="true" signature="908:1404" ph="{...}" />
+            <marker date="1525093565611" expanded="true" signature="1483:1914" ph="{...}" />
+            <marker date="1525093565611" expanded="true" signature="1986:3431" ph="{...}" />
+            <marker date="1525093565611" expanded="true" signature="2031:3421" ph="{...}" />
+            <marker date="1525093565611" expanded="true" signature="2067:3407" ph="{...}" />
+            <marker date="1525093565611" expanded="true" signature="2165:2234" ph="{...}" />
+            <marker date="1525093565611" expanded="true" signature="2476:2562" ph="{...}" />
+            <marker date="1525093565611" expanded="true" signature="2747:3361" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-3/GalagaStates/GameStateType.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="1" lean-forward="false" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+          <folding>
+            <marker date="1525093565563" expanded="true" signature="41:152" ph="{...}" />
+            <marker date="1525093565563" expanded="true" signature="73:150" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-3/GalagaStates/MainMenu.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding>
+            <marker date="1525099415109" expanded="false" signature="6:311" ph="..." />
+            <marker date="1525099415109" expanded="true" signature="354:3478" ph="{...}" />
+            <marker date="1525099415109" expanded="true" signature="395:3476" ph="{...}" />
+            <marker date="1525099415109" expanded="true" signature="685:775" ph="{...}" />
+            <marker date="1525099415109" expanded="true" signature="855:1344" ph="{...}" />
+            <marker date="1525099415109" expanded="true" signature="1384:1433" ph="{...}" />
+            <marker date="1525099415109" expanded="true" signature="1469:1900" ph="{...}" />
+            <marker date="1525099415109" expanded="true" signature="1972:3470" ph="{...}" />
+            <marker date="1525099415109" expanded="true" signature="2017:3460" ph="{...}" />
+            <marker date="1525099415109" expanded="true" signature="2053:3446" ph="{...}" />
+            <marker date="1525099415109" expanded="true" signature="2151:2220" ph="{...}" />
+            <marker date="1525099415109" expanded="true" signature="2462:2548" ph="{...}" />
+            <marker date="1525099415109" expanded="true" signature="2733:3400" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-3/GalagaStates/StateTransformer.cs">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
-          <caret line="27" column="25" lean-forward="true" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
+          <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
           <folding>
-            <marker date="1521024746494" expanded="false" signature="6:223" ph="..." />
-            <marker date="1521024746494" expanded="true" signature="253:8747" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="308:8745" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="709:2258" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="1051:1288" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="1676:1772" ph="/* the image path of both enemies and explosions, ... */" />
-            <marker date="1521024746494" expanded="true" signature="2317:2729" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="2331:2429" ph="/* add the enemies to the container ... */" />
-            <marker date="1521024746494" expanded="true" signature="2516:2719" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="2870:3197" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="3234:3724" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="3248:3357" ph="/* sets the bullet to dynamic shape, with a position from where to start ... */" />
-            <marker date="1521024746494" expanded="true" signature="3774:4737" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="3788:3884" ph="/* uses iterate instead of foreach ... */" />
-            <marker date="1521024746494" expanded="true" signature="4029:4130" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4168:4725" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4244:4711" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4266:4382" ph="/* uses the collision method from physics, ... */" />
-            <marker date="1521024746494" expanded="true" signature="4770:5809" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4808:5799" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="4900:5122" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="5170:5491" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="5538:5785" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="5852:7073" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="5879:7063" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="7118:7777" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="7145:7767" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="7866:8739" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="7986:8265" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="8031:8251" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="8314:8729" ph="{...}" />
-            <marker date="1521024746494" expanded="true" signature="8420:8715" ph="{...}" />
->>>>>>> 63f689abeac03e5cd6062ee104e87e5a4b4809df
+            <marker date="1525093565639" expanded="true" signature="56:1007" ph="{...}" />
+            <marker date="1525093565639" expanded="true" signature="92:1005" ph="{...}" />
+            <marker date="1525093565639" expanded="true" signature="168:546" ph="{...}" />
+            <marker date="1525093565639" expanded="true" signature="198:535" ph="{...}" />
+            <marker date="1525093565639" expanded="true" signature="621:999" ph="{...}" />
+            <marker date="1525093565639" expanded="true" signature="651:989" ph="{...}" />
           </folding>
         </state>
       </provider>

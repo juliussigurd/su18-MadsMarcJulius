@@ -8,3 +8,19 @@
 /Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/Aflevering6/Gruppe/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-2/obj/Debug/Galaga-Exercise-2.csproj.CoreCompileInputs.cache
 /Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/Aflevering6/Gruppe/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-2/obj/Debug/Galaga_Exercise_2.exe
 /Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/Aflevering6/Gruppe/su18-MadsMarcJulius/SU18-Exercise/Galaga-Exercise-2/obj/Debug/Galaga_Exercise_2.pdb
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\Galaga\Galaga-Exercise-2\bin\Debug\Galaga_Exercise_2.exe
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\Galaga\Galaga-Exercise-2\bin\Debug\Galaga_Exercise_2.pdb
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\Galaga\Galaga-Exercise-2\bin\Debug\DIKUArcade.dll
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\Galaga\Galaga-Exercise-2\bin\Debug\mscorlib.dll
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\Galaga\Galaga-Exercise-2\bin\Debug\OpenTK.dll
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\Galaga\Galaga-Exercise-2\bin\Debug\DIKUArcade.pdb
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\Galaga\Galaga-Exercise-2\bin\Debug\OpenTK.xml
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\Galaga\Galaga-Exercise-2\bin\Debug\da\mscorlib.resources.dll
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\Galaga\Galaga-Exercise-2\bin\Debug\normidna.nlp
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\Galaga\Galaga-Exercise-2\bin\Debug\normnfc.nlp
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\Galaga\Galaga-Exercise-2\bin\Debug\normnfd.nlp
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\Galaga\Galaga-Exercise-2\bin\Debug\normnfkc.nlp
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\Galaga\Galaga-Exercise-2\bin\Debug\normnfkd.nlp
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\Galaga\Galaga-Exercise-2\obj\Debug\Galaga-Exercise-2.csprojResolveAssemblyReference.cache
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\Galaga\Galaga-Exercise-2\obj\Debug\Galaga_Exercise_2.exe
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\Galaga\Galaga-Exercise-2\obj\Debug\Galaga_Exercise_2.pdb

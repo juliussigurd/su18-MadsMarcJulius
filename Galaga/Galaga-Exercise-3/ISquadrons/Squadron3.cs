@@ -20,7 +20,6 @@ namespace Galaga_Exercise_3.ISquadrons {
 
         public void CreateEnemies(List<Image> enemystrides) {
             float check = 0.0f;
-            float check2 = 0.0f;
             for (int i = 0; i <= maxEnemies / 2 - 1; i++) {
                 if (i <= maxEnemies) {
                     check = 0.1f;

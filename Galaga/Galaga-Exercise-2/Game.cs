@@ -159,7 +159,6 @@ namespace Galaga_Exercise_2 {
                     GameEventFactory<object>.CreateGameEventForAllProcessors(
                         GameEventType.WindowEvent, this, "CLOSE_WINDOW", "", ""));
                 break;
-
             case "KEY_RIGHT":
                 // Sends event if right key is pressed
                 eventBus.RegisterEvent(

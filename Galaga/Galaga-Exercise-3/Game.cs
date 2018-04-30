@@ -45,9 +45,7 @@ namespace Galaga_Exercise_3 {
                 while (gameTimer.ShouldUpdate()) {
                     win.PollEvents();
                     GalagaBus.GetBus().ProcessEvents(); // this will call ProcessEvent()
-                    stateMachine.ActiveState.UpdateGameLogic();
-                    
-                    
+                    stateMachine.ActiveState.UpdateGameLogic();    
                 }
 
                 if (gameTimer.ShouldRender()) {
