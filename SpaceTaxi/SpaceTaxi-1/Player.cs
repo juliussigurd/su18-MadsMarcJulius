@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿ using System.Collections.Generic;
 using System.IO;
 using DIKUArcade.Entities;
 using DIKUArcade.EventBus;
@@ -14,6 +14,7 @@ namespace SpaceTaxi_1
         private readonly Image _taxiBoosterOffImageLeft;
         private readonly Image _taxiBoosterOffImageRight;
         private Orientation _taxiOrientation;
+        
 
         public Player()
         {
@@ -22,12 +23,29 @@ namespace SpaceTaxi_1
             _taxiBoosterOffImageRight = new Image(Path.Combine("Assets", "Images", "Taxi_Thrust_None_Right.png"));
 
             Entity = new Entity(shape, _taxiBoosterOffImageLeft);
+            
+        }
+
+        public void PlayerMove()
+        {
+            shape.Move();
         }
 
         public void SetPosition(float x, float y)
         {
             shape.Position.X = x;
             shape.Position.Y = y;
+        }
+
+        public DynamicShape GetsShape()
+        {
+            return shape;
+        }
+
+        //selfmade gravity
+        public void Gravity()
+        {
+            shape.Position.Y -= 0.00045f;
         }
 
         public void SetExtent(float width, float height)
@@ -51,7 +69,34 @@ namespace SpaceTaxi_1
             {
                 switch (gameEvent.Message)
                 {
-                    // in the future, we will be handling movement here
+                     case "BOOSTER_UPWARDS":
+                         shape.Direction.Y += 0.0045f;
+                         break;
+                     
+                    case "BOOSTER_TO_LEFT":
+                        shape.Direction.X -= 0.0045f;
+                        _taxiOrientation = Orientation.Left;
+                        break;
+                    
+                    case "BOOSTER_TO_RIGHT":
+                        shape.Direction.X += 0.0045f;
+                        _taxiOrientation = Orientation.Right;
+                        break;
+                    
+                    case "STOP_ACCELERATE_LEFT":
+                        shape.Direction.X = 0.0f;
+                        break;
+
+                    case "STOP_ACCELERATE_RIGHT":
+                        shape.Direction.X = 0.0f;
+                        break;
+
+                    case "STOP_ACCELERATE_UP":
+                        shape.Direction.Y = 0.0f;
+                        break;
+
+                    default:
+                        break;
                 }
             }
         }

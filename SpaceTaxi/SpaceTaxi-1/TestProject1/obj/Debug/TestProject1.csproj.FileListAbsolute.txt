@@ -1,0 +1,16 @@
+/Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/su18-MadsMarcJulius copy/su18-MadsMarcJulius/SpaceTaxi/SpaceTaxi-1/TestProject1/bin/Debug/TestProject1.dll
+/Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/su18-MadsMarcJulius copy/su18-MadsMarcJulius/SpaceTaxi/SpaceTaxi-1/TestProject1/bin/Debug/TestProject1.pdb
+/Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/su18-MadsMarcJulius copy/su18-MadsMarcJulius/SpaceTaxi/SpaceTaxi-1/TestProject1/bin/Debug/DIKUArcade.dll
+/Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/su18-MadsMarcJulius copy/su18-MadsMarcJulius/SpaceTaxi/SpaceTaxi-1/TestProject1/bin/Debug/nunit.framework.dll
+/Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/su18-MadsMarcJulius copy/su18-MadsMarcJulius/SpaceTaxi/SpaceTaxi-1/TestProject1/bin/Debug/SpaceTaxi-1.exe
+/Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/su18-MadsMarcJulius copy/su18-MadsMarcJulius/SpaceTaxi/SpaceTaxi-1/TestProject1/bin/Debug/OpenTK.dll
+/Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/su18-MadsMarcJulius copy/su18-MadsMarcJulius/SpaceTaxi/SpaceTaxi-1/TestProject1/bin/Debug/SpaceTaxi-1.pdb
+/Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/su18-MadsMarcJulius copy/su18-MadsMarcJulius/SpaceTaxi/SpaceTaxi-1/TestProject1/bin/Debug/SpaceTaxi-1.exe.config
+/Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/su18-MadsMarcJulius copy/su18-MadsMarcJulius/SpaceTaxi/SpaceTaxi-1/TestProject1/bin/Debug/DIKUArcade.pdb
+/Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/su18-MadsMarcJulius copy/su18-MadsMarcJulius/SpaceTaxi/SpaceTaxi-1/TestProject1/bin/Debug/nunit.framework.pdb
+/Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/su18-MadsMarcJulius copy/su18-MadsMarcJulius/SpaceTaxi/SpaceTaxi-1/TestProject1/bin/Debug/nunit.framework.xml
+/Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/su18-MadsMarcJulius copy/su18-MadsMarcJulius/SpaceTaxi/SpaceTaxi-1/TestProject1/bin/Debug/OpenTK.xml
+/Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/su18-MadsMarcJulius copy/su18-MadsMarcJulius/SpaceTaxi/SpaceTaxi-1/TestProject1/obj/Debug/TestProject1.csprojResolveAssemblyReference.cache
+/Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/su18-MadsMarcJulius copy/su18-MadsMarcJulius/SpaceTaxi/SpaceTaxi-1/TestProject1/obj/Debug/TestProject1.csproj.CoreCompileInputs.cache
+/Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/su18-MadsMarcJulius copy/su18-MadsMarcJulius/SpaceTaxi/SpaceTaxi-1/TestProject1/obj/Debug/TestProject1.dll
+/Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/su18-MadsMarcJulius copy/su18-MadsMarcJulius/SpaceTaxi/SpaceTaxi-1/TestProject1/obj/Debug/TestProject1.pdb

@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DIKUArcade, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\DIKUArcade\DIKUArcade\bin\Debug\DIKUArcade.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,8 +44,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CollisionChecker.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="Goal.cs" />
+    <Compile Include="Level.cs" />
+    <Compile Include="Obstacle.cs" />
     <Compile Include="Orientation.cs" />
+    <Compile Include="Passenger.cs" />
+    <Compile Include="Platform.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -52,6 +61,10 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\su18\DIKUArcade-solutions\DIKUArcade\DIKUArcade\DIKUArcade.csproj">
+      <Project>{a1e4e4df-0967-4096-9e3c-fbc29b7d07dd}</Project>
+      <Name>DIKUArcade</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DIKUArcade\DIKUArcade\DIKUArcade.csproj">
       <Project>{a1e4e4df-0967-4096-9e3c-fbc29b7d07dd}</Project>
       <Name>DIKUArcade</Name>
     </ProjectReference>
