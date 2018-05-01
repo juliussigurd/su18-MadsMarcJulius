@@ -44,7 +44,9 @@ namespace Galaga_Exercise_3.GalagaStates {
 
         }
 
-        public void UpdateGameLogic() { }
+        public void UpdateGameLogic() {     
+        // Left empty on purpose
+        }
 
         public void RenderState() {
             //Sets the color of the active button to green

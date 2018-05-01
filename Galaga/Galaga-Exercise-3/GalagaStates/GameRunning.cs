@@ -117,9 +117,9 @@ namespace Galaga_Exercise_3 {
                 }
             });
         }
-
+    
         public void GameLoop() {
-
+        // Left empty on purpose
         }
         
         public void UpdateGameLogic() {
@@ -138,6 +138,7 @@ namespace Galaga_Exercise_3 {
         }
 
         public void InitializeGameState() {
+            // Left empty on purpose
         }
 
         public void HandleKeyEvent(string keyValue, string keyAction) {
@@ -167,8 +168,8 @@ namespace Galaga_Exercise_3 {
                             GameEventFactory<object>.CreateGameEventForAllProcessors(
                                 GameEventType.GameStateEvent, this, "GAME_PAUSED", "", ""));
                         break;
-                    }
                 }
+            }
             
 
             if (keyAction == "KEY_RELEASE") {
