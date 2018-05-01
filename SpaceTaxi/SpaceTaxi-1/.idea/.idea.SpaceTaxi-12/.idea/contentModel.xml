@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Massi\.Rider2017.3\system\resharper-host\local\Transient\ReSharperHost\v11\SolutionCaches\_SpaceTaxi-12.-1885535038.00" t="ExcludeRecursive" />
-    <e p="C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\SpaceTaxi\SpaceTaxi-1" t="IncludeRecursive">
+    <e p="C:\Users\Massi\.Rider2017.3\system\resharper-host\local\Transient\ReSharperHost\v11\SolutionCaches\_SpaceTaxi-12.-770439233.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius1\SpaceTaxi\SpaceTaxi-1" t="IncludeRecursive">
       <e p="App.config" t="Include" />
       <e p="bin" t="ExcludeRecursive" />
       <e p="CollisionChecker.cs" t="Include" />

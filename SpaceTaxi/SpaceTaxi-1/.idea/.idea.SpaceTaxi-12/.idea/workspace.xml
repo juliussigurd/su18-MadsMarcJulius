@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7ab4244a-14e3-463d-b1c4-8b2a0ba4c826" name="Default" comment="" />
+    <list default="true" id="b44984fa-9d49-4c29-9198-d600678ebd73" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/.idea.SpaceTaxi-12/.idea/vcs.xml" />
+      <change beforePath="$PROJECT_DIR$/../../DIKUArcade/DIKUArcade/DIKUArcade.csproj" afterPath="$PROJECT_DIR$/../../DIKUArcade/DIKUArcade/DIKUArcade.csproj" />
+      <change beforePath="$PROJECT_DIR$/../../DIKUArcade/DIKUArcade/OpenTK.dll.config" afterPath="$PROJECT_DIR$/../../DIKUArcade/DIKUArcade/OpenTK.dll.config" />
+      <change beforePath="$PROJECT_DIR$/../../DIKUArcade/DIKUArcade/packages.config" afterPath="$PROJECT_DIR$/../../DIKUArcade/DIKUArcade/packages.config" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SpaceTaxi-12/.idea/contentModel.xml" afterPath="$PROJECT_DIR$/.idea/.idea.SpaceTaxi-12/.idea/contentModel.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SpaceTaxi-12/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/.idea.SpaceTaxi-12/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/SpaceTaxi-1.exe" afterPath="$PROJECT_DIR$/bin/Debug/SpaceTaxi-1.exe" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/SpaceTaxi-1.pdb" afterPath="$PROJECT_DIR$/bin/Debug/SpaceTaxi-1.pdb" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/SpaceTaxi-1.csproj.FileListAbsolute.txt" afterPath="$PROJECT_DIR$/obj/Debug/SpaceTaxi-1.csproj.FileListAbsolute.txt" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/SpaceTaxi-1.csprojResolveAssemblyReference.cache" afterPath="$PROJECT_DIR$/obj/Debug/SpaceTaxi-1.csprojResolveAssemblyReference.cache" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/SpaceTaxi-1.exe" afterPath="$PROJECT_DIR$/obj/Debug/SpaceTaxi-1.exe" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/SpaceTaxi-1.pdb" afterPath="$PROJECT_DIR$/obj/Debug/SpaceTaxi-1.pdb" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
@@ -21,6 +37,7 @@
     <option name="width" value="1920" />
     <option name="height" value="1080" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="SolutionExplorer" proportions="" version="1">
       <flattenPackages />
@@ -43,11 +60,6 @@
             <path>
               <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
               <item name="SpaceTaxi-12 (2 projects)" type="977d5f41:SolutionExplorerNodeRider" />
-            </path>
-            <path>
-              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-              <item name="SpaceTaxi-12 (2 projects)" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="SpaceTaxi-1" type="977d5f41:SolutionExplorerNodeRider" />
             </path>
           </expand>
           <select />
@@ -97,17 +109,17 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="7ab4244a-14e3-463d-b1c4-8b2a0ba4c826" name="Default" comment="" />
-      <created>1525181574623</created>
+      <changelist id="b44984fa-9d49-4c29-9198-d600678ebd73" name="Default" comment="" />
+      <created>1525196606515</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1525181574623</updated>
-      <workItem from="1525181581535" duration="37000" />
+      <updated>1525196606515</updated>
+      <workItem from="1525196613974" duration="158000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37000" />
+    <option name="totallyTimeSpent" value="158000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -125,7 +137,7 @@
       <window_info id="Errors In Solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Unit Tests" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
