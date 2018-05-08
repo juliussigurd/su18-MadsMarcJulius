@@ -3,6 +3,7 @@
         GameRunning,
         GamePaused,
         MainMenu,
+        Gamelevels,
         GameControls
     }
 }

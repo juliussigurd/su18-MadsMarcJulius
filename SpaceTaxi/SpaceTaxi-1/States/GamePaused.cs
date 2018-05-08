@@ -12,12 +12,12 @@ namespace SpaceTaxi_1.States {
     public class GamePaused : IGameState {
 
 
-        private static GamePaused instance = null;
+        private static GamePaused instance;
 
         //Fields
         private Entity backGroundImage;
         private Text[] menuButtons;
-        private int activeMenuButton = 0;
+        private int activeMenuButton;
         private int maxMenuButtons;
 
 
@@ -48,7 +48,7 @@ namespace SpaceTaxi_1.States {
             //Sets the color of the active button to green
             InitializeGameState();
             menuButtons[(activeMenuButton + 1) % 2].SetColor(Color.White);
-            menuButtons[activeMenuButton].SetColor(Color.PaleVioletRed);
+            menuButtons[activeMenuButton].SetColor(Color.Blue);
             
 
             backGroundImage.RenderEntity();
@@ -62,8 +62,17 @@ namespace SpaceTaxi_1.States {
 
             if (keyAction == "KEY_PRESS") {
                 switch (keyValue) {
-
                 case "KEY_UP":
+                    if (activeMenuButton ==  0) {
+                        activeMenuButton = maxMenuButtons -1;
+                    } 
+                    else {
+                        activeMenuButton -= 1;
+                    }
+
+                    break;
+                case "KEY_DOWN":
+                    Console.WriteLine(activeMenuButton);
                     if (activeMenuButton == maxMenuButtons - 1) {
                         activeMenuButton = 0;
                     } else {
@@ -71,18 +80,11 @@ namespace SpaceTaxi_1.States {
                     }
 
                     break;
-                case "KEY_DOWN":
-                    Console.WriteLine(activeMenuButton);
-                    if (activeMenuButton == 0) {
-                        activeMenuButton = maxMenuButtons - 1;
-                    } else {
-                        activeMenuButton -= 1;
-                    }
-
-                    break;
+                    
                 case "KEY_ENTER":
                     switch (activeMenuButton) {
                     case 0:
+                        
                         SpaceBus.GetBus().RegisterEvent(
                             GameEventFactory<object>.CreateGameEventForAllProcessors(
                                 GameEventType.GameStateEvent, this, "GAME_RUNNING", "", ""));
@@ -93,7 +95,6 @@ namespace SpaceTaxi_1.States {
                                 GameEventType.GameStateEvent, this, "MAIN_MENU", "", ""));
                         break;
                     }
-
                     break;
                 }
             }

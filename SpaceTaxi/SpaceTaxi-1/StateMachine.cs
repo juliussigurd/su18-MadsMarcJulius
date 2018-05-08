@@ -27,6 +27,11 @@ namespace SpaceTaxi_1 {
                 ActiveState.InitializeGameState();
                 break;
                 
+            case GameStateType.Gamelevels:
+                ActiveState = GameLevels.GetInstance();
+                ActiveState.InitializeGameState();
+                break;
+                
             case GameStateType.GameControls:
                 ActiveState = GameControls.GetInstance();
                 ActiveState.InitializeGameState();

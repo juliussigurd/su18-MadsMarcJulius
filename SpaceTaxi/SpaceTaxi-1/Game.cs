@@ -8,18 +8,14 @@ using DIKUArcade.Graphics;
 using DIKUArcade.Math;
 using DIKUArcade.Timers;
 
-namespace SpaceTaxi_1
-{
-    public class Game : IGameEventProcessor<object>
-    {
+namespace SpaceTaxi_1{
+    public class Game : IGameEventProcessor<object>{
         private Window _win;
         private GameTimer _gameTimer;
         private Player _player;
-        
         private StateMachine stateMachine;
       
-        public Game()
-        {
+        public Game(){
             // window
             _win = new Window("Space Taxi Game v0.1", 500, AspectRatio.R1X1);
              stateMachine = new StateMachine();
@@ -40,11 +36,9 @@ namespace SpaceTaxi_1
             _gameTimer = new GameTimer(60); // 60 UPS, no FPS limit
         }
         
-        public void GameLoop()
-        {
+        public void GameLoop(){
             while (_win.IsRunning()){
                 _gameTimer.MeasureTime();
-
                 while (_gameTimer.ShouldUpdate()){
                     _win.PollEvents();
                     SpaceBus.GetBus().ProcessEvents();
@@ -56,7 +50,7 @@ namespace SpaceTaxi_1
                     stateMachine.ActiveState.RenderState();
                     _win.SwapBuffers();
                 }
-
+                
                 if (_gameTimer.ShouldReset()){
                     // 1 second has passed - display last captured ups and fps from the timer
                     _win.Title = "Space Taxi | UPS: " + _gameTimer.CapturedUpdates + ", FPS: " +
@@ -71,8 +65,8 @@ namespace SpaceTaxi_1
                     case "CLOSE_WINDOW":
                         _win.CloseWindow();
                         break;
-                    default:
-                        break;
+                default: 
+                    break;
                 }
             }
             else if (eventType == GameEventType.InputEvent){

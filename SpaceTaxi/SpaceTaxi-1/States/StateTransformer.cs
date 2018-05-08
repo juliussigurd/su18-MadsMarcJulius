@@ -18,6 +18,10 @@ namespace SpaceTaxi_1.States {
                 
             case "GAME_CONTROLS":
                 return GameStateType.GameControls;
+                
+            case "GAME_LEVELS":
+                return GameStateType.Gamelevels;
+                
             default:
                 throw new ArgumentException("No match");
             }
@@ -39,6 +43,9 @@ namespace SpaceTaxi_1.States {
                 
             case GameStateType.GameControls:
                 return "GAME_CONTROLS";
+                
+            case GameStateType.Gamelevels:
+                return "GAME_LEVELS";
                 
             default:
                 throw new ArgumentException("No match");

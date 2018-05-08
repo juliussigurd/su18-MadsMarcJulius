@@ -1,5 +1,4 @@
-﻿ using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using DIKUArcade.Entities;
 using DIKUArcade.EventBus;
 using DIKUArcade.Graphics;
@@ -9,26 +8,34 @@ namespace SpaceTaxi_1
 {
     public class Player : IGameEventProcessor<object>
     {
-        public Entity Entity { get; private set; }
+        public Entity Entity { get; }
         private readonly DynamicShape shape;
-        private readonly Image _taxiBoosterOffImageLeft;
-        private readonly Image _taxiBoosterOffImageRight;
-        private Orientation _taxiOrientation;
+        private readonly Image taxiBoosterOffImageLeft;
+        private readonly Image taxiBoosterOffImageRight;
+        private Orientation taxiOrientation;
         
 
         public Player()
         {
             shape = new DynamicShape(new Vec2F(), new Vec2F());
-            _taxiBoosterOffImageLeft = new Image(Path.Combine("Assets", "Images", "Taxi_Thrust_None.png"));
-            _taxiBoosterOffImageRight = new Image(Path.Combine("Assets", "Images", "Taxi_Thrust_None_Right.png"));
+            taxiBoosterOffImageLeft = new Image(Path.Combine("Assets", "Images", "Taxi_Thrust_None.png"));
+            taxiBoosterOffImageRight = new Image(Path.Combine("Assets", "Images", "Taxi_Thrust_None_Right.png"));
 
-            Entity = new Entity(shape, _taxiBoosterOffImageLeft);
+            Entity = new Entity(shape, taxiBoosterOffImageLeft);
             
         }
 
         public void PlayerMove()
         {
             shape.Move();
+        }
+
+        public double PlayerStopX() {
+            return shape.Direction.X = 0.0f;
+        }
+        
+        public double PlayerStopY() {
+            return shape.Direction.Y = 0.0f;
         }
 
         public void SetPosition(float x, float y)
@@ -57,9 +64,9 @@ namespace SpaceTaxi_1
         public void RenderPlayer()
         {
             //TODO: Next version needs animation. Skipped for clarity.
-            Entity.Image = _taxiOrientation == Orientation.Left
-                ? _taxiBoosterOffImageLeft
-                : _taxiBoosterOffImageRight;
+            Entity.Image = taxiOrientation == Orientation.Left
+                ? taxiBoosterOffImageLeft
+                : taxiBoosterOffImageRight;
             Entity.RenderEntity();
         }
 
@@ -69,32 +76,28 @@ namespace SpaceTaxi_1
             {
                 switch (gameEvent.Message)
                 {
-                     case "BOOSTER_UPWARDS":
+                    case "BOOSTER_UPWARDS":
                          shape.Direction.Y += 0.0045f;
                          break;
                      
                     case "BOOSTER_TO_LEFT":
                         shape.Direction.X -= 0.0045f;
-                        _taxiOrientation = Orientation.Left;
+                        taxiOrientation = Orientation.Left;
                         break;
                     
                     case "BOOSTER_TO_RIGHT":
                         shape.Direction.X += 0.0045f;
-                        _taxiOrientation = Orientation.Right;
+                        taxiOrientation = Orientation.Right;
                         break;
                     
-                    case "STOP_ACCELERATE_LEFT":
-                        shape.Direction.X = 0.0f;
+                    case "STOP_ACCELERATE_X":
+                        PlayerStopX();
                         break;
-
-                    case "STOP_ACCELERATE_RIGHT":
-                        shape.Direction.X = 0.0f;
-                        break;
-
-                    case "STOP_ACCELERATE_UP":
-                        shape.Direction.Y = 0.0f;
-                        break;
-
+                        
+                    case "STOP_ACCELERATE_Y":
+                        PlayerStopY();
+                        break;  
+                        
                     default:
                         break;
                 }
