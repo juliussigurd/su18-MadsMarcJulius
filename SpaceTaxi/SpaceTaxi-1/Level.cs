@@ -86,7 +86,7 @@ namespace SpaceTaxi_1 {
         public static void AddEntityToContainer(string[] mapString, Dictionary<char, string> legendsDictionary, int row,
             int indeks)
         {
-            if (legendsDictionary.ContainsKey(mapString[row][indeks]))
+            if (legendsDictionary.ContainsKey(mapString[row][indeks]) && mapString[row][indeks] != ' ')
             {
                 EntityList.AddStationaryEntity(
                     new StationaryShape(
@@ -121,17 +121,15 @@ namespace SpaceTaxi_1 {
         public static void AddAllEntitiesToContainer(string[] mapString, Dictionary<char, string> legendsDictionary)
         {
             SetEntitiContainerToNew();
-            for (int j = 0; j <= 22; j++)
+            for (int j = 0; j < 23; j++)
             {
-                for (int i = 0; i <= mapString[0].Length - 1; i++)
+                for (int i = 0; i < mapString[0].Length; i++)
                 {
                      AddEntityToContainer(mapString,legendsDictionary,j,i);
                      PlayerPosOfLevel(mapString, j, i);
                 }
             }
-        }
-
-       
+        }       
 
         public static void changePosX(float newX)
         {

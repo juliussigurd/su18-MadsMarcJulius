@@ -1,6 +1,7 @@
 ﻿ using System.Collections.Generic;
 using System.IO;
-using DIKUArcade.Entities;
+ using System.Xml.Schema;
+ using DIKUArcade.Entities;
 using DIKUArcade.EventBus;
 using DIKUArcade.Graphics;
 using DIKUArcade.Math;
@@ -9,20 +10,20 @@ namespace SpaceTaxi_1
 {
     public class Player : IGameEventProcessor<object>
     {
-        public Entity Entity { get; private set; }
-        private readonly DynamicShape shape;
-        private readonly Image _taxiBoosterOffImageLeft;
-        private readonly Image _taxiBoosterOffImageRight;
-        private Orientation _taxiOrientation;
+        public Entity _player { get; private set; }
+        private readonly DynamicShape shape = new DynamicShape(new Vec2F(), new Vec2F());
+        private int leftValue = 1;
+        private int rightValue = 0;
+        private int upValue = 0;
+        private int totalValue;
         
+     
 
         public Player()
         {
-            shape = new DynamicShape(new Vec2F(), new Vec2F());
-            _taxiBoosterOffImageLeft = new Image(Path.Combine("Assets", "Images", "Taxi_Thrust_None.png"));
-            _taxiBoosterOffImageRight = new Image(Path.Combine("Assets", "Images", "Taxi_Thrust_None_Right.png"));
-
-            Entity = new Entity(shape, _taxiBoosterOffImageLeft);
+            //shape = new DynamicShape(new Vec2F(), new Vec2F());
+            _player = new Entity(shape, PlayerImage.ImageDecider(totalValue));
+            
             
         }
 
@@ -45,7 +46,8 @@ namespace SpaceTaxi_1
         //selfmade gravity
         public void Gravity()
         {
-            shape.Position.Y -= 0.00045f;
+            if(upValue != 10)
+            shape.Direction.Y = -0.0014f;
         }
 
         public void SetExtent(float width, float height)
@@ -57,12 +59,11 @@ namespace SpaceTaxi_1
         public void RenderPlayer()
         {
             //TODO: Next version needs animation. Skipped for clarity.
-            Entity.Image = _taxiOrientation == Orientation.Left
-                ? _taxiBoosterOffImageLeft
-                : _taxiBoosterOffImageRight;
-            Entity.RenderEntity();
+            totalValue = rightValue + leftValue + upValue;
+            _player.Image = PlayerImage.ImageDecider(totalValue);
+            _player.RenderEntity(); 
         }
-
+        
         public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent)
         {
             if (eventType == GameEventType.PlayerEvent)
@@ -70,29 +71,42 @@ namespace SpaceTaxi_1
                 switch (gameEvent.Message)
                 {
                      case "BOOSTER_UPWARDS":
-                         shape.Direction.Y += 0.0045f;
+                         upValue = 10;
+                         shape.Direction.Y = 0.0045f;
                          break;
                      
                     case "BOOSTER_TO_LEFT":
-                        shape.Direction.X -= 0.0045f;
-                        _taxiOrientation = Orientation.Left;
+                        rightValue = 0;
+                        leftValue = 2;
+                        shape.Direction.X = -0.0045f;
+                        
                         break;
                     
                     case "BOOSTER_TO_RIGHT":
-                        shape.Direction.X += 0.0045f;
-                        _taxiOrientation = Orientation.Right;
+                        leftValue = 0;
+                        rightValue = -2;
+                        shape.Direction.X = 0.0045f;
+                        
                         break;
                     
                     case "STOP_ACCELERATE_LEFT":
+                        rightValue = 0;
+                        leftValue = 1;
                         shape.Direction.X = 0.0f;
+                        
                         break;
 
                     case "STOP_ACCELERATE_RIGHT":
+                        rightValue = -1;
+                        leftValue = 0;
                         shape.Direction.X = 0.0f;
+                        
                         break;
 
                     case "STOP_ACCELERATE_UP":
+                        upValue = 0;
                         shape.Direction.Y = 0.0f;
+                        
                         break;
 
                     default:

@@ -31,9 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DIKUArcade, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\..\DIKUArcade\DIKUArcade\bin\Debug\DIKUArcade.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -49,10 +46,10 @@
     <Compile Include="Goal.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="Obstacle.cs" />
-    <Compile Include="Orientation.cs" />
     <Compile Include="Passenger.cs" />
     <Compile Include="Platform.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="PlayerImage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -28,6 +28,7 @@ namespace SpaceTaxi_1
         private List<EntityContainer> _levels;
         private List<float> playerXcoordinates;
         private List<float> playerYcoordinates;
+        private List<CollisionChecker> _levelObstacles;
         
         
         
@@ -65,41 +66,63 @@ namespace SpaceTaxi_1
             _eventBus.Subscribe(GameEventType.PlayerEvent, _player);
             
             
-            
            // _level = new Level();
             
             _levels = new List<EntityContainer>();
+            _levelObstacles = new List<CollisionChecker>();
+            
             playerXcoordinates = new List<float>();
             playerYcoordinates = new List<float>();
-
-            for (int i = 0; i < _filePath.Length; i++)
-            {
-                createMap(_filePath,i);  
-            }
             
+            
+            
+            // Creating maps
+            for (int i = 0; i < _filePath.Length; i++){
+                CreateMap(_filePath,i);  
+            }
+            // creating obstacles
+            for (int i = 0; i < _levels.Count; i++)
+            {
+                 CreateLevelCollision(_filePath,i);
+            }
+            // Setting player position to the right place.
             _player.SetPosition(playerXcoordinates[levelCounter], playerYcoordinates[levelCounter]);
-            /*_collisionChecker = new CollisionChecker(_levels[levelCounter],
-                                                     _legendsDictionary,
-                                                     _player);
-            */
-           
-
+            
+            Console.WriteLine(_levels[0].CountEntities());
         }
+
         /// <summary>
         /// This method takes two arguments and render the map by using the methods from the level class. 
         /// </summary>
         /// <param name="_filePath"> Directory of levels </param>
         /// <param name="filePathNum"> Number of the level in the level container </param>
-        private void createMap(string[] _filePath, int filePathNum)
+
+        private Dictionary<char, string> CreateLegendDictionary(string[] _filePath, int filePathNum)
         {
             _levelInfo = Level.ReadFile((_filePath[filePathNum]));
             _legendsDictionary = new Dictionary<char, string>();
+            Level.SetDictionaryToNew();
             Level.ReadLegends(_levelInfo);
-            _legendsDictionary = Level.GetLegendsDictionary();
+            return Level.GetLegendsDictionary();
+        }
+        
+        
+        private void CreateMap(string[] _filePath, int filePathNum)
+        {
+            _legendsDictionary = CreateLegendDictionary(_filePath, filePathNum);
             Level.AddAllEntitiesToContainer(_levelInfo, _legendsDictionary);
             _levels.Add(Level.GetLevelEntities());
+            
             playerXcoordinates.Add(Level.GetPlayerPosX());
             playerYcoordinates.Add(Level.GetPlayerPosY());
+        }
+
+        private void CreateLevelCollision(string[] _filePath, int levelNum)
+        {
+            _legendsDictionary = CreateLegendDictionary(_filePath, levelNum);
+            _levelObstacles.Add(new CollisionChecker(_levels[levelNum],
+                                                     _legendsDictionary,
+                                                     _player));
         }
 
         public void GameLoop()
@@ -114,12 +137,11 @@ namespace SpaceTaxi_1
                     _eventBus.ProcessEvents();
                     _player.Gravity();
                     _player.PlayerMove();
-                  //  _collisionChecker.CheckCollsion();
+                    _levelObstacles[levelCounter].CheckCollsion();
                     if (_player.GetsShape().Position.Y >= 1.0f)
                     {
                         levelCounter++;
                         _player.SetPosition(playerXcoordinates[levelCounter], playerYcoordinates[levelCounter]);
-
                     }
                 }
 
