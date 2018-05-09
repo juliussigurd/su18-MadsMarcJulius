@@ -6,23 +6,34 @@ using DIKUArcade.Math;
 
 namespace SpaceTaxi_1
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class CollisionChecker
     {
+        //Fields
         private EntityContainer MapEntities;
         private Dictionary<char, string> Legends;
-        private List<Entity> Obstacles;
+        private EntityContainer Obstacles;
+        private EntityContainer Platforms;
         private Player Player;
         private Entity Explosion;
 
-        public CollisionChecker(EntityContainer mapEntities, Dictionary<char, string> legends, Player player)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="mapEntities"></param>
+        /// <param name="legends"></param>
+        /// <param name="player"></param>
+        public CollisionChecker(EntityContainer mapObstacles, EntityContainer mapPlatforms, Player player)
         {
-            MapEntities = mapEntities;
-            Legends = legends;
             Player = player;
-            Obstacle.AddObstacles(MapEntities,Legends);
-            Obstacles = Obstacle.GetObstacles();
+            Obstacles = mapObstacles;
+            Platforms = mapPlatforms;
+
         }
         
+
         public void CheckCollsion()
         {
             if (Obstacle.CollisionObstacle(Player.GetsShape(), Obstacles))

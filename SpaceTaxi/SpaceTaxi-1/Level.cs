@@ -9,19 +9,24 @@ using DIKUArcade.Math;
 using System;
 
 namespace SpaceTaxi_1 {
+    
     public static class Level
     {
+
 
         private static EntityContainer Obstacles = new EntityContainer();
         private static EntityContainer Platforms = new EntityContainer();
         private static EntityContainer AllEntities = new EntityContainer();
         private static List<char> PlatformLegends = new List<char>();
+
+        //Fields
+
+
         private static Dictionary<char, string> legendsDictionary = new Dictionary<char, string>();
         private static float PlayerPosX = 0f;
         private static float PlayerPosY = 0f;
 
         private static string[] LevelInfo;
-
 
         public static void SetDictionaryToNew()
         {
@@ -43,6 +48,7 @@ namespace SpaceTaxi_1 {
             Platforms = new EntityContainer();
         }
 
+
         /// <summary>
         /// This method takes takes a string "path" as an argument and returns
         /// the file as a string array and reads the file.  
@@ -51,6 +57,7 @@ namespace SpaceTaxi_1 {
         /// <returns> Returns file as a string array </returns>
         /// <exception cref="ArgumentException"> If the file
         /// doesn't exist, it throw an exception </exception>
+
         public static string[] ReadFile(string path)
         {
             if (!File.Exists(path))
@@ -62,11 +69,15 @@ namespace SpaceTaxi_1 {
             return LevelInfo;
         }
 
+
         /// <summary>
         /// The method "ReadLegend" takes a string "line" as an
         /// argument and checks if it is a legend and finds the png. 
         /// </summary>
         /// <param name="line"> Is a certain line in the file </param>
+
+        
+
         public static void ReadLegend(string line)
         {
             if (line.Length != 0 && line[1] == ')')
@@ -76,6 +87,7 @@ namespace SpaceTaxi_1 {
             }
         }
 
+
         /// <summary>
         /// The method "Dictionary" takes a string[] "filetext" as an argument and
         /// returns a dictionary and uses the method "ReadLegend" to add all legends to
@@ -83,7 +95,9 @@ namespace SpaceTaxi_1 {
         /// </summary>
         /// <param name="fileText"> Array of each line of the file in a string </param>
         /// <returns> Dictionary containing the Legends </returns>
-        public static void ReadLegends(string[] fileText)
+        /// 
+        public static void ReadLegends (string[] fileText)
+
         {
             SetDictionaryToNew();
             for (int i = 27; i < fileText.Length; i++)
@@ -91,6 +105,7 @@ namespace SpaceTaxi_1 {
                 ReadLegend(fileText[i]);
             }
         }
+
 
         public static void ReadPlatforms(string platformLine)
         {
@@ -111,6 +126,7 @@ namespace SpaceTaxi_1 {
         /// <param name="legendsDictionary"> dictionary of legends </param>
         /// <param name="row"> defines a certain row </param>
         /// <param name="indeks"> indexing in the row </param>
+
         public static void AddEntityToContainer(string[] mapString, Dictionary<char, string> legendsDictionary, int row,
             int indeks)
         {
@@ -124,6 +140,7 @@ namespace SpaceTaxi_1 {
                     new Image(Path.Combine("Assets", "Images", legendsDictionary[mapString[row][indeks]])));
             }
         }
+
 
         public static void AddObstacle(string[] mapString, Dictionary<char, string> legendsDictionary, int row,
             int indeks)
@@ -161,6 +178,7 @@ namespace SpaceTaxi_1 {
         /// <param name="mapString"> array of strings of the map</param>
         /// <param name="row"> dictionary of legends </param>
         /// <param name="indeks"> indexing in the row </param>
+
         public static void PlayerPosOfLevel(string[] mapString, int row, int indeks)
         {
             if (mapString[row][indeks] == '>')
@@ -170,11 +188,6 @@ namespace SpaceTaxi_1 {
             }
         }
 
-        /// <summary>
-        /// The method takes two arguments and adds all the entities to a container.  
-        /// </summary>
-        /// <param name="mapString"> array of strings of the map </param>
-        /// <param name="legendsDictionary"> dictionary of legends </param>
         public static void AddAllEntitiesToContainer(string[] mapString, Dictionary<char, string> legendsDictionary)
         {
             SetAllEntitiesToNew();
@@ -202,10 +215,7 @@ namespace SpaceTaxi_1 {
             PlayerPosY = newY;
         }
 
-        /// <summary>
-        /// This method takes all the levels and adds them to a container 
-        /// </summary>
-        /// <returns> Entity container with all the lvl's </returns>
+
         public static Dictionary<char, string> GetLegendsDictionary()
         {
             return legendsDictionary;
@@ -225,18 +235,12 @@ namespace SpaceTaxi_1 {
         {
             return Platforms;
         }
-        /// <summary>
-        /// This method keeps track of the players x coordinate.
-        /// </summary>
-        /// <returns> Player position x coordinate </returns>
+
         public static float GetPlayerPosX()
         {
             return PlayerPosX;
         }
-        /// <summary>
-        /// The method keeps track of the players y coordinate. 
-        /// </summary>
-        /// <returns> Player position y coordinate </returns>
+
         public static float GetPlayerPosY()
         {
             return PlayerPosY;

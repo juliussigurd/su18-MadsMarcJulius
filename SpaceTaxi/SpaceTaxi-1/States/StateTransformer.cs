@@ -1,8 +1,18 @@
 ﻿using System;
 
 namespace SpaceTaxi_1.States {
+    
+    /// <summary>
+    /// 
+    /// </summary>
     public class StateTransformer {
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="state"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
         public static GameStateType TransformStringToState(string state) {
 
             switch (state) {
@@ -31,6 +41,12 @@ namespace SpaceTaxi_1.States {
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="state"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
         public static string TransformStateToString(GameStateType state) {
 
             switch (state) {

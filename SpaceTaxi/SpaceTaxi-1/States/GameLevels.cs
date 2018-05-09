@@ -9,12 +9,16 @@ using DIKUArcade.State;
 using Image = DIKUArcade.Graphics.Image;
 
 namespace SpaceTaxi_1.States {
+    
+    /// <summary>
+    /// 
+    /// </summary>
     public class GameLevels : IGameState {
 
 
+        //Fields
         private static GameLevels instance;
 
-        //Fields
         private Entity backGroundImage;
         private Text[] menuButtons;
         private int activeMenuButton;
@@ -23,14 +27,24 @@ namespace SpaceTaxi_1.States {
 
 
         //Methods
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static GameLevels GetInstance() {
             return GameLevels.instance ?? (GameLevels.instance = new GameLevels());
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void GameLoop() {
         // Left empty on purpose
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void InitializeGameState() {
             maxMenuButtons = 2;
             menuButtons = new Text[maxMenuButtons];
@@ -42,10 +56,18 @@ namespace SpaceTaxi_1.States {
             menuButtons[1] = new Text("Level 2", new Vec2F(0.15f, 0.0f), new Vec2F(0.4f, 0.3f));
         }
 
+        
+        /// <summary>
+        /// 
+        /// </summary>
         public void UpdateGameLogic() {
             //Left empty on purpose
         }
 
+        
+        /// <summary>
+        /// 
+        /// </summary>
         public void RenderState() {
             //Sets the color of the active button to green
             InitializeGameState();
@@ -60,6 +82,12 @@ namespace SpaceTaxi_1.States {
             menuButtons[1].RenderText();
         }
 
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="keyValue"></param>
+        /// <param name="keyAction"></param>
         public void HandleKeyEvent(string keyValue, string keyAction) {
 
             if (keyAction == "KEY_PRESS") {

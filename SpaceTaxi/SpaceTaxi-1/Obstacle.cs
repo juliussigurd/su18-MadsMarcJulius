@@ -9,28 +9,33 @@ using DIKUArcade.Physics;
 namespace SpaceTaxi_1 {
     public static class Obstacle
     {
-
+        //Fields
         private static List<Entity> obstacles;
+
         private static Entity Explosion;
         private static StationaryShape explsionShape;
         private static IBaseImage explosionAnimation;
 
-        public static void AddObstacles(EntityContainer MapEntities, Dictionary<char, string> Legends)
-        {
-            obstacles = new List<Entity>();
-            foreach (Entity entity in MapEntities)
-            {
-                {
-                    obstacles.Add(entity);
-                }
-            }
-        }
+
+        
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static List<Entity> GetObstacles()
         {
             return obstacles;
         }
         
-        public static bool CollisionObstacle (DynamicShape Player, List<Entity> obstacles)
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Player"></param>
+        /// <param name="obstacles"></param>
+        /// <returns></returns>
+        public static bool CollisionObstacle (DynamicShape Player, EntityContainer obstacles)
         {
             foreach (Entity obstacle in obstacles)
             {
