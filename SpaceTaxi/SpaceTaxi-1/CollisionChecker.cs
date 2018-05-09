@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using DIKUArcade.Entities;
+using DIKUArcade.Graphics;
+using DIKUArcade.Math;
 
 namespace SpaceTaxi_1
 {
@@ -10,6 +12,7 @@ namespace SpaceTaxi_1
         private Dictionary<char, string> Legends;
         private List<Entity> Obstacles;
         private Player Player;
+        private Entity Explosion;
 
         public CollisionChecker(EntityContainer mapEntities, Dictionary<char, string> legends, Player player)
         {
@@ -19,12 +22,14 @@ namespace SpaceTaxi_1
             Obstacle.AddObstacles(MapEntities,Legends);
             Obstacles = Obstacle.GetObstacles();
         }
-
+        
         public void CheckCollsion()
         {
             if (Obstacle.CollisionObstacle(Player.GetsShape(), Obstacles))
             {
-                Player.SetPosition(0.5f, 0.5f);        
+                Obstacle.CreateExplosion(Player);
+                Player.SetPosition(0.5f, 0.5f);  
+                
             }
         }
     }

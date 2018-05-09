@@ -11,14 +11,15 @@ namespace SpaceTaxi_1 {
     {
 
         private static List<Entity> obstacles;
-        
+        private static Entity Explosion;
+        private static StationaryShape explsionShape;
+        private static IBaseImage explosionAnimation;
 
         public static void AddObstacles(EntityContainer MapEntities, Dictionary<char, string> Legends)
         {
             obstacles = new List<Entity>();
             foreach (Entity entity in MapEntities)
             {
-                //if (entity.Image != new Image(Path.Combine("Assets", "Images", Legends['1'])));
                 {
                     obstacles.Add(entity);
                 }
@@ -31,9 +32,6 @@ namespace SpaceTaxi_1 {
         
         public static bool CollisionObstacle (DynamicShape Player, List<Entity> obstacles)
         {
-            //var pos = new Vec2F(0.61f, 0.6f);
-           // var extent = new Vec2F(0.39f, 0.4f);
-            //var shape = new StationaryShape(pos, extent);
             foreach (Entity obstacle in obstacles)
             {
             var check = CollisionDetection.Aabb(Player, obstacle.Shape);
@@ -42,18 +40,24 @@ namespace SpaceTaxi_1 {
                     return true;
                 }
             }
-
-            
-            /*foreach (Entity obstacle in obstacles)
-            {
-                if (CollisionDetection.Aabb(Player, obstacle.Shape).Collision)
-                {
-                    Console.WriteLine(obstacle.Shape.Position);
-                    return true;
-                    
-                }
-            }*/
             return false;
+        }
+
+        public static void CreateExplosion(Player player)
+        {
+            explsionShape = new StationaryShape(new Vec2F(player.GetsShape().Position.X, player.GetsShape().Position.Y),
+                                                new Vec2F(player.GetsShape().Extent.X, player.GetsShape().Extent.Y));
+            explosionAnimation = new ImageStride(80,
+                ImageStride.CreateStrides(8, Path.Combine("Assets", "Images", "Explosion.png")));
+                
+            Explosion = new Entity(explsionShape,explosionAnimation);
+            Explosion.RenderEntity();
+            Explosion.DeleteEntity();
+        }
+
+        public static Entity getExplosion()
+        {
+            return Explosion;
         }
     }
 }

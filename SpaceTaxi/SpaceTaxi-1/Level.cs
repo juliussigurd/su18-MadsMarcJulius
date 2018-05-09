@@ -12,23 +12,37 @@ namespace SpaceTaxi_1 {
     public static class Level
     {
 
-        private static EntityContainer EntityList = new EntityContainer();
+        private static EntityContainer Obstacles = new EntityContainer();
+        private static EntityContainer Platforms = new EntityContainer();
+        private static EntityContainer AllEntities = new EntityContainer();
+        private static List<char> PlatformLegends = new List<char>();
         private static Dictionary<char, string> legendsDictionary = new Dictionary<char, string>();
         private static float PlayerPosX = 0f;
         private static float PlayerPosY = 0f;
-        
+
         private static string[] LevelInfo;
-       
-        
+
+
         public static void SetDictionaryToNew()
         {
             legendsDictionary = new Dictionary<char, string>();
         }
 
-        public static void SetEntitiContainerToNew()
+        public static void SetAllEntitiesToNew()
         {
-            EntityList = new EntityContainer();
+            AllEntities = new EntityContainer();
         }
+        
+        public static void SetObstaclesToNew()
+        {
+            Obstacles = new EntityContainer();
+        }
+        
+        public static void SetPlatformsToNew()
+        {
+            Platforms = new EntityContainer();
+        }
+
         /// <summary>
         /// This method takes takes a string "path" as an argument and returns
         /// the file as a string array and reads the file.  
@@ -43,10 +57,11 @@ namespace SpaceTaxi_1 {
             {
                 throw new ArgumentException("File does not exist");
             }
+
             LevelInfo = File.ReadAllLines(path);
             return LevelInfo;
         }
-        
+
         /// <summary>
         /// The method "ReadLegend" takes a string "line" as an
         /// argument and checks if it is a legend and finds the png. 
@@ -56,10 +71,11 @@ namespace SpaceTaxi_1 {
         {
             if (line.Length != 0 && line[1] == ')')
             {
-                var pngName = line.Substring(3, (line.Length - 3));                                     
+                var pngName = line.Substring(3, (line.Length - 3));
                 legendsDictionary.Add((line[0]), pngName);
-            } 
+            }
         }
+
         /// <summary>
         /// The method "Dictionary" takes a string[] "filetext" as an argument and
         /// returns a dictionary and uses the method "ReadLegend" to add all legends to
@@ -67,12 +83,24 @@ namespace SpaceTaxi_1 {
         /// </summary>
         /// <param name="fileText"> Array of each line of the file in a string </param>
         /// <returns> Dictionary containing the Legends </returns>
-        public static void ReadLegends (string[] fileText)
+        public static void ReadLegends(string[] fileText)
         {
             SetDictionaryToNew();
             for (int i = 27; i < fileText.Length; i++)
             {
                 ReadLegend(fileText[i]);
+            }
+        }
+
+        public static void ReadPlatforms(string platformLine)
+        {
+            
+            for (int i = 10; i < platformLine.Length; i++)
+            {
+                if (platformLine[i - 1] == ' ')
+                {
+                    PlatformLegends.Add(platformLine[i]);
+                }
             }
         }
 
@@ -86,9 +114,9 @@ namespace SpaceTaxi_1 {
         public static void AddEntityToContainer(string[] mapString, Dictionary<char, string> legendsDictionary, int row,
             int indeks)
         {
-            if (legendsDictionary.ContainsKey(mapString[row][indeks]) && mapString[row][indeks] != ' ')
+            if (legendsDictionary.ContainsKey(mapString[row][indeks]))
             {
-                EntityList.AddStationaryEntity(
+                AllEntities.AddStationaryEntity(
                     new StationaryShape(
                         new Vec2F((float) (((indeks + (1.0f)) / mapString[0].Length) - (1.0f / mapString[0].Length)),
                             (float) ((21 - row + 1.0f) / 23.0f)),
@@ -97,7 +125,36 @@ namespace SpaceTaxi_1 {
             }
         }
 
-        /// <summary>
+        public static void AddObstacle(string[] mapString, Dictionary<char, string> legendsDictionary, int row,
+            int indeks)
+        {
+            if (!PlatformLegends.Contains(mapString[row][indeks]) && legendsDictionary.ContainsKey(mapString[row][indeks]))
+                Obstacles.AddStationaryEntity(
+                    new StationaryShape(
+                        new Vec2F(
+                            (float) (((indeks + (1.0f)) / mapString[0].Length) - (1.0f / mapString[0].Length)),
+                            (float) ((21 - row + 1.0f) / 23.0f)),
+                        new Vec2F((float) (1.0f / mapString[0].Length), 1.0f / 23.0f)),
+                    new Image(Path.Combine("Assets", "Images", legendsDictionary[mapString[row][indeks]])));
+            
+        }
+        public static void AddPlatform(string[] mapString, Dictionary<char, string> legendsDictionary, int row,
+            int indeks)
+        {
+            if (PlatformLegends.Contains(mapString[row][indeks]) && legendsDictionary.ContainsKey(mapString[row][indeks]))
+                Platforms.AddStationaryEntity(
+                    new StationaryShape(
+                        new Vec2F(
+                            (float) (((indeks + (1.0f)) / mapString[0].Length) - (1.0f / mapString[0].Length)),
+                            (float) ((21 - row + 1.0f) / 23.0f)),
+                        new Vec2F((float) (1.0f / mapString[0].Length), 1.0f / 23.0f)),
+                        new Image(Path.Combine("Assets", "Images", legendsDictionary[mapString[row][indeks]])));
+            
+        }
+
+        
+
+    /// <summary>
         /// The method takes three arguments and places the player a certain place
         /// on the map, with the help of coordinates. 
         /// </summary>
@@ -120,13 +177,17 @@ namespace SpaceTaxi_1 {
         /// <param name="legendsDictionary"> dictionary of legends </param>
         public static void AddAllEntitiesToContainer(string[] mapString, Dictionary<char, string> legendsDictionary)
         {
-            SetEntitiContainerToNew();
+            SetAllEntitiesToNew();
+            SetObstaclesToNew();
+            SetPlatformsToNew();
             for (int j = 0; j < 23; j++)
             {
                 for (int i = 0; i < mapString[0].Length; i++)
                 {
-                     AddEntityToContainer(mapString,legendsDictionary,j,i);
-                     PlayerPosOfLevel(mapString, j, i);
+                    AddEntityToContainer(mapString,legendsDictionary,j,i);
+                    AddObstacle(mapString,legendsDictionary,j,i);
+                    AddPlatform(mapString,legendsDictionary,j,i);
+                    PlayerPosOfLevel(mapString, j, i);
                 }
             }
         }       
@@ -152,7 +213,17 @@ namespace SpaceTaxi_1 {
         
         public static EntityContainer GetLevelEntities()
         {
-            return EntityList;
+            return AllEntities;
+        }
+
+        public static EntityContainer GetLevelObstacles()
+        {
+            return Obstacles;
+        }
+        
+        public static EntityContainer GetLevelPlatforms()
+        {
+            return Platforms;
         }
         /// <summary>
         /// This method keeps track of the players x coordinate.
