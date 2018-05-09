@@ -5,17 +5,17 @@ using DIKUArcade.Entities;
 using DIKUArcade.Graphics;
 using DIKUArcade.Math;
 using DIKUArcade.Physics;
+using SpaceTaxi_1.States;
 
 namespace SpaceTaxi_1 {
     public static class Obstacle
     {
         //Fields
         private static List<Entity> obstacles;
-
-        private static Entity Explosion;
+        
         private static StationaryShape explsionShape;
-        private static IBaseImage explosionAnimation;
-
+        private static List<Image> explosionStrides = new List<Image>();
+        private static AnimationContainer explosion = new AnimationContainer(8);
 
         
 
@@ -50,19 +50,20 @@ namespace SpaceTaxi_1 {
 
         public static void CreateExplosion(Player player)
         {
+            
             explsionShape = new StationaryShape(new Vec2F(player.GetsShape().Position.X, player.GetsShape().Position.Y),
                                                 new Vec2F(player.GetsShape().Extent.X, player.GetsShape().Extent.Y));
-            explosionAnimation = new ImageStride(80,
-                ImageStride.CreateStrides(8, Path.Combine("Assets", "Images", "Explosion.png")));
-                
-            Explosion = new Entity(explsionShape,explosionAnimation);
-            Explosion.RenderEntity();
-            Explosion.DeleteEntity();
+            explosionStrides = ImageStride.CreateStrides(8,
+                Path.Combine("Assets", "Images", "Explosion.png"));
+
+            explosion.AddAnimation(explsionShape, 500,
+                                   new ImageStride(500 / 8, explosionStrides));
+
         }
 
-        public static Entity getExplosion()
+        public static AnimationContainer getExplosion()
         {
-            return Explosion;
+            return explosion;
         }
     }
 }

@@ -44,12 +44,17 @@ namespace SpaceTaxi_1
             _player = new Entity(shape, PlayerImage.ImageDecider(totalValue));
             gravity = new Vec2F(0.0f, -0.3f);
             boostForce =  new Vec2F(0.0f, 0.0f);
-            
+       
         }
 
+        public void DeletePlayer()
+        {
+            _player.DeleteEntity();
+        }
+        
         public void Physics() {
             var netForce = boostForce + gravity;
-            ((DynamicShape) _player.Shape).Direction +=
+             shape.Direction +=
                 netForce * (Game.keepTrackOfUpdates / 300000.0f);
             _player.Shape.Move();
         }
@@ -63,8 +68,16 @@ namespace SpaceTaxi_1
         {
             shape.Position.X = x;
             shape.Position.Y = y;
+            
         }
 
+        public void ChangeGravity( float newGravity, float newBoost, Vec2F newdirection)
+        {
+            gravity = new Vec2F(0.0f, newGravity);
+            boostForce = new Vec2F(0.0f, newBoost);
+            shape.Direction = new Vec2F(0.0f,0.0f);
+        }
+        
         
         /// <summary>
         /// 
@@ -114,6 +127,7 @@ namespace SpaceTaxi_1
                 {
                      case "BOOSTER_UPWARDS":
                          boostForce.Y += 1;
+                         gravity = new Vec2F(0.0f,-0.3f);
                          upValue = 10;
                          break;
                      

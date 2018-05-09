@@ -75,7 +75,7 @@ namespace Galaga_Exercise_3 {
 
         public void AddExplosion(float posX, float posY, float extentX, float extentY) {
             // sets the explosoin to the container, with the position, and animation
-            explosionLength = 500;
+            
             explosions.AddAnimation(
                 new StationaryShape(posX, posY, extentX, extentY), explosionLength,
                 new ImageStride(explosionLength / 8, explosionStrides));

@@ -9,9 +9,6 @@ using DIKUArcade.Math;
 using DIKUArcade.Timers;
 
 namespace SpaceTaxi_1{
-    /// <summary>
-    /// 
-    /// </summary>
     public class Game : IGameEventProcessor<object>{
         private Window _win;
         private GameTimer _gameTimer;
@@ -19,9 +16,7 @@ namespace SpaceTaxi_1{
         private StateMachine stateMachine;
         public static int keepTrackOfUpdates;
         
-        /// <summary>
-        ///
-        /// </summary>
+      
         public Game(){
 
             // window
@@ -44,13 +39,14 @@ namespace SpaceTaxi_1{
             _gameTimer = new GameTimer(60); // 60 UPS, no FPS limit
 
             }
-        
 
         /// <summary>
         /// This method takes two arguments and render the map by using the methods from the level class. 
         /// </summary>
         /// <param name="_filePath"> Directory of levels </param>
-        /// <param name="filePathNum"> Number of the level in the level container </param>      
+        /// <param name="filePathNum"> Number of the level in the level container </param>
+
+                
         public void GameLoop(){
             while (_win.IsRunning()){
                 _gameTimer.MeasureTime();
@@ -58,6 +54,7 @@ namespace SpaceTaxi_1{
                     _win.PollEvents();
                     SpaceBus.GetBus().ProcessEvents();
                     stateMachine.ActiveState.UpdateGameLogic();  
+
                 }
 
                 if (_gameTimer.ShouldRender()){
@@ -75,12 +72,6 @@ namespace SpaceTaxi_1{
             }
         }
         
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="eventType"></param>
-        /// <param name="gameEvent"></param>
         public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent) {
             if (eventType == GameEventType.WindowEvent) {
                 switch (gameEvent.Message){

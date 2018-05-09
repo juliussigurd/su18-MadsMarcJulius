@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DIKUArcade.Entities;
 using DIKUArcade.Graphics;
 using DIKUArcade.Math;
+using SpaceTaxi_1.States;
 
 namespace SpaceTaxi_1
 {
@@ -18,6 +19,7 @@ namespace SpaceTaxi_1
         private EntityContainer Platforms;
         private Player Player;
         private Entity Explosion;
+        private bool GameOverChecker;
 
         /// <summary>
         /// 
@@ -39,9 +41,23 @@ namespace SpaceTaxi_1
             if (Obstacle.CollisionObstacle(Player.GetsShape(), Obstacles))
             {
                 Obstacle.CreateExplosion(Player);
-                Player.SetPosition(0.5f, 0.5f);  
+                Player.DeletePlayer();
+                GameOverChecker = true;
                 
+
+            } else if (Platform.CollisionPlatform(Player.GetsShape(), Platforms) && Player.GetsShape().Direction.Y > -0.004f)
+            {
+                Player.ChangeGravity(0.0f, 0.0f, new Vec2F(0.0f,0.0f));
             }
+            else if (Platform.CollisionPlatform(Player.GetsShape(), Platforms) && Player.GetsShape().Direction.Y < -0.004f)
+            {
+                GameOverChecker = true;
+            }
+        }
+
+        public bool GetGameOverChecker()
+        {
+            return GameOverChecker;
         }
     }
 }

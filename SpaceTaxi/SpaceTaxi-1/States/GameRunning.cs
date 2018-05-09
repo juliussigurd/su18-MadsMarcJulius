@@ -93,8 +93,17 @@ namespace SpaceTaxi_1.States {
             Level.ReadLegends(levelInfo);
             return Level.GetLegendsDictionary();
         }
-        
-        
+
+        private void checkGameOver(int levelNum)
+        {
+            if (_levelObstacles[levelNum].GetGameOverChecker())
+            {
+                SpaceBus.GetBus().RegisterEvent(
+                    GameEventFactory<object>.CreateGameEventForAllProcessors(
+                        GameEventType.GameStateEvent, this, "GAME_OVER", "", "")); 
+                GameRunning.ResetGameInstance();
+                }
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -134,7 +143,11 @@ namespace SpaceTaxi_1.States {
         public static GameRunning GetInstance() {
             return GameRunning.instance ?? (GameRunning.instance = new GameRunning());
         }
-        
+
+        public static void ResetGameInstance()
+        {
+            GameRunning.instance = new GameRunning();
+        }
         
         /// <summary>
         /// 
@@ -147,13 +160,16 @@ namespace SpaceTaxi_1.States {
         /// <summary>
         /// 
         /// </summary>
-        public void UpdateGameLogic() {
+        public void UpdateGameLogic()
+        {
+            checkGameOver(LevelCounter);
             RenderState();
             player.Physics();
             _levelObstacles[LevelCounter].CheckCollsion();
             if (player.GetsShape().Position.Y >= 1.0f){
                 LevelCounter++;
                 player.SetPosition(playerXcoordinates[LevelCounter], playerYcoordinates[LevelCounter]);
+               
             }
         }
 
@@ -165,9 +181,12 @@ namespace SpaceTaxi_1.States {
             backGroundImage.RenderEntity();
             player.RenderPlayer();  
             levels[LevelCounter].RenderEntities();
+            Obstacle.getExplosion().RenderAnimations();
         }
 
 
+        
+        
         /// <summary>
         /// 
         /// </summary>
