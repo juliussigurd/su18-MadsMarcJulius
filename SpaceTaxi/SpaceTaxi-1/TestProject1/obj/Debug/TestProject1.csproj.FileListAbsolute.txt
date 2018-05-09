@@ -14,6 +14,7 @@
 /Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/su18-MadsMarcJulius copy/su18-MadsMarcJulius/SpaceTaxi/SpaceTaxi-1/TestProject1/obj/Debug/TestProject1.csproj.CoreCompileInputs.cache
 /Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/su18-MadsMarcJulius copy/su18-MadsMarcJulius/SpaceTaxi/SpaceTaxi-1/TestProject1/obj/Debug/TestProject1.dll
 /Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/su18-MadsMarcJulius copy/su18-MadsMarcJulius/SpaceTaxi/SpaceTaxi-1/TestProject1/obj/Debug/TestProject1.pdb
+<<<<<<< HEAD
 /Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/su18-MadsMarcJulius/SpaceTaxi/SpaceTaxi-1/TestProject1/bin/Debug/TestProject1.dll
 /Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/su18-MadsMarcJulius/SpaceTaxi/SpaceTaxi-1/TestProject1/bin/Debug/TestProject1.pdb
 /Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/su18-MadsMarcJulius/SpaceTaxi/SpaceTaxi-1/TestProject1/bin/Debug/DIKUArcade.dll
@@ -30,3 +31,26 @@
 /Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/su18-MadsMarcJulius/SpaceTaxi/SpaceTaxi-1/TestProject1/obj/Debug/TestProject1.csproj.CoreCompileInputs.cache
 /Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/su18-MadsMarcJulius/SpaceTaxi/SpaceTaxi-1/TestProject1/obj/Debug/TestProject1.dll
 /Users/BareMarcP/Documents/Uni stuff/SoftwareUdvikling/Afleveringer/su18-MadsMarcJulius/SpaceTaxi/SpaceTaxi-1/TestProject1/obj/Debug/TestProject1.pdb
+=======
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\SpaceTaxi\SpaceTaxi-1\TestProject1\bin\Debug\TestProject1.dll
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\SpaceTaxi\SpaceTaxi-1\TestProject1\bin\Debug\TestProject1.pdb
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\SpaceTaxi\SpaceTaxi-1\TestProject1\bin\Debug\DIKUArcade.dll
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\SpaceTaxi\SpaceTaxi-1\TestProject1\bin\Debug\mscorlib.dll
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\SpaceTaxi\SpaceTaxi-1\TestProject1\bin\Debug\nunit.framework.dll
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\SpaceTaxi\SpaceTaxi-1\TestProject1\bin\Debug\SpaceTaxi-1.exe
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\SpaceTaxi\SpaceTaxi-1\TestProject1\bin\Debug\OpenTK.dll
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\SpaceTaxi\SpaceTaxi-1\TestProject1\bin\Debug\SpaceTaxi-1.pdb
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\SpaceTaxi\SpaceTaxi-1\TestProject1\bin\Debug\DIKUArcade.pdb
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\SpaceTaxi\SpaceTaxi-1\TestProject1\bin\Debug\nunit.framework.pdb
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\SpaceTaxi\SpaceTaxi-1\TestProject1\bin\Debug\nunit.framework.xml
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\SpaceTaxi\SpaceTaxi-1\TestProject1\bin\Debug\OpenTK.xml
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\SpaceTaxi\SpaceTaxi-1\TestProject1\bin\Debug\da\mscorlib.resources.dll
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\SpaceTaxi\SpaceTaxi-1\TestProject1\bin\Debug\normidna.nlp
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\SpaceTaxi\SpaceTaxi-1\TestProject1\bin\Debug\normnfc.nlp
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\SpaceTaxi\SpaceTaxi-1\TestProject1\bin\Debug\normnfd.nlp
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\SpaceTaxi\SpaceTaxi-1\TestProject1\bin\Debug\normnfkc.nlp
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\SpaceTaxi\SpaceTaxi-1\TestProject1\bin\Debug\normnfkd.nlp
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\SpaceTaxi\SpaceTaxi-1\TestProject1\obj\Debug\TestProject1.csprojResolveAssemblyReference.cache
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\SpaceTaxi\SpaceTaxi-1\TestProject1\obj\Debug\TestProject1.dll
+C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\SpaceTaxi\SpaceTaxi-1\TestProject1\obj\Debug\TestProject1.pdb
+>>>>>>> a8860d062c66e8c694ea191cf86e1e87f8faf784
