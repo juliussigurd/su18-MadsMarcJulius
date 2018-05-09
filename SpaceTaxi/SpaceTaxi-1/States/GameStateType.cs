@@ -4,6 +4,7 @@
         GamePaused,
         MainMenu,
         Gamelevels,
-        GameControls
+        GameControls,
+        GameOver
     }
 }

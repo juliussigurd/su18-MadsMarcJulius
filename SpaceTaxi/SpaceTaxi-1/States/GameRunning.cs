@@ -129,6 +129,13 @@ namespace SpaceTaxi_1.States {
                     GameEventFactory<object>.CreateGameEventForAllProcessors(
                         GameEventType.GameStateEvent, this, "GAME_PAUSED", "", "")); 
                 break;
+                
+            case "KEY_O":
+                SpaceBus.GetBus().RegisterEvent(
+                    GameEventFactory<object>.CreateGameEventForAllProcessors(
+                        GameEventType.GameStateEvent, this, "GAME_OVER", "", "")); 
+                break;
+                
             default: 
                 break;
             }

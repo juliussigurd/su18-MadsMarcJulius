@@ -45,6 +45,11 @@ namespace SpaceTaxi_1 {
                 ActiveState = GamePaused.GetInstance();
                 ActiveState.InitializeGameState();
                 break;
+                
+            case GameStateType.GameOver:
+                ActiveState = GameOver.GetInstance();
+                ActiveState.InitializeGameState();
+                break;
             }
         }
 

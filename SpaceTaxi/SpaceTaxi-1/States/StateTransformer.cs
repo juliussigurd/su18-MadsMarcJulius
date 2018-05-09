@@ -21,6 +21,9 @@ namespace SpaceTaxi_1.States {
                 
             case "GAME_LEVELS":
                 return GameStateType.Gamelevels;
+            
+            case "GAME_OVER":
+                return GameStateType.GameOver;
                 
             default:
                 throw new ArgumentException("No match");
@@ -46,6 +49,9 @@ namespace SpaceTaxi_1.States {
                 
             case GameStateType.Gamelevels:
                 return "GAME_LEVELS";
+                
+            case GameStateType.GameOver:
+                return "GAME_OVER";
                 
             default:
                 throw new ArgumentException("No match");

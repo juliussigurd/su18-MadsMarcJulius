@@ -57,6 +57,7 @@
     <Compile Include="StateMachine.cs" />
     <Compile Include="States\GameControls.cs" />
     <Compile Include="States\GameLevels.cs" />
+    <Compile Include="States\GameOver.cs" />
     <Compile Include="States\GamePaused.cs" />
     <Compile Include="States\GameRunning.cs" />
     <Compile Include="States\GameStateType.cs" />
