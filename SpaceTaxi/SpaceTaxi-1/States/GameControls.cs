@@ -8,26 +8,40 @@ using DIKUArcade.State;
 using Image = DIKUArcade.Graphics.Image;
 
 namespace SpaceTaxi_1.States {
+    
+    /// <summary>
+    /// The class "GameControls" 
+    /// </summary>
     public class GameControls : IGameState {
 
-
+        //Fields
         private static GameControls instance;
 
-        //Fields
         private Entity backGroundImage;
         private Text button;
 
 
-        //Methods
+        /// <summary>
+        ///GetInstance looks if there is any control instance. If it's not the case it returns
+        /// new GameControls (Kom tilbage til det her)
+        /// </summary>
+        /// <returns></returns>
         public static GameControls GetInstance() {
             return GameControls.instance ?? (GameControls.instance = new GameControls());
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void GameLoop() {
         // Left empty on purpose
         }
 
+        
+        /// <summary>
+        /// 
+        /// </summary>
         public void InitializeGameState() {
             backGroundImage = new Entity(new StationaryShape(0.0f, 0.0f, 1.0f, 1.0f),
                 new Image(Path.Combine("Assets", "Images", "SpaceBackground.png")));
@@ -35,17 +49,31 @@ namespace SpaceTaxi_1.States {
             button.SetColor(Color.Blue);
         }
 
+        
+        /// <summary>
+        /// 
+        /// </summary>
         public void UpdateGameLogic() {
             //Left empty on purpose
         }
 
+        
+        /// <summary>
+        /// 
+        /// </summary>
         public void RenderState() {
             //Sets the color of the active button to green
             InitializeGameState();
             backGroundImage.RenderEntity();
             button.RenderText();
         }
-
+        
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="keyValue"></param>
+        /// <param name="keyAction"></param>
         public void HandleKeyEvent(string keyValue, string keyAction) {
             if (keyAction == "KEY_PRESS") {
                 switch (keyValue) {

@@ -9,10 +9,20 @@ using DIKUArcade.Math;
 
 namespace SpaceTaxi_1
 {
+    
+    /// <summary>
+    /// 
+    /// </summary>
     public static class PlayerImage
     {
+        //Field
         private static IBaseImage _taxiImage;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Value"></param>
+        /// <returns></returns>
         public static IBaseImage ImageDecider(int Value)
         {
 

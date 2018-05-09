@@ -10,6 +10,10 @@ namespace SpaceTaxi_1
 {
     internal class Program
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="args"></param>
         public static void Main(string[] args)
         {       
             var game = new Game();

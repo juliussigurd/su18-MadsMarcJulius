@@ -9,10 +9,14 @@ using DIKUArcade.Physics;
 namespace SpaceTaxi_1 {
     public static class Obstacle
     {
-
+        //Fields
         private static List<Entity> obstacles;
         
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="MapEntities"></param>
+        /// <param name="Legends"></param>
         public static void AddObstacles(EntityContainer MapEntities, Dictionary<char, string> Legends)
         {
             obstacles = new List<Entity>();
@@ -24,11 +28,24 @@ namespace SpaceTaxi_1 {
                 }
             }
         }
+        
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static List<Entity> GetObstacles()
         {
             return obstacles;
         }
         
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Player"></param>
+        /// <param name="obstacles"></param>
+        /// <returns></returns>
         public static bool CollisionObstacle (DynamicShape Player, List<Entity> obstacles)
         {
             //var pos = new Vec2F(0.61f, 0.6f);

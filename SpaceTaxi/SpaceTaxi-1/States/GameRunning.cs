@@ -8,7 +8,13 @@ using DIKUArcade.State;
 using DIKUArcade.Timers;
 
 namespace SpaceTaxi_1.States {
+    
+    /// <summary>
+    /// 
+    /// </summary>
     public class GameRunning : IGameEventProcessor<object>, IGameState {
+        
+        //Fields
         private Player player;
         private Entity backGroundImage;
         private List<float> playerXcoordinates;
@@ -23,9 +29,17 @@ namespace SpaceTaxi_1.States {
         private List<CollisionChecker> _levelObstacles;
         private CollisionChecker _collisionChecker;
 
+        
+        /// <summary>
+        /// 
+        /// </summary>
         public static void ResetGameRunning() {
             GameRunning.instance = null;
         }
+        
+        /// <summary>
+        /// 
+        /// </summary>
         public GameRunning() {
             // new player
             // game entities
@@ -77,6 +91,11 @@ namespace SpaceTaxi_1.States {
         }
         
         
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="_filePath"></param>
+        /// <param name="filePathNum"></param>
         private void CreateMap(string[] _filePath, int filePathNum)
         {
             legendsDictionary = CreateLegendDictionary(_filePath, filePathNum);
@@ -87,6 +106,12 @@ namespace SpaceTaxi_1.States {
             playerYcoordinates.Add(Level.GetPlayerPosY());
         }
 
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="_filePath"></param>
+        /// <param name="levelNum"></param>
         private void CreateLevelCollision(string[] _filePath, int levelNum)
         {
             legendsDictionary = CreateLegendDictionary(_filePath, levelNum);
@@ -96,18 +121,29 @@ namespace SpaceTaxi_1.States {
         }
 
         
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static GameRunning GetInstance() {
             return GameRunning.instance ?? (GameRunning.instance = new GameRunning());
         }
         
+        
+        /// <summary>
+        /// 
+        /// </summary>
         public void GameLoop() {
         
         }
         
+        
+        /// <summary>
+        /// 
+        /// </summary>
         public void UpdateGameLogic() {
             RenderState();
-            player.PlayerMove();
-            player.Gravity();
+            player.Physics();
             _levelObstacles[LevelCounter].CheckCollsion();
             if (player.GetsShape().Position.Y >= 1.0f){
                 LevelCounter++;
@@ -115,6 +151,10 @@ namespace SpaceTaxi_1.States {
             }
         }
 
+        
+        /// <summary>
+        /// 
+        /// </summary>
         public void RenderState() {
             backGroundImage.RenderEntity();
             player.RenderPlayer();  
@@ -122,10 +162,19 @@ namespace SpaceTaxi_1.States {
         }
 
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void InitializeGameState() {
             // Left empty on purpose
         }
 
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="keyValue"></param>
+        /// <param name="keyAction"></param>
         public void HandleKeyEvent(string keyValue, string keyAction) {
             if (keyAction == "KEY_PRESS") { }
 
@@ -185,6 +234,13 @@ namespace SpaceTaxi_1.States {
                 
             }
         }
+        
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="eventType"></param>
+        /// <param name="gameEvent"></param>
         public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent) {
             if (eventType == GameEventType.InputEvent) {
                 // if event input is called, process here
