@@ -46,15 +46,15 @@ namespace SpaceTaxi_1.States {
         /// 
         /// </summary>
         public void InitializeGameState() {
-            maxMenuButtons = 2;
-            menuButtons = new Text[maxMenuButtons];
-            backGroundImage = new Entity(new StationaryShape(0.0f, 0.0f, 1.0f, 1.0f),
-                new Image(Path.Combine("Assets", "Images", "SpaceBackground.png")));
-
-            //Size of the buttons
-            menuButtons[0] = new Text("Restart", new Vec2F(0.15f, 0.1f), new Vec2F(0.4f, 0.3f));
-            menuButtons[1] = new Text("Main Menu", new Vec2F(0.15f, 0.0f), new Vec2F(0.4f, 0.3f));
-        }
+                     maxMenuButtons = 2;
+                     menuButtons = new Text[maxMenuButtons];
+                     backGroundImage = new Entity(new StationaryShape(0.0f, 0.0f, 1.0f, 1.0f),
+                         new Image(Path.Combine("Assets", "Images", "SpaceBackground.png")));
+         
+                     //Size of the buttons
+                     menuButtons[0] = new Text("Restart", new Vec2F(0.15f, 0.1f), new Vec2F(0.4f, 0.3f));
+                     menuButtons[1] = new Text("Main Menu", new Vec2F(0.15f, 0.0f), new Vec2F(0.4f, 0.3f));
+                 }
 
         /// <summary>
         /// 

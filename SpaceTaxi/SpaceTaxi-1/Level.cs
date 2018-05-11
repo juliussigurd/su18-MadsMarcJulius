@@ -21,7 +21,6 @@ namespace SpaceTaxi_1 {
 
         //Fields
 
-
         private static Dictionary<char, string> legendsDictionary = new Dictionary<char, string>();
         private static float PlayerPosX = 0f;
         private static float PlayerPosY = 0f;
@@ -132,11 +131,9 @@ namespace SpaceTaxi_1 {
         {
             if (legendsDictionary.ContainsKey(mapString[row][indeks]))
             {
-                AllEntities.AddStationaryEntity(
-                    new StationaryShape(
-                        new Vec2F((float) (((indeks + (1.0f)) / mapString[0].Length) - (1.0f / mapString[0].Length)),
-                            (float) ((21 - row + 1.0f) / 23.0f)),
-                        new Vec2F((float) (1.0f / mapString[0].Length), 1.0f / 23.0f)),
+                AllEntities.AddStationaryEntity(new StationaryShape(new Vec2F((float) (((indeks + (1.0f)) / mapString[0].Length) - (1.0f / mapString[0].Length)),
+                        (float) ((21 - row + 1.0f) / 23.0f)),
+                    new Vec2F((float) (1.0f / mapString[0].Length), 1.0f / 23.0f)),
                     new Image(Path.Combine("Assets", "Images", legendsDictionary[mapString[row][indeks]])));
             }
         }
@@ -168,8 +165,6 @@ namespace SpaceTaxi_1 {
                         new Image(Path.Combine("Assets", "Images", legendsDictionary[mapString[row][indeks]])));
             
         }
-
-        
 
     /// <summary>
         /// The method takes three arguments and places the player a certain place
@@ -205,16 +200,15 @@ namespace SpaceTaxi_1 {
             }
         }       
 
-        public static void changePosX(float newX)
+        public static void ChangePosX(float newX)
         {
             PlayerPosX = newX;
         }
         
-        public static void changePosY(float newY)
+        public static void ChangePosY(float newY)
         {
             PlayerPosY = newY;
         }
-
 
         public static Dictionary<char, string> GetLegendsDictionary()
         {

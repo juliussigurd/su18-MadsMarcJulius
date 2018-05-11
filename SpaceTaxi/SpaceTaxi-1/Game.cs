@@ -54,15 +54,15 @@ namespace SpaceTaxi_1{
                     _win.PollEvents();
                     SpaceBus.GetBus().ProcessEvents();
                     stateMachine.ActiveState.UpdateGameLogic();  
-
                 }
 
-                if (_gameTimer.ShouldRender()){
+                if (_gameTimer.ShouldRender())
+                {
                     _win.Clear();
                     stateMachine.ActiveState.RenderState();
                     _win.SwapBuffers();
                 }
-                
+
                 if (_gameTimer.ShouldReset()){
                     // 1 second has passed - display last captured ups and fps from the timer
                     _win.Title = "Space Taxi | UPS: " + _gameTimer.CapturedUpdates + ", FPS: " +

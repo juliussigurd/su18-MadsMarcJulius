@@ -20,6 +20,7 @@ namespace SpaceTaxi_1
         private Player Player;
         private Entity Explosion;
         private bool GameOverChecker;
+        private bool PlatformChecker;
 
         /// <summary>
         /// 
@@ -41,16 +42,16 @@ namespace SpaceTaxi_1
             if (Obstacle.CollisionObstacle(Player.GetsShape(), Obstacles))
             {
                 Obstacle.CreateExplosion(Player);
-                Player.DeletePlayer();
                 GameOverChecker = true;
                 
-
             } else if (Platform.CollisionPlatform(Player.GetsShape(), Platforms) && Player.GetsShape().Direction.Y > -0.004f)
             {
                 Player.ChangeGravity(0.0f, 0.0f, new Vec2F(0.0f,0.0f));
+                PlatformChecker = true;
             }
             else if (Platform.CollisionPlatform(Player.GetsShape(), Platforms) && Player.GetsShape().Direction.Y < -0.004f)
             {
+                Obstacle.CreateExplosion(Player);
                 GameOverChecker = true;
             }
         }
@@ -58,6 +59,11 @@ namespace SpaceTaxi_1
         public bool GetGameOverChecker()
         {
             return GameOverChecker;
+        }
+
+        public bool GetPlatFormChecker()
+        {
+            return PlatformChecker;
         }
     }
 }

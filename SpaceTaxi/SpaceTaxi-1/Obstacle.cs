@@ -12,7 +12,7 @@ namespace SpaceTaxi_1 {
     {
         //Fields
         private static List<Entity> obstacles;
-        
+
         private static StationaryShape explsionShape;
         private static List<Image> explosionStrides = new List<Image>();
         private static AnimationContainer explosion = new AnimationContainer(8);
@@ -47,7 +47,6 @@ namespace SpaceTaxi_1 {
             }
             return false;
         }
-
         public static void CreateExplosion(Player player)
         {
             

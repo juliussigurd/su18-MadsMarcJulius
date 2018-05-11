@@ -26,14 +26,14 @@ namespace SpaceTaxi_1
         public static IBaseImage ImageDecider(int Value)
         {
 
+            // rightstill -1
+            // leftstill 1
+            // rightMove -2
+            // Leftmove 2
+            // up 10
+            
             switch (Value)
             {
-
-                // rightstill -1
-                // leftstill 1
-                // rightMove -2
-                // Leftmove 2
-                // up 10
 
                 case -2:
                     _taxiImage = new ImageStride(80,
@@ -77,7 +77,6 @@ namespace SpaceTaxi_1
                     _taxiImage = new Image(Path.Combine("Assets", "Images", "Taxi_Thrust_None.png"));
                     break;
             }
-
             return _taxiImage;
         }
     }

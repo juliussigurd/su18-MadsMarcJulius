@@ -58,6 +58,11 @@ namespace SpaceTaxi_1
                 netForce * (Game.keepTrackOfUpdates / 300000.0f);
             _player.Shape.Move();
         }
+
+        public void playerMove()
+        {
+            _player.Shape.Move();
+        }
         
         /// <summary>
         /// 
@@ -111,7 +116,6 @@ namespace SpaceTaxi_1
             _player.Image = PlayerImage.ImageDecider(totalValue);
             _player.RenderEntity(); 
         }
-        
         
         
         /// <summary>
