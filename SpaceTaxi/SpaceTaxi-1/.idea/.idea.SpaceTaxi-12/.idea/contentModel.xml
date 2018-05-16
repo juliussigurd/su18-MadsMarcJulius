@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="$PROJECT_DIR$/../../DIKUArcade/DIKUArcade" t="IncludeRecursive">
+    <e p="C:\Users\Massi\.Rider2017.3\system\resharper-host\local\Transient\ReSharperHost\v11\SolutionCaches\_SpaceTaxi-12.-1885535038.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\DIKUArcade\DIKUArcade" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
       <e p="DIKUArcade.csproj" t="IncludeRecursive" />
       <e p="Entities" t="Include">
@@ -62,13 +63,17 @@
       <e p="Timers" t="Include">
         <e p="GameTimer.cs" t="Include" />
         <e p="StaticTimer.cs" t="Include" />
+        <e p="TimedEvent.cs" t="Include" />
+        <e p="TimedEventContainer.cs" t="Include" />
+        <e p="TimeSpanType.cs" t="Include" />
       </e>
       <e p="Utilities" t="Include">
+        <e p="FileIO.cs" t="Include" />
         <e p="RandomGenerator.cs" t="Include" />
       </e>
       <e p="Window.cs" t="Include" />
     </e>
-    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+    <e p="C:\Users\Massi\OneDrive\Dokumenter\DIKU\SoftwareU\Aflevering\AssignmentDIKUARCADE\su18-MadsMarcJulius\SpaceTaxi\SpaceTaxi-1" t="IncludeRecursive">
       <e p="App.config" t="Include" />
       <e p="bin" t="ExcludeRecursive" />
       <e p="CollisionChecker.cs" t="Include" />
@@ -110,6 +115,5 @@
         <e p="Tests.cs" t="Include" />
       </e>
     </e>
-    <e p="$USER_HOME$/Library/Caches/Rider2017.3/resharper-host/local/Transient/ReSharperHost/v11/SolutionCaches/_SpaceTaxi-12.-780589645.00" t="ExcludeRecursive" />
   </component>
 </project>
