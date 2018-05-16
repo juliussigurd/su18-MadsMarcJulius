@@ -73,6 +73,7 @@ namespace SpaceTaxi_1
                     _taxiImage = new ImageStride(80,
                         ImageStride.CreateStrides(2, Path.Combine("Assets", "Images", "Taxi_Thrust_Bottom_Back.png")));
                     break;
+                
                 default:
                     _taxiImage = new Image(Path.Combine("Assets", "Images", "Taxi_Thrust_None.png"));
                     break;
