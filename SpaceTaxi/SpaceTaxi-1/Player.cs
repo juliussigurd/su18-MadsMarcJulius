@@ -10,6 +10,7 @@ using DIKUArcade.EventBus;
 using DIKUArcade.Graphics;
 using DIKUArcade.Math;
   using DIKUArcade.Timers;
+  using SpaceTaxi_1.States;
 
 namespace SpaceTaxi_1
 {
@@ -47,11 +48,6 @@ namespace SpaceTaxi_1
        
         }
 
-        public void DeletePlayer()
-        {
-            _player.DeleteEntity();
-        }
-        
         public void Physics() {
             var netForce = boostForce + gravity;
              shape.Direction +=
@@ -59,7 +55,7 @@ namespace SpaceTaxi_1
             _player.Shape.Move();
         }
 
-        public void playerMove()
+        public void PlayerMove()
         {
             _player.Shape.Move();
         }
@@ -72,15 +68,18 @@ namespace SpaceTaxi_1
         public void SetPosition(float x, float y)
         {
             shape.Position.X = x;
-            shape.Position.Y = y;
-            
+            shape.Position.Y = y;         
+        }
+        
+        public void Changephysics()
+        {
+            gravity = new Vec2F(0.0f, 0.0f);
+            shape.Direction = new Vec2F(0.0f,0.0f);
         }
 
-        public void ChangeGravity( float newGravity, float newBoost, Vec2F newdirection)
+        public void ChangeGravity(float newGravity)
         {
             gravity = new Vec2F(0.0f, newGravity);
-            boostForce = new Vec2F(0.0f, newBoost);
-            shape.Direction = new Vec2F(0.0f,0.0f);
         }
         
         
@@ -136,13 +135,23 @@ namespace SpaceTaxi_1
                          break;
                      
                     case "BOOSTER_TO_LEFT":
-                        boostForce.X -= 1;
+                        if (shape.Direction.Y == 0.0f) {
+                            
+                            boostForce.X = 0;
+                        } else {
+                            boostForce.X -= 1;
+                        }
                         rightValue = 0;
-                        leftValue = 2;
-                        break;
+                         leftValue = 2;
+                         break;
                     
-                    case "BOOSTER_TO_RIGHT":
-                        boostForce.X += 1;
+                    case "BOOSTER_TO_RIGHT":            
+                        if (shape.Direction.Y == 0.0f) {
+                            
+                            boostForce.X = 0;
+                        } else {
+                            boostForce.X += 1;
+                        }
                         leftValue = 0;
                         rightValue = -2;
                         break;

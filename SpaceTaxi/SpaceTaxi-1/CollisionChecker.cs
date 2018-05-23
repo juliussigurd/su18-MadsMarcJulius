@@ -44,10 +44,12 @@ namespace SpaceTaxi_1
                 Obstacle.CreateExplosion(Player);
                 GameOverChecker = true;
                 
-            } else if (Platform.CollisionPlatform(Player.GetsShape(), Platforms) && Player.GetsShape().Direction.Y > -0.004f)
+            } else if (Platform.CollisionPlatform(Player.GetsShape(), Platforms) &&
+                       Player.GetsShape().Direction.Y > -0.004f)
             {
-                Player.ChangeGravity(0.0f, 0.0f, new Vec2F(0.0f,0.0f));
+                Player.Changephysics();
                 PlatformChecker = true;
+
             }
             else if (Platform.CollisionPlatform(Player.GetsShape(), Platforms) && Player.GetsShape().Direction.Y < -0.004f)
             {

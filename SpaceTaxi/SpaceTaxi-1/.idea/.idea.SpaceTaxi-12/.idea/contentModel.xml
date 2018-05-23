@@ -62,8 +62,12 @@
       <e p="Timers" t="Include">
         <e p="GameTimer.cs" t="Include" />
         <e p="StaticTimer.cs" t="Include" />
+        <e p="TimedEvent.cs" t="Include" />
+        <e p="TimedEventContainer.cs" t="Include" />
+        <e p="TimeSpanType.cs" t="Include" />
       </e>
       <e p="Utilities" t="Include">
+        <e p="FileIO.cs" t="Include" />
         <e p="RandomGenerator.cs" t="Include" />
       </e>
       <e p="Window.cs" t="Include" />
