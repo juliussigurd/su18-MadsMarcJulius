@@ -9,6 +9,7 @@
         MainMenu,
         Gamelevels,
         GameControls,
-        GameOver
+        GameOver,
+        GameVictory
     }
 }

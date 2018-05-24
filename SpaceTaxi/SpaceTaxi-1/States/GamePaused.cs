@@ -20,6 +20,7 @@ namespace SpaceTaxi_1.States {
         private static GamePaused instance;
         
         private Entity backGroundImage;
+        private Entity gamePaused;
         private Text[] menuButtons;
         private int activeMenuButton;
         private int maxMenuButtons;
@@ -52,10 +53,12 @@ namespace SpaceTaxi_1.States {
             menuButtons = new Text[maxMenuButtons];
             backGroundImage = new Entity(new StationaryShape(0.0f, 0.0f, 1.0f, 1.0f),
                 new Image(Path.Combine("Assets", "Images", "SpaceBackground.png")));
+            gamePaused = new Entity(new StationaryShape(0.1f, 0.4f, 0.8f, 0.5f),
+                new Image(Path.Combine("Assets", "Images", "GamePaused.png")));
 
             //Size of the buttons
-            menuButtons[0] = new Text("Resume", new Vec2F(0.15f, 0.2f), new Vec2F(0.4f, 0.3f));
-            menuButtons[1] = new Text("Main Menu", new Vec2F(0.15f, 0.1f), new Vec2F(0.4f, 0.3f));
+            menuButtons[0] = new Text("Resume", new Vec2F(0.31f, 0.2f), new Vec2F(0.4f, 0.3f));
+            menuButtons[1] = new Text("Main Menu", new Vec2F(0.31f, 0.1f), new Vec2F(0.4f, 0.3f));
         }
 
         
@@ -72,10 +75,11 @@ namespace SpaceTaxi_1.States {
             //Sets the color of the active button to green
             InitializeGameState();
             menuButtons[(activeMenuButton + 1) % 2].SetColor(Color.White);
-            menuButtons[activeMenuButton].SetColor(Color.Blue);
+            menuButtons[activeMenuButton].SetColor(Color.Yellow);
             
 
             backGroundImage.RenderEntity();
+            gamePaused.RenderEntity();
 
             //Draws the two buttons 
             menuButtons[0].RenderText();

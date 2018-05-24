@@ -17,6 +17,7 @@ namespace SpaceTaxi_1.States {
         
         //Fields
         private Player player;
+        private Passenger passenger;
         private Entity backGroundImage;
         private List<float> playerXcoordinates;
         private List<float> playerYcoordinates;
@@ -47,13 +48,14 @@ namespace SpaceTaxi_1.States {
             // new player
             // game entities
             player = new Player();
-            player.SetExtent(0.1f, 0.1f);
+            player.SetExtent(0.07f, 0.07f);
+            
             // defines the different events
 
             // game assets
             backGroundImage = new Entity(
                 new StationaryShape(new Vec2F(0.0f, 0.0f), new Vec2F(1.0f, 1.0f)),
-                new Image(Path.Combine("Assets", "Images", "SpaceBackground.png")));
+                new Image(Path.Combine("Assets", "Images", "GameSpaceBaground.png")));
             
             SpaceBus.GetBus().Subscribe(GameEventType.InputEvent, this);
             SpaceBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
@@ -225,13 +227,11 @@ namespace SpaceTaxi_1.States {
                     GameEventFactory<object>.CreateGameEventForAllProcessors(
                         GameEventType.GameStateEvent, this, "GAME_PAUSED", "", "")); 
                 break;
-                
-            case "KEY_O":
+            case "KEY_E":
                 SpaceBus.GetBus().RegisterEvent(
                     GameEventFactory<object>.CreateGameEventForAllProcessors(
-                        GameEventType.GameStateEvent, this, "GAME_OVER", "", "")); 
+                        GameEventType.GameStateEvent, this, "GAME_VICTORY", "", "")); 
                 break;
-                
             default: 
                 break;
             }

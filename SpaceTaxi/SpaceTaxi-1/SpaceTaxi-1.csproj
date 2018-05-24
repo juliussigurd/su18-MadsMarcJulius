@@ -44,7 +44,6 @@
   <ItemGroup>
     <Compile Include="CollisionChecker.cs" />
     <Compile Include="Game.cs" />
-    <Compile Include="Goal.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="Obstacle.cs" />
     <Compile Include="Passenger.cs" />
@@ -61,6 +60,7 @@
     <Compile Include="States\GamePaused.cs" />
     <Compile Include="States\GameRunning.cs" />
     <Compile Include="States\GameStateType.cs" />
+    <Compile Include="States\GameVictory.cs" />
     <Compile Include="States\MainMenu.cs" />
     <Compile Include="States\StateTransformer.cs" />
   </ItemGroup>

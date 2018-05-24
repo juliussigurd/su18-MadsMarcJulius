@@ -35,6 +35,9 @@ namespace SpaceTaxi_1.States {
             case "GAME_OVER":
                 return GameStateType.GameOver;
                 
+            case "GAME_VICTORY":
+                return GameStateType.GameVictory;
+                
             default:
                 throw new ArgumentException("No match");
             }
@@ -68,6 +71,9 @@ namespace SpaceTaxi_1.States {
                 
             case GameStateType.GameOver:
                 return "GAME_OVER";
+                
+            case GameStateType.GameVictory:
+                return "GAME_VICTORY";
                 
             default:
                 throw new ArgumentException("No match");
