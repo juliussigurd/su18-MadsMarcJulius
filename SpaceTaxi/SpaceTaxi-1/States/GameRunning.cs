@@ -31,7 +31,7 @@ namespace SpaceTaxi_1.States {
         private static GameRunning instance;
         private List<CollisionChecker> _levelObstacles;
         private CollisionChecker _collisionChecker;
-
+        private StaticTimer _stopwatch;
 
         
         /// <summary>
@@ -103,8 +103,8 @@ namespace SpaceTaxi_1.States {
                 SpaceBus.GetBus().RegisterEvent(
                     GameEventFactory<object>.CreateGameEventForAllProcessors(
                         GameEventType.GameStateEvent, this, "GAME_OVER", "", "")); 
-                GameRunning.ResetGameInstance();
-                }
+                GameRunning.ResetGameInstance(); 
+            }
         }
 
         /// <summary>
