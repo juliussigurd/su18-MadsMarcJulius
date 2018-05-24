@@ -303,7 +303,7 @@ namespace TestProject1
             
             while (!collisionTest.GetGameOverChecker())
             {
-                _testPlayer.playerMove();
+                _testPlayer.PlayerMove();
                 collisionTest.CheckCollsion();
             }          
             Assert.AreEqual(collisionTest.GetGameOverChecker(), true);
@@ -328,7 +328,7 @@ namespace TestProject1
             
             while (!collisionTest.GetPlatFormChecker())
             {
-                _testPlayer.playerMove();
+                _testPlayer.PlayerMove();
                 collisionTest.CheckCollsion();
             }          
             Assert.AreEqual(collisionTest.GetPlatFormChecker(), true);
@@ -353,7 +353,7 @@ namespace TestProject1
             
             while (!collisionTest.GetGameOverChecker())
             {
-                _testPlayer.playerMove();
+                _testPlayer.PlayerMove();
                 collisionTest.CheckCollsion();
             }          
             Assert.AreEqual(collisionTest.GetGameOverChecker(), true);
