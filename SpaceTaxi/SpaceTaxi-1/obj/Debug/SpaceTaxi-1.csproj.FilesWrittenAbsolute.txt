@@ -1,9 +1,0 @@
-/Users/juliussigurd/Desktop/SU /su18-MadsMarcJulius/SpaceTaxi/SpaceTaxi-1/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
-/Users/juliussigurd/Desktop/SU /su18-MadsMarcJulius/SpaceTaxi/SpaceTaxi-1/bin/Debug/SpaceTaxi-1.exe.config
-/Users/juliussigurd/Desktop/SU /su18-MadsMarcJulius/SpaceTaxi/SpaceTaxi-1/bin/Debug/SpaceTaxi-1.pdb
-/Users/juliussigurd/Desktop/SU /su18-MadsMarcJulius/SpaceTaxi/SpaceTaxi-1/bin/Debug/SpaceTaxi-1.exe
-/Users/juliussigurd/Desktop/SU /su18-MadsMarcJulius/SpaceTaxi/SpaceTaxi-1/obj/Debug/SpaceTaxi-1.exe
-/Users/juliussigurd/Desktop/SU /su18-MadsMarcJulius/SpaceTaxi/SpaceTaxi-1/obj/Debug/SpaceTaxi-1.pdb
-/Users/juliussigurd/Desktop/SU /su18-MadsMarcJulius/SpaceTaxi/SpaceTaxi-1/bin/Debug/DIKUArcade.dll
-/Users/juliussigurd/Desktop/SU /su18-MadsMarcJulius/SpaceTaxi/SpaceTaxi-1/bin/Debug/DIKUArcade.pdb
-/Users/juliussigurd/Desktop/SU /su18-MadsMarcJulius/SpaceTaxi/SpaceTaxi-1/bin/Debug/OpenTK.dll

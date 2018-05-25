@@ -18,6 +18,7 @@ namespace SpaceTaxi_1.States {
         private static GameControls instance;
 
         private Entity backGroundImage;
+        private Entity gameControls;
         private Text button;
 
 
@@ -45,8 +46,10 @@ namespace SpaceTaxi_1.States {
         public void InitializeGameState() {
             backGroundImage = new Entity(new StationaryShape(0.0f, 0.0f, 1.0f, 1.0f),
                 new Image(Path.Combine("Assets", "Images", "SpaceBackground.png")));
-            button = new Text("Back", new Vec2F(0.15f, 0.0f), new Vec2F(0.4f, 0.3f));
-            button.SetColor(Color.Blue);
+            gameControls = new Entity(new StationaryShape(0.05f, 0.40f, 0.9f, 0.6f),
+                new Image(Path.Combine("Assets", "Images", "GameControls.png")));
+            button = new Text("Back", new Vec2F(0.31f, 0.0f), new Vec2F(0.4f, 0.3f));
+            button.SetColor(Color.Yellow);
         }
 
         
@@ -65,6 +68,7 @@ namespace SpaceTaxi_1.States {
             //Sets the color of the active button to green
             InitializeGameState();
             backGroundImage.RenderEntity();
+            gameControls.RenderEntity();
             button.RenderText();
         }
         

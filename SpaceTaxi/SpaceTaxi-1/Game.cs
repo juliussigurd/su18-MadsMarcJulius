@@ -36,7 +36,7 @@ namespace SpaceTaxi_1{
             SpaceBus.GetBus().Subscribe(GameEventType.InputEvent, stateMachine);
 
             // game timer, events
-            _gameTimer = new GameTimer(60); // 60 UPS, no FPS limit
+            _gameTimer = new GameTimer(60, 60); // 60 UPS, no FPS limit
 
             }
 

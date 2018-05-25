@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.Remoting.Channels;
+using System.Threading;
+using System.Timers;
 using DIKUArcade.Entities;
 using DIKUArcade.EventBus;
 using DIKUArcade.Graphics;
@@ -17,6 +20,7 @@ namespace SpaceTaxi_1.States {
         
         //Fields
         private Player player;
+        private Passenger passenger;
         private Entity backGroundImage;
         private List<float> playerXcoordinates;
         private List<float> playerYcoordinates;
@@ -31,7 +35,10 @@ namespace SpaceTaxi_1.States {
         private static GameRunning instance;
         private List<CollisionChecker> _levelObstacles;
         private CollisionChecker _collisionChecker;
-        private StaticTimer _stopwatch;
+        private List<List<Passenger>> levelPassengers;
+        private List<Dictionary<int, string>> passengerListInfo;
+        private System.Timers.Timer deathtimer;
+
 
         
         /// <summary>
@@ -45,28 +52,39 @@ namespace SpaceTaxi_1.States {
         /// 
         /// </summary>
         public GameRunning() {
+            
             // new player
             // game entities
             player = new Player();
             player.SetExtent(0.05f, 0.05f);
+            
             // defines the different events
-
             // game assets
             backGroundImage = new Entity(
                 new StationaryShape(new Vec2F(0.0f, 0.0f), new Vec2F(1.0f, 1.0f)),
-                new Image(Path.Combine("Assets", "Images", "SpaceBackground.png")));
+                new Image(Path.Combine("Assets", "Images", "GameSpaceBaground.png")));
             
             SpaceBus.GetBus().Subscribe(GameEventType.InputEvent, this);
             SpaceBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
             
-            // _level = new Level();
             _levelObstacles = new List<CollisionChecker>();
             levels = new List<EntityContainer>();
             levelobstacles = new List<EntityContainer>();
             levelplatforms = new List<EntityContainer>();
+            levelPassengers = new List<List<Passenger>>();
+              
             playerXcoordinates = new List<float>();
             playerYcoordinates = new List<float>();
+            passengerListInfo = new List<Dictionary<int, string>>();
+            
+            deathtimer = new System.Timers.Timer(interval: 1000);
+            //deathtimer.Elapsed += TimerMethod;
 
+            for (int i = 0; i < filePath.Length; i++)
+            {
+                levelPassengers.Add(new List<Passenger>());
+            }
+            
             for (int i = 0; i < filePath.Length; i++){
                 CreateMap(filePath,i);  
             }
@@ -80,6 +98,7 @@ namespace SpaceTaxi_1.States {
             player.SetPosition(playerXcoordinates[LevelCounter], playerYcoordinates[LevelCounter]);
             
         }
+
         
         /// <summary>
         /// This method takes two arguments and render the map by using the methods from the level class. 
@@ -91,21 +110,28 @@ namespace SpaceTaxi_1.States {
         {
             levelInfo = Level.ReadFile((_filePath[filePathNum]));
             legendsDictionary = new Dictionary<char, string>();
-            Level.SetDictionaryToNew();
+            Level.SetLegendDictionaryToNew();
             Level.ReadLegends(levelInfo);
             return Level.GetLegendsDictionary();
         }
 
         private void CheckGameOver(int levelNum)
         {
-            if (_levelObstacles[levelNum].GetGameOverChecker())
-            {
+            if (_levelObstacles[levelNum].GetGameOverChecker()) {
+                Obstacle.CreateExplosion(player);
                 SpaceBus.GetBus().RegisterEvent(
                     GameEventFactory<object>.CreateGameEventForAllProcessors(
                         GameEventType.GameStateEvent, this, "GAME_OVER", "", "")); 
-                GameRunning.ResetGameInstance(); 
+                ResetGameInstance();
             }
         }
+        /*private void TimerMethod(object s, System.Timers.ElapsedEventArgs e) {
+            deathtimer.Enabled = false;
+            SpaceBus.GetBus().RegisterEvent(
+                GameEventFactory<object>.CreateGameEventForAllProcessors(
+                    GameEventType.GameStateEvent, this, "GAME_OVER", "", "")); 
+            
+        }*/
 
         /// <summary>
         /// 
@@ -116,6 +142,7 @@ namespace SpaceTaxi_1.States {
         {
             legendsDictionary = CreateLegendDictionary(_filePath, filePathNum);
             Level.ReadPlatforms(levelInfo[25]);
+            Console.WriteLine(Level.GetDiffrenPlatforms().Count);
             Level.AddAllEntitiesToContainer(levelInfo, legendsDictionary);
             levels.Add(Level.GetLevelEntities());
             levelobstacles.Add(Level.GetLevelObstacles());
@@ -123,9 +150,33 @@ namespace SpaceTaxi_1.States {
             
             playerXcoordinates.Add(Level.GetPlayerPosX());
             playerYcoordinates.Add(Level.GetPlayerPosY());
+            
+            Level.UpdatePassengerInfo(levelInfo);
+            
+            passengerListInfo = Level.GetPassengerInfo();
+
+            foreach (var passengerinfo in passengerListInfo)
+            {
+                passenger = new Passenger(passengerinfo[1], int.Parse(passengerinfo[2]),char.Parse(passengerinfo[3]), 
+                                          passengerinfo[4], int.Parse(passengerinfo[5]), int.Parse(passengerinfo[6]),
+                                          Level.GetDiffrenPlatforms());
+                passenger.SetExtent(0.02f,0.05f);
+                
+                Console.WriteLine(Level.GetDiffrenPlatforms().Count);
+                
+                passenger.SetPosition(
+                Level.GetDiffrenPlatforms()[passenger.GetPlatFormSpawn()][4].Shape.Position.X,
+                Level.GetDiffrenPlatforms()[passenger.GetPlatFormSpawn()][4].Shape.Position.Y + 0.045f);
+                
+                levelPassengers[filePathNum].Add(passenger);
+
+            }
+            
+          
+            
+            //Console.WriteLine(levelPassengers[filePathNum].Count);
         }
 
-        
         /// <summary>
         /// 
         /// </summary>
@@ -133,9 +184,9 @@ namespace SpaceTaxi_1.States {
         /// <param name="levelNum"></param>
         private void CreateLevelCollision(string[] _filePath, int levelNum)
         {
-            legendsDictionary = CreateLegendDictionary(_filePath, levelNum);
-            _levelObstacles.Add(new CollisionChecker(levelobstacles[levelNum], levelplatforms[levelNum],
-                player));
+             legendsDictionary = CreateLegendDictionary(_filePath, levelNum);
+             _levelObstacles.Add(new CollisionChecker(levelobstacles[levelNum], levelplatforms[levelNum],
+             player));
         }
 
         
@@ -152,9 +203,6 @@ namespace SpaceTaxi_1.States {
             GameRunning.instance = new GameRunning();
         }
         
-        /// <summary>
-        /// 
-        /// </summary>
         public void GameLoop() {
         
         }
@@ -163,12 +211,14 @@ namespace SpaceTaxi_1.States {
         /// <summary>
         /// 
         /// </summary>
-        public void UpdateGameLogic()
-        {
+        public void UpdateGameLogic(){
             CheckGameOver(LevelCounter);
-            
             RenderState();
             player.Physics();
+            foreach (Passenger passenger in levelPassengers[LevelCounter])
+            {
+                passenger.PassengerMove();
+            }
             _levelObstacles[LevelCounter].CheckCollsion();
             CheckGameOver(LevelCounter);
             if (player.GetsShape().Position.Y >= 1.0f){
@@ -184,6 +234,10 @@ namespace SpaceTaxi_1.States {
         /// </summary>
         public void RenderState() {
             backGroundImage.RenderEntity();
+            foreach (Passenger passenger in levelPassengers[LevelCounter])
+            {
+                passenger.RenderPassenger();
+            }
             player.RenderPlayer();  
             levels[LevelCounter].RenderEntities();
             Obstacle.getExplosion().RenderAnimations();
@@ -226,13 +280,11 @@ namespace SpaceTaxi_1.States {
                     GameEventFactory<object>.CreateGameEventForAllProcessors(
                         GameEventType.GameStateEvent, this, "GAME_PAUSED", "", "")); 
                 break;
-                
-            case "KEY_O":
+            case "KEY_E":
                 SpaceBus.GetBus().RegisterEvent(
                     GameEventFactory<object>.CreateGameEventForAllProcessors(
-                        GameEventType.GameStateEvent, this, "GAME_OVER", "", "")); 
+                        GameEventType.GameStateEvent, this, "GAME_VICTORY", "", "")); 
                 break;
-                
             default: 
                 break;
             }

@@ -20,6 +20,7 @@ namespace SpaceTaxi_1.States {
         private static GameOver instance;
 
         private Entity backGroundImage;
+        private Entity gameOver;
         private Text[] menuButtons;
         private int activeMenuButton;
         private int maxMenuButtons;
@@ -49,11 +50,13 @@ namespace SpaceTaxi_1.States {
                      maxMenuButtons = 2;
                      menuButtons = new Text[maxMenuButtons];
                      backGroundImage = new Entity(new StationaryShape(0.0f, 0.0f, 1.0f, 1.0f),
-                         new Image(Path.Combine("Assets", "Images", "SpaceBackground.png")));
+                         new Image(Path.Combine("Assets", "Images", "SpaceBackground2.png")));
+                     gameOver = new Entity(new StationaryShape(0.1f, 0.4f, 0.8f, 0.5f),
+                        new Image(Path.Combine("Assets", "Images", "GameOver.png")));
          
                      //Size of the buttons
-                     menuButtons[0] = new Text("Restart", new Vec2F(0.15f, 0.1f), new Vec2F(0.4f, 0.3f));
-                     menuButtons[1] = new Text("Main Menu", new Vec2F(0.15f, 0.0f), new Vec2F(0.4f, 0.3f));
+                     menuButtons[0] = new Text("Restart", new Vec2F(0.31f, 0.15f), new Vec2F(0.4f, 0.3f));
+                     menuButtons[1] = new Text("Main Menu", new Vec2F(0.31f, 0.05f), new Vec2F(0.4f, 0.3f));
                  }
 
         /// <summary>
@@ -71,10 +74,11 @@ namespace SpaceTaxi_1.States {
             //Sets the color of the active button to green
             InitializeGameState();
             menuButtons[(activeMenuButton + 1) % 2].SetColor(Color.White);
-            menuButtons[activeMenuButton].SetColor(Color.Blue);
+            menuButtons[activeMenuButton].SetColor(Color.Yellow);
             
 
             backGroundImage.RenderEntity();
+            gameOver.RenderEntity();
 
             //Draws the button 
             menuButtons[0].RenderText();
@@ -101,7 +105,7 @@ namespace SpaceTaxi_1.States {
 
                     break;
                 case "KEY_DOWN":
-                    Console.WriteLine(activeMenuButton);
+                    //Console.WriteLine(activeMenuButton);
                     if (activeMenuButton == maxMenuButtons - 1) {
                         activeMenuButton = 0;
                     } else {
@@ -113,6 +117,7 @@ namespace SpaceTaxi_1.States {
                 case "KEY_ENTER":
                     switch (activeMenuButton) {
                     case 0:
+                        //GameRunning.ResetGameInstance();
                         SpaceBus.GetBus().RegisterEvent(
                             GameEventFactory<object>.CreateGameEventForAllProcessors(
                                 GameEventType.GameStateEvent, this, "GAME_RUNNING", "", ""));

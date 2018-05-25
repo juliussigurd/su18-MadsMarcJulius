@@ -41,7 +41,8 @@ namespace SpaceTaxi_1
         {
             if (Obstacle.CollisionObstacle(Player.GetsShape(), Obstacles))
             {
-                Obstacle.CreateExplosion(Player);
+                //TODO: lav det i player
+                Player.alive = false;
                 GameOverChecker = true;
                 
             } else if (Platform.CollisionPlatform(Player.GetsShape(), Platforms) &&

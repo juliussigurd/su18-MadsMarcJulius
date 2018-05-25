@@ -1,16 +1,7 @@
-
-﻿ using System.Collections.Generic;
-using System.IO;
- using System.Xml.Schema;
- using DIKUArcade.Entities;
-﻿using System.IO;
 using DIKUArcade.Entities;
-
 using DIKUArcade.EventBus;
 using DIKUArcade.Graphics;
 using DIKUArcade.Math;
-  using DIKUArcade.Timers;
-  using SpaceTaxi_1.States;
 
 namespace SpaceTaxi_1
 {
@@ -30,7 +21,7 @@ namespace SpaceTaxi_1
         private int totalValue;
         private Vec2F gravity;
         private Vec2F boostForce;
-        
+        public bool alive = true;
         private readonly DynamicShape shape;
         private readonly Image taxiBoosterOffImageLeft;
         private readonly Image taxiBoosterOffImageRight;
@@ -45,14 +36,15 @@ namespace SpaceTaxi_1
             _player = new Entity(shape, PlayerImage.ImageDecider(totalValue));
             gravity = new Vec2F(0.0f, -0.3f);
             boostForce =  new Vec2F(0.0f, 0.0f);
-       
         }
 
         public void Physics() {
-            var netForce = boostForce + gravity;
-             shape.Direction +=
-                netForce * (Game.keepTrackOfUpdates / 300000.0f);
-            _player.Shape.Move();
+            if (alive) {
+                var netForce = boostForce + gravity;
+                shape.Direction +=
+                    netForce * (Game.keepTrackOfUpdates / 300000.0f);
+                _player.Shape.Move();
+            }
         }
 
         public void PlayerMove()
@@ -110,10 +102,11 @@ namespace SpaceTaxi_1
         /// </summary>
         public void RenderPlayer()
         {
-            //TODO: Next version needs animation. Skipped for clarity.
-            totalValue = rightValue + leftValue + upValue;
-            _player.Image = PlayerImage.ImageDecider(totalValue);
-            _player.RenderEntity(); 
+            if (alive) {
+                totalValue = rightValue + leftValue + upValue;
+                _player.Image = PlayerImage.ImageDecider(totalValue);
+                _player.RenderEntity(); 
+            }
         }
         
         

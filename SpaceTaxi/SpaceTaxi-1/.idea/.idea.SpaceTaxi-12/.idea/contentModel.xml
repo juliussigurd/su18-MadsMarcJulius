@@ -77,7 +77,6 @@
       <e p="bin" t="ExcludeRecursive" />
       <e p="CollisionChecker.cs" t="Include" />
       <e p="Game.cs" t="Include" />
-      <e p="Goal.cs" t="Include" />
       <e p="Level.cs" t="Include" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="Obstacle.cs" t="Include" />
@@ -101,6 +100,7 @@
         <e p="GamePaused.cs" t="Include" />
         <e p="GameRunning.cs" t="Include" />
         <e p="GameStateType.cs" t="Include" />
+        <e p="GameVictory.cs" t="Include" />
         <e p="MainMenu.cs" t="Include" />
         <e p="StateTransformer.cs" t="Include" />
       </e>

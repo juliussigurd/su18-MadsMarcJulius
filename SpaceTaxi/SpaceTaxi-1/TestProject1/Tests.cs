@@ -75,28 +75,28 @@ namespace TestProject1
         [Test]
         public void ReadLegendTest1()
         {
-            Level.SetDictionaryToNew();
+            Level.SetLegendDictionaryToNew();
             Level.ReadLegend("j) ironstone-lower-right.png");
             Assert.AreEqual(Level.GetLegendsDictionary()['j'], "ironstone-lower-right.png");
         }
         [Test]
         public void ReadLegendTest2()
         {    
-            Level.SetDictionaryToNew();
+            Level.SetLegendDictionaryToNew();
             Level.ReadLegend("");
             Assert.AreEqual(Level.GetLegendsDictionary().Count, 0);
         }
         [Test]
         public void ReadLegendTest3()
         {
-            Level.SetDictionaryToNew();
+            Level.SetLegendDictionaryToNew();
             Level.ReadLegend("asds,jdhbfslkdf");
             Assert.AreEqual(Level.GetLegendsDictionary().Count, 0);
         }
         [Test]
         public void ReadLegendTest4()
         {
-            Level.SetDictionaryToNew();
+            Level.SetLegendDictionaryToNew();
             Level.ReadLegend("019283joijalksasd");
             Level.ReadLegend("l) ironstone-lower-left.png");
             Level.ReadLegend("");
@@ -108,7 +108,7 @@ namespace TestProject1
         public void AddEntityToContainerTest1()
         {
             _levelinfo = Level.ReadFile(_filePath[1]);
-            Level.SetDictionaryToNew();
+            Level.SetLegendDictionaryToNew();
             Level.ReadLegends(_levelinfo);
             _dictionary = Level.GetLegendsDictionary();
             Level.AddEntityToContainer(_levelinfo, _dictionary, 0, 0);
@@ -120,7 +120,7 @@ namespace TestProject1
         {
             Level.SetAllEntitiesToNew();
             _levelinfo = Level.ReadFile(_filePath[1]);
-            Level.SetDictionaryToNew();
+            Level.SetLegendDictionaryToNew();
             Level.ReadLegends(_levelinfo);
             _dictionary = Level.GetLegendsDictionary();
             Level.AddEntityToContainer(_levelinfo, _dictionary, 12, 3);
@@ -131,7 +131,7 @@ namespace TestProject1
         {
             Level.SetAllEntitiesToNew();
             _levelinfo = Level.ReadFile(_filePath[0]);
-            Level.SetDictionaryToNew();
+            Level.SetLegendDictionaryToNew();
             Level.ReadLegends(_levelinfo);
             _dictionary = Level.GetLegendsDictionary();
             Level.AddEntityToContainer(_levelinfo, _dictionary, 21, 13);
@@ -143,7 +143,7 @@ namespace TestProject1
         {
             _levelinfo = Level.ReadFile(_filePath[1]);
             Level.ReadPlatforms(_levelinfo[25]);
-            Level.SetDictionaryToNew();
+            Level.SetLegendDictionaryToNew();
             Level.ReadLegends(_levelinfo);
             _dictionary = Level.GetLegendsDictionary();
             Level.AddObstacle(_levelinfo, _dictionary, 0, 0);
@@ -155,7 +155,7 @@ namespace TestProject1
             Level.SetObstaclesToNew();
             _levelinfo = Level.ReadFile(_filePath[0]);
             Level.ReadPlatforms(_levelinfo[25]);
-            Level.SetDictionaryToNew();
+            Level.SetLegendDictionaryToNew();
             Level.ReadLegends(_levelinfo);
             _dictionary = Level.GetLegendsDictionary();
             Level.AddObstacle(_levelinfo, _dictionary, 12, 3);
@@ -167,7 +167,7 @@ namespace TestProject1
             Level.SetObstaclesToNew();
             _levelinfo = Level.ReadFile(_filePath[0]);
             Level.ReadPlatforms(_levelinfo[25]);
-            Level.SetDictionaryToNew();
+            Level.SetLegendDictionaryToNew();
             Level.ReadLegends(_levelinfo);
             _dictionary = Level.GetLegendsDictionary();
             Level.AddObstacle(_levelinfo, _dictionary, 21, 13);
@@ -179,7 +179,7 @@ namespace TestProject1
         {
             _levelinfo = Level.ReadFile(_filePath[1]);
             Level.ReadPlatforms(_levelinfo[25]);
-            Level.SetDictionaryToNew();
+            Level.SetLegendDictionaryToNew();
             Level.ReadLegends(_levelinfo);
             _dictionary = Level.GetLegendsDictionary();
             Level.AddPlatform(_levelinfo, _dictionary, 0, 0);
@@ -192,7 +192,7 @@ namespace TestProject1
             Level.SetPlatformsToNew();
             _levelinfo = Level.ReadFile(_filePath[0]);
             Level.ReadPlatforms(_levelinfo[25]);
-            Level.SetDictionaryToNew();
+            Level.SetLegendDictionaryToNew();
             Level.ReadLegends(_levelinfo);
             _dictionary = Level.GetLegendsDictionary();
             Level.AddPlatform(_levelinfo, _dictionary, 12, 3);
@@ -204,7 +204,7 @@ namespace TestProject1
             Level.SetPlatformsToNew();
             _levelinfo = Level.ReadFile(_filePath[0]);
             Level.ReadPlatforms(_levelinfo[25]);
-            Level.SetDictionaryToNew();
+            Level.SetLegendDictionaryToNew();
             Level.ReadLegends(_levelinfo);
             _dictionary = Level.GetLegendsDictionary();
             Level.AddPlatform(_levelinfo, _dictionary, 21, 13);

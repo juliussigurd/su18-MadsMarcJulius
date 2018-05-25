@@ -7,29 +7,38 @@ using System.IO;
 using DIKUArcade.Graphics;
 using DIKUArcade.Math;
 using System;
+using System.Diagnostics;
 
 namespace SpaceTaxi_1 {
     
     public static class Level
     {
-
-
         private static EntityContainer Obstacles = new EntityContainer();
         private static EntityContainer Platforms = new EntityContainer();
         private static EntityContainer AllEntities = new EntityContainer();
         private static List<char> PlatformLegends = new List<char>();
-
-        //Fields
-
+        private static Dictionary<int, string> PassengerInfo = new Dictionary<int, string>();
         private static Dictionary<char, string> legendsDictionary = new Dictionary<char, string>();
+        private static List<Dictionary<int, string>> passengerInfoList = new List<Dictionary<int, string>>();
+        private static Dictionary<char, List<Entity>> diffrentPlatforms = new Dictionary<char, List<Entity>>();
         private static float PlayerPosX = 0f;
         private static float PlayerPosY = 0f;
 
         private static string[] LevelInfo;
 
-        public static void SetDictionaryToNew()
+        public static void SetLegendDictionaryToNew()
         {
             legendsDictionary = new Dictionary<char, string>();
+        }
+
+        public static void SetPassengerInfoToNew()
+        {
+            PassengerInfo = new Dictionary<int, string>();
+        }
+
+        public static void SetPassengerInfoListToNew()
+        {
+            passengerInfoList = new List<Dictionary<int, string>>();
         }
 
         public static void SetAllEntitiesToNew()
@@ -45,6 +54,11 @@ namespace SpaceTaxi_1 {
         public static void SetPlatformsToNew()
         {
             Platforms = new EntityContainer();
+        }
+
+        public static void SetDiffrentPlatformsToNew()
+        {
+            diffrentPlatforms = new Dictionary<char, List<Entity>>();
         }
 
 
@@ -86,6 +100,70 @@ namespace SpaceTaxi_1 {
             }
         }
 
+        public static void UpdatePassengerInfo(string[] mapString)
+        {
+            SetPassengerInfoListToNew();
+            {
+                for (int row = 50; row < mapString.Length; row++)
+                {
+                    if (!mapString[row].StartsWith("Customer:")){
+                        continue;
+                    }
+                    var counter = 0;
+                    var name = "";
+                    var spawnTime = "";
+                    var spawnPlatform = "";
+                    var releasePlatform = "";
+                    var timeForPoints = "";
+                    var pointsRecived = "";
+                    {
+                        SetPassengerInfoToNew();
+                        for (int i = 8; i < mapString[row].Length; i++)
+                        {
+                            if (mapString[row][i] == ' ')
+                            {
+                                counter += 1;
+                            }
+
+                            if (mapString[row][i] == ' ')
+                            {
+                                continue;
+                            }
+
+                            switch (counter)
+                            {
+                                case 1:
+                                    name += mapString[row][i];
+                                    break;
+                                case 2:
+                                    spawnTime += mapString[row][i];
+                                    break;
+                                case 3:
+                                    spawnPlatform += mapString[row][i];
+                                    break;
+                                case 4:
+                                    releasePlatform += mapString[row][i];
+                                    break;
+                                case 5:
+                                    timeForPoints += mapString[row][i];
+                                    break;
+                                case 6:
+                                    pointsRecived += mapString[row][i];
+                                    break;
+                            }
+                        }
+
+                        PassengerInfo.Add(1, name);
+                        PassengerInfo.Add(2, spawnTime);
+                        PassengerInfo.Add(3, spawnPlatform);
+                        PassengerInfo.Add(4, releasePlatform);
+                        PassengerInfo.Add(5, timeForPoints);
+                        PassengerInfo.Add(6, pointsRecived);
+                        passengerInfoList.Add(PassengerInfo);
+                    }
+                }
+            }
+        }
 
         /// <summary>
         /// The method "Dictionary" takes a string[] "filetext" as an argument and
@@ -98,23 +176,42 @@ namespace SpaceTaxi_1 {
         public static void ReadLegends (string[] fileText)
 
         {
-            SetDictionaryToNew();
+            SetLegendDictionaryToNew();
             for (int i = 27; i < fileText.Length; i++)
             {
                 ReadLegend(fileText[i]);
             }
         }
 
-
         public static void ReadPlatforms(string platformLine)
-        {
-            
+        {  
+            SetDiffrentPlatformsToNew();
             for (int i = 10; i < platformLine.Length; i++)
             {
                 if (platformLine[i - 1] == ' ')
                 {
                     PlatformLegends.Add(platformLine[i]);
+                    diffrentPlatforms.Add(platformLine[i], new List<Entity>());
+                    
                 }
+            }
+        }
+
+        public static void SpecifyPlatforms(string[] mapString, Dictionary<char, string> legendsDictionary, int row,
+            int stringIndeks, int platformIndeks){
+
+           /* if (PlatformLegends.Contains(mapString[row][stringIndeks]) &&
+                mapString[row][stringIndeks] == PlatformLegends[platformIndeks] && 
+                legendsDictionary.ContainsKey(mapString[row][stringIndeks]) &&
+                diffrentPlatforms.ContainsKey(mapString[row][stringIndeks]))*/
+            if (diffrentPlatforms.ContainsKey(mapString[row][stringIndeks]) &&
+                mapString[row][stringIndeks] == PlatformLegends[platformIndeks])
+            {
+                diffrentPlatforms[mapString[row][stringIndeks]].Add(new Entity(new StationaryShape(
+                        new Vec2F((float) (((stringIndeks + (1.0f)) / mapString[0].Length) - (1.0f / mapString[0].Length)),
+                                  (float) ((21 - row + 1.0f) / 23.0f)),
+                        new Vec2F((float) (1.0f / mapString[0].Length), 1.0f / 23.0f)),
+                        new Image(Path.Combine("Assets", "Images", legendsDictionary[mapString[row][stringIndeks]]))));
             }
         }
 
@@ -131,13 +228,13 @@ namespace SpaceTaxi_1 {
         {
             if (legendsDictionary.ContainsKey(mapString[row][indeks]))
             {
-                AllEntities.AddStationaryEntity(new StationaryShape(new Vec2F((float) (((indeks + (1.0f)) / mapString[0].Length) - (1.0f / mapString[0].Length)),
+                AllEntities.AddStationaryEntity(
+                    new StationaryShape(new Vec2F((float) (((indeks + (1.0f)) / mapString[0].Length) - (1.0f / mapString[0].Length)),
                         (float) ((21 - row + 1.0f) / 23.0f)),
                     new Vec2F((float) (1.0f / mapString[0].Length), 1.0f / 23.0f)),
                     new Image(Path.Combine("Assets", "Images", legendsDictionary[mapString[row][indeks]])));
             }
         }
-
 
         public static void AddObstacle(string[] mapString, Dictionary<char, string> legendsDictionary, int row,
             int indeks)
@@ -188,14 +285,19 @@ namespace SpaceTaxi_1 {
             SetAllEntitiesToNew();
             SetObstaclesToNew();
             SetPlatformsToNew();
+            
             for (int j = 0; j < 23; j++)
             {
-                for (int i = 0; i < mapString[0].Length; i++)
+                for (int c = 0; c < PlatformLegends.Count; c++)
                 {
-                    AddEntityToContainer(mapString,legendsDictionary,j,i);
-                    AddObstacle(mapString,legendsDictionary,j,i);
-                    AddPlatform(mapString,legendsDictionary,j,i);
-                    PlayerPosOfLevel(mapString, j, i);
+                    for (int i = 0; i < mapString[0].Length; i++)
+                    {
+                        AddEntityToContainer(mapString, legendsDictionary, j, i);
+                        AddObstacle(mapString, legendsDictionary, j, i);
+                        AddPlatform(mapString, legendsDictionary, j, i);
+                        SpecifyPlatforms(mapString, legendsDictionary, j, i,c);
+                        PlayerPosOfLevel(mapString, j, i);     
+                    }
                 }
             }
         }       
@@ -213,6 +315,16 @@ namespace SpaceTaxi_1 {
         public static Dictionary<char, string> GetLegendsDictionary()
         {
             return legendsDictionary;
+        }
+
+        public static Dictionary<char ,List<Entity>> GetDiffrenPlatforms()
+        {
+            return diffrentPlatforms;
+        }
+
+        public static List<Dictionary<int, string>> GetPassengerInfo()
+        {
+            return passengerInfoList;
         }
         
         public static EntityContainer GetLevelEntities()
