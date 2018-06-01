@@ -16,6 +16,21 @@ namespace SpaceTaxi_1{
         private StateMachine stateMachine;
         public static int keepTrackOfUpdates;
         
+        
+        private string[] filePath = Directory.GetFiles("Levels");
+
+        
+        private static List<string[]> levelInfo;
+        private static List<EntityContainer> levels;
+        //private static List<CollisionChecker> _levelObstacles;
+        private static Dictionary<char, string> legendsDictionary;
+        private static List<EntityContainer> levelObstacles;
+        private static List<EntityContainer> levelPlatforms;
+        private static List<float> playerXcoordinates;
+        private static List<float> playerYcoordinates;
+
+        private static List<Dictionary<char,List<Entity>>> levelDiffrentPlatforms;
+        
       
         public Game(){
 
@@ -38,7 +53,82 @@ namespace SpaceTaxi_1{
             // game timer, events
             _gameTimer = new GameTimer(60, 60); // 60 UPS, no FPS limit
 
+            levelInfo = new List<string[]>();
+            levels = new List<EntityContainer>();
+            //_levelObstacles = new List<CollisionChecker>();
+            legendsDictionary = new Dictionary<char, string>();
+            levelDiffrentPlatforms = new List<Dictionary<char, List<Entity>>>();
+            levelObstacles = new List<EntityContainer>();
+            levelPlatforms = new List<EntityContainer>();
+            playerXcoordinates = new List<float>();
+            playerYcoordinates = new List<float>();
+            
+            for (int i = 0; i < filePath.Length; i++){
+                CreateMap(filePath,i);  
             }
+            
+            }
+        
+        private Dictionary<char, string> CreateLegendDictionary(string[] _filePath, int filePathNum)
+        {
+            levelInfo.Add(Level.ReadFile((_filePath[filePathNum])));
+            legendsDictionary = new Dictionary<char, string>();
+            Level.SetLegendDictionaryToNew();
+            Level.ReadLegends(levelInfo[filePathNum]);
+            return Level.GetLegendsDictionary();
+        }
+
+        private void CreateMap(string[] _filePath, int filePathNum)
+        {
+            legendsDictionary = CreateLegendDictionary(_filePath, filePathNum);
+            Level.ReadPlatforms(levelInfo[filePathNum][25]);
+            Console.WriteLine(Level.GetDiffrenPlatforms().Count);
+            Level.AddAllEntitiesToContainer(levelInfo[filePathNum], legendsDictionary);
+            levels.Add(Level.GetLevelEntities());
+            levelDiffrentPlatforms.Add(Level.GetDiffrenPlatforms());
+            levelObstacles.Add(Level.GetLevelObstacles());
+            levelPlatforms.Add(Level.GetLevelPlatforms());
+            
+            
+            playerXcoordinates.Add(Level.GetPlayerPosX());
+            playerYcoordinates.Add(Level.GetPlayerPosY());
+
+        }
+
+        public static List<Dictionary<char, List<Entity>>> GetLevelDiffrentPlatforms()
+        {
+            return levelDiffrentPlatforms;
+        }
+
+        public static List<string[]> GetLevelInfo()
+        {
+            return levelInfo;
+        }
+        
+        public static List<EntityContainer> GetLevelObstacles()
+        {
+            return levelObstacles;
+        }
+        
+        public static List<EntityContainer> GetLevelPlatforms()
+        {
+            return levelPlatforms;
+        }
+
+        public static List<EntityContainer> GetLevels()
+        {
+            return levels;
+        }
+
+        public static List<float> GetPlayerXCoordinates()
+        {
+            return playerXcoordinates;
+        }
+        
+        public static List<float> GetPlayerYCoordinates()
+        {
+            return playerYcoordinates;
+        }
 
         /// <summary>
         /// This method takes two arguments and render the map by using the methods from the level class. 

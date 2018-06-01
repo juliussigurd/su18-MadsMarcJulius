@@ -23,9 +23,7 @@ namespace SpaceTaxi_1
         private Vec2F boostForce;
         public bool alive = true;
         private readonly DynamicShape shape;
-        private readonly Image taxiBoosterOffImageLeft;
-        private readonly Image taxiBoosterOffImageRight;
-
+       
         
         /// <summary>
         /// 
@@ -43,12 +41,16 @@ namespace SpaceTaxi_1
                 var netForce = boostForce + gravity;
                 shape.Direction +=
                     netForce * (Game.keepTrackOfUpdates / 300000.0f);
-                _player.Shape.Move();
+                PlayerMove();
             }
         }
 
         public void PlayerMove()
         {
+            if (shape.Direction.Y == 0.0f)
+            {
+                shape.Direction.X = 0.0f;
+            }
             _player.Shape.Move();
         }
         

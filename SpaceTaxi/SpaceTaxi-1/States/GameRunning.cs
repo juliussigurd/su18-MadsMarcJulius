@@ -25,19 +25,24 @@ namespace SpaceTaxi_1.States {
         private List<float> playerXcoordinates;
         private List<float> playerYcoordinates;
         private Dictionary<char, string> legendsDictionary;
-        private int LevelCounter = GameLevels.Levelcount;
+        private static int LevelCounter = GameLevels.Levelcount;
         private List<EntityContainer> levels;
         private List<EntityContainer> levelobstacles;
         private List<EntityContainer> levelplatforms;
         private string[] filePath = Directory.GetFiles("Levels");
-        private string[] levelInfo;
+        
         GameTimer gameTimer = new GameTimer(60, 60);
         private static GameRunning instance;
-        private List<CollisionChecker> _levelObstacles;
+        private List<CollisionChecker> _levelCollisionCheckers;
         private CollisionChecker _collisionChecker;
         private List<List<Passenger>> levelPassengers;
         private List<Dictionary<int, string>> passengerListInfo;
+        private List<Dictionary<char, List<Entity>>> levelDiffrentPlatforms;
+        
         private System.Timers.Timer deathtimer;
+        
+        
+        private List<string[]> levelInfo;
 
 
         
@@ -67,14 +72,18 @@ namespace SpaceTaxi_1.States {
             SpaceBus.GetBus().Subscribe(GameEventType.InputEvent, this);
             SpaceBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
             
-            _levelObstacles = new List<CollisionChecker>();
-            levels = new List<EntityContainer>();
-            levelobstacles = new List<EntityContainer>();
-            levelplatforms = new List<EntityContainer>();
+            _levelCollisionCheckers = new List<CollisionChecker>();
+            levels = Game.GetLevels();
+            levelobstacles = Game.GetLevelObstacles();
+            levelplatforms = Game.GetLevelPlatforms();
             levelPassengers = new List<List<Passenger>>();
-              
-            playerXcoordinates = new List<float>();
-            playerYcoordinates = new List<float>();
+            levelDiffrentPlatforms = Game.GetLevelDiffrentPlatforms();
+               
+            playerXcoordinates = Game.GetPlayerXCoordinates();
+            playerYcoordinates = Game.GetPlayerYCoordinates();
+
+            levelInfo = Game.GetLevelInfo();
+            
             passengerListInfo = new List<Dictionary<int, string>>();
             
             deathtimer = new System.Timers.Timer(interval: 1000);
@@ -86,7 +95,7 @@ namespace SpaceTaxi_1.States {
             }
             
             for (int i = 0; i < filePath.Length; i++){
-                CreateMap(filePath,i);  
+                CreatePassenger(i);  
             }
             
             // creating obstacles
@@ -105,19 +114,10 @@ namespace SpaceTaxi_1.States {
         /// </summary>
         /// <param name="filePath"> Directory of levels </param>
         /// <param name="filePathNum"> Number of the level in the level container </param>
-      
-        private Dictionary<char, string> CreateLegendDictionary(string[] _filePath, int filePathNum)
-        {
-            levelInfo = Level.ReadFile((_filePath[filePathNum]));
-            legendsDictionary = new Dictionary<char, string>();
-            Level.SetLegendDictionaryToNew();
-            Level.ReadLegends(levelInfo);
-            return Level.GetLegendsDictionary();
-        }
 
         private void CheckGameOver(int levelNum)
         {
-            if (_levelObstacles[levelNum].GetGameOverChecker()) {
+            if (_levelCollisionCheckers[levelNum].GetGameOverChecker()) {
                 Obstacle.CreateExplosion(player);
                 SpaceBus.GetBus().RegisterEvent(
                     GameEventFactory<object>.CreateGameEventForAllProcessors(
@@ -138,43 +138,27 @@ namespace SpaceTaxi_1.States {
         /// </summary>
         /// <param name="_filePath"></param>
         /// <param name="filePathNum"></param>
-        private void CreateMap(string[] _filePath, int filePathNum)
+
+        public void CreatePassenger(int filePathNum)
         {
-            legendsDictionary = CreateLegendDictionary(_filePath, filePathNum);
-            Level.ReadPlatforms(levelInfo[25]);
-            Console.WriteLine(Level.GetDiffrenPlatforms().Count);
-            Level.AddAllEntitiesToContainer(levelInfo, legendsDictionary);
-            levels.Add(Level.GetLevelEntities());
-            levelobstacles.Add(Level.GetLevelObstacles());
-            levelplatforms.Add(Level.GetLevelPlatforms());
-            
-            playerXcoordinates.Add(Level.GetPlayerPosX());
-            playerYcoordinates.Add(Level.GetPlayerPosY());
-            
-            Level.UpdatePassengerInfo(levelInfo);
+            Level.UpdatePassengerInfo(levelInfo[filePathNum]);
             
             passengerListInfo = Level.GetPassengerInfo();
 
             foreach (var passengerinfo in passengerListInfo)
             {
-                passenger = new Passenger(passengerinfo[1], int.Parse(passengerinfo[2]),char.Parse(passengerinfo[3]), 
-                                          passengerinfo[4], int.Parse(passengerinfo[5]), int.Parse(passengerinfo[6]),
-                                          Level.GetDiffrenPlatforms());
-                passenger.SetExtent(0.02f,0.05f);
+                passenger = new Passenger(passengerinfo[1], int.Parse(passengerinfo[2]), char.Parse(passengerinfo[3]),
+                    passengerinfo[4], int.Parse(passengerinfo[5]), int.Parse(passengerinfo[6]),
+                    levelDiffrentPlatforms[filePathNum], filePathNum);
                 
-                Console.WriteLine(Level.GetDiffrenPlatforms().Count);
-                
-                passenger.SetPosition(
-                Level.GetDiffrenPlatforms()[passenger.GetPlatFormSpawn()][4].Shape.Position.X,
-                Level.GetDiffrenPlatforms()[passenger.GetPlatFormSpawn()][4].Shape.Position.Y + 0.045f);
-                
-                levelPassengers[filePathNum].Add(passenger);
+                passenger.SetExtent(0.02f, 0.05f);
 
+                passenger.SetPosition(
+                    levelDiffrentPlatforms[filePathNum][passenger.GetPlatFormSpawn()][4].Shape.Position.X,
+                    levelDiffrentPlatforms[filePathNum][passenger.GetPlatFormSpawn()][4].Shape.Position.Y + 0.035f);
+
+                levelPassengers[filePathNum].Add(passenger);
             }
-            
-          
-            
-            //Console.WriteLine(levelPassengers[filePathNum].Count);
         }
 
         /// <summary>
@@ -184,9 +168,9 @@ namespace SpaceTaxi_1.States {
         /// <param name="levelNum"></param>
         private void CreateLevelCollision(string[] _filePath, int levelNum)
         {
-             legendsDictionary = CreateLegendDictionary(_filePath, levelNum);
-             _levelObstacles.Add(new CollisionChecker(levelobstacles[levelNum], levelplatforms[levelNum],
-             player));
+             //legendsDictionary = CreateLegendDictionary(_filePath, levelNum);
+             _levelCollisionCheckers.Add(new CollisionChecker(levelobstacles[levelNum], levelplatforms[levelNum],
+             player,levelPassengers[levelNum], levelDiffrentPlatforms));
         }
 
         
@@ -206,7 +190,11 @@ namespace SpaceTaxi_1.States {
         public void GameLoop() {
         
         }
-        
+
+        public static int GetLevelCounter()
+        {
+            return LevelCounter;
+        }
         
         /// <summary>
         /// 
@@ -219,7 +207,7 @@ namespace SpaceTaxi_1.States {
             {
                 passenger.PassengerMove();
             }
-            _levelObstacles[LevelCounter].CheckCollsion();
+            _levelCollisionCheckers[LevelCounter].CheckCollsion();
             CheckGameOver(LevelCounter);
             if (player.GetsShape().Position.Y >= 1.0f){
                 LevelCounter++;

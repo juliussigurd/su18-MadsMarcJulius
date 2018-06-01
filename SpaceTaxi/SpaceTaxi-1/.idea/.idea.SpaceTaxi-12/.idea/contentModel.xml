@@ -82,6 +82,7 @@
       <e p="Obstacle.cs" t="Include" />
       <e p="packages" t="ExcludeRecursive" />
       <e p="Passenger.cs" t="Include" />
+      <e p="PassengerCollision.cs" t="Include" />
       <e p="Platform.cs" t="Include" />
       <e p="Player.cs" t="Include" />
       <e p="PlayerImage.cs" t="Include" />
