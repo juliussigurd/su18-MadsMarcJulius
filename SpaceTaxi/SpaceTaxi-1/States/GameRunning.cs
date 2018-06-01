@@ -45,6 +45,10 @@ namespace SpaceTaxi_1.States {
             GameRunning.instance = null;
         }
         
+        public static GameRunning GetInstance() {
+            return GameRunning.instance ?? (GameRunning.instance = new GameRunning());
+        }
+        
         /// <summary>
         /// 
         /// </summary>
@@ -106,15 +110,15 @@ namespace SpaceTaxi_1.States {
         private void CheckGameOver(int levelNum)
         {
             if (_levelObstacles[levelNum].GetGameOverChecker()) {
-                    Obstacle.CreateExplosion(player);
-                    deathtimer.Enabled = true;
+                Obstacle.CreateExplosion(player);
+                SpaceBus.GetBus().RegisterEvent(
+                    GameEventFactory<object>.CreateGameEventForAllProcessors(
+                        GameEventType.GameStateEvent, this, "GAME_OVER", "", "")); 
+                    //deathtimer.Enabled = true;
+                
             }
         }
         private void TimerMethod(object s, System.Timers.ElapsedEventArgs e) {
-            SpaceBus.GetBus().RegisterEvent(
-                GameEventFactory<object>.CreateGameEventForAllProcessors(
-                    GameEventType.GameStateEvent, this, "GAME_OVER", "", "")); 
-            GameRunning.ResetGameInstance();
             deathtimer.Enabled = false;
         }
 
@@ -154,9 +158,6 @@ namespace SpaceTaxi_1.States {
         /// 
         /// </summary>
         /// <returns></returns>
-        public static GameRunning GetInstance() {
-            return GameRunning.instance ?? (GameRunning.instance = new GameRunning());
-        }
 
         public static void ResetGameInstance()
         {
@@ -266,7 +267,6 @@ namespace SpaceTaxi_1.States {
                 
             }
         }
-        
         
         /// <summary>
         /// 

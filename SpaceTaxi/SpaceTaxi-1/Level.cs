@@ -96,7 +96,6 @@ namespace SpaceTaxi_1 {
         /// <returns> Dictionary containing the Legends </returns>
         /// 
         public static void ReadLegends (string[] fileText)
-
         {
             SetDictionaryToNew();
             for (int i = 27; i < fileText.Length; i++)
@@ -117,7 +116,7 @@ namespace SpaceTaxi_1 {
                 }
             }
         }
-
+        
         /// <summary>
         /// The method takes four arguments and adds a stationary entity to an entity container.
         /// </summary>
