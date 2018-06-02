@@ -16,7 +16,7 @@
           <file leaf-file-name="GameRunning.cs" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/States/GameRunning.cs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="212">
+                <state relative-caret-position="-1601">
                   <caret line="188" column="0" lean-forward="false" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
                   <folding>
                     <marker date="1527581793859" expanded="false" signature="6:302" ph="..." />
@@ -716,12 +716,12 @@
       <workItem from="1527162827946" duration="38310000" />
       <workItem from="1527421292691" duration="2731000" />
       <workItem from="1527424173250" duration="5660000" />
-      <workItem from="1527440218804" duration="27794000" />
+      <workItem from="1527440218804" duration="27886000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99197000" />
+    <option name="totallyTimeSpent" value="99289000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
