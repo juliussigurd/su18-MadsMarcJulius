@@ -13,14 +13,11 @@ namespace SpaceTaxi_1
     public class CollisionChecker
     {
         //Fields
-        private EntityContainer MapEntities;
-        private Dictionary<char, string> Legends;
         private EntityContainer Obstacles;
         private EntityContainer Platforms;
         private List<Passenger> _passengers;
         private List<Dictionary<char, List<Entity>>> _specifiedPlatform;
         private static Player Player;
-        private Entity Explosion;
         private bool GameOverChecker;
         private bool PlatformChecker;
         private bool _passengerChecker;
@@ -87,9 +84,8 @@ namespace SpaceTaxi_1
                 }
 
                 Console.WriteLine(passengerPickups.Count + "Amount of passengers picked up");
-                //lav en counter, der holder øje med hvor lang tid der går før han bliver sat af.
+                //lav en tidscounter, der holder øje med hvor lang tid der går før han bliver sat af.
             }
-            
             foreach (var A in passengerReleasePlatforms)
             {
                 if (Platform.CollisionPlatform(Player.GetsShape(), A)) {

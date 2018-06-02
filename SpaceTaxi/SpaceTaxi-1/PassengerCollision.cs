@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using DIKUArcade.Entities;
 using DIKUArcade.Physics;
 using SpaceTaxi_1.States;
@@ -11,14 +12,27 @@ namespace SpaceTaxi_1
     {
         private static Passenger passengerPickups;
         private static List<Entity> ReleasePlatforms = new List<Entity>();
+        //private static List<List<Entity>> ReleasePlatforms = new List<List<Entity>>();
 
         public static bool CheckCollisionPassenger(List<Passenger> levelPassengers, Player player, 
             List<Dictionary<Char, List<Entity>>> diffrentPlatforms)
         {
             foreach (Passenger passenger in levelPassengers)
             {
-                if (CollisionDetection.Aabb(player.GetsShape(), 
-                            passenger.GetShape().AsStationaryShape()).Collision && !passenger.pickedUp && 
+                 if  (CollisionDetection.Aabb(passenger.GetShape(), 
+                      player.GetsShape().AsStationaryShape()).Collision && !passenger.pickedUp && 
+                      diffrentPlatforms[passenger.setOffLevel].ContainsKey(passenger.GetReleasePlatform()) &&
+                      player.GetsShape().Direction.Y == 0 && player.GetsShape().Direction.Y == 0) {
+                    
+                    Console.WriteLine("setOffLevel: " + passenger.setOffLevel);
+                    Console.WriteLine("Current Level: " + GameLevels.Levelcount);
+                    passenger.pickedUp = true;
+                    passengerPickups = passenger;
+                    ReleasePlatforms = diffrentPlatforms[passenger.setOffLevel][passenger.GetReleasePlatform()];
+                    
+                    return true;
+                }if (CollisionDetection.Aabb(player.GetsShape(), 
+                    passenger.GetShape().AsStationaryShape()).Collision && !passenger.pickedUp && 
                     diffrentPlatforms[passenger.setOffLevel].ContainsKey(passenger.GetReleasePlatform())){
                     
                     Console.WriteLine("setOffLevel: " + passenger.setOffLevel);
@@ -46,38 +60,19 @@ namespace SpaceTaxi_1
                             releasePlatform[0].Shape.Position.Y + 0.04f);
                         passenger.GetShape().Direction.X = 0.0f;
                         passenger.droppedOff = true;
-                    
                 }
             }
         }
 
-     
 
         public static List<Entity> GetReleasePlatforms()
         {
             return ReleasePlatforms;
         }
-        
+
         public static Passenger GetPassengerPickups()
         {
             return passengerPickups;
-
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

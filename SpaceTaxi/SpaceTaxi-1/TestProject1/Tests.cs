@@ -25,14 +25,9 @@ namespace TestProject1
         private EntityContainer _testCollisionObstacle;
         private EntityContainer _testCollisionPlatform;
         private Player _testPlayer;
-        private StateMachine _testStateMachine; //
+        private StateMachine _testStateMachine;
         private Game _game;
         
-        [SetUp]
-        public void OpenWindows()
-        {
-            var _win = new Window("Space Taxi Game v0.1", 500, AspectRatio.R1X1);
-        }
         
         [Test]
         public void ReadFileTest1()

@@ -200,10 +200,6 @@ namespace SpaceTaxi_1 {
         public static void SpecifyPlatforms(string[] mapString, Dictionary<char, string> legendsDictionary, int row,
             int stringIndeks, int platformIndeks){
 
-           /* if (PlatformLegends.Contains(mapString[row][stringIndeks]) &&
-                mapString[row][stringIndeks] == PlatformLegends[platformIndeks] && 
-                legendsDictionary.ContainsKey(mapString[row][stringIndeks]) &&
-                diffrentPlatforms.ContainsKey(mapString[row][stringIndeks]))*/
             if (diffrentPlatforms.ContainsKey(mapString[row][stringIndeks]) &&
                 mapString[row][stringIndeks] == PlatformLegends[platformIndeks])
             {
