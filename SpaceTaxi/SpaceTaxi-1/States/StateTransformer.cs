@@ -2,17 +2,14 @@
 
 namespace SpaceTaxi_1.States {
     
-    /// <summary>
-    /// 
-    /// </summary>
     public class StateTransformer {
 
         /// <summary>
-        /// 
+        /// Transforms a string to a enum, of the GameStateType.
         /// </summary>
-        /// <param name="state"></param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentException"></exception>
+        /// <param name="state">The string representing the state</param>
+        /// <returns>Game state type</returns>
+        /// <exception cref="ArgumentException">If there are not any string to match</exception>
         public static GameStateType TransformStringToState(string state) {
 
             switch (state) {
@@ -44,6 +41,7 @@ namespace SpaceTaxi_1.States {
 
         }
 
+        //TODO: Slet eller behold?
         /// <summary>
         /// 
         /// </summary>

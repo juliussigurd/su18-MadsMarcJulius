@@ -1,17 +1,14 @@
 ﻿using DIKUArcade.EventBus;
 
 namespace SpaceTaxi_1 {
-    
-    /// <summary>
-    /// 
-    /// </summary>
+ 
     public static class SpaceBus {
         private static GameEventBus<object> eventBus;
         
         /// <summary>
-        /// 
+        /// If eventbus is null create new GameEventBus else return eventbus 
         /// </summary>
-        /// <returns></returns>
+        /// <returns>eventBus</returns>
         public static GameEventBus<object> GetBus() {
             return SpaceBus.eventBus ?? (SpaceBus.eventBus =
                        new GameEventBus<object>());

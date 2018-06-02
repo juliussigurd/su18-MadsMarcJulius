@@ -47,6 +47,7 @@
     <Compile Include="Level.cs" />
     <Compile Include="Obstacle.cs" />
     <Compile Include="Passenger.cs" />
+    <Compile Include="PassengerCollision.cs" />
     <Compile Include="Platform.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerImage.cs" />

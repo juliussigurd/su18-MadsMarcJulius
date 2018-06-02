@@ -5,9 +5,6 @@ using DIKUArcade.Math;
 
 namespace SpaceTaxi_1
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public class Player : IGameEventProcessor<object>
     {
         //Fields
@@ -23,12 +20,10 @@ namespace SpaceTaxi_1
         private Vec2F boostForce;
         public bool alive = true;
         private readonly DynamicShape shape;
-        private readonly Image taxiBoosterOffImageLeft;
-        private readonly Image taxiBoosterOffImageRight;
-
+       
         
         /// <summary>
-        /// 
+        /// Values and features for player
         /// </summary>
         public Player()
         {
@@ -38,47 +33,56 @@ namespace SpaceTaxi_1
             boostForce =  new Vec2F(0.0f, 0.0f);
         }
 
+        /// <summary>
+        /// Creates gravity which makes the player fall downwards.
+        /// Does this with a vector with boostForce. And calls PlayerMove
+        /// </summary>
         public void Physics() {
             if (alive) {
                 var netForce = boostForce + gravity;
                 shape.Direction +=
                     netForce * (Game.keepTrackOfUpdates / 300000.0f);
-                _player.Shape.Move();
+                PlayerMove();
             }
         }
 
+        /// <summary>
+        /// Moves the player 
+        /// </summary>
         public void PlayerMove()
         {
+            if (shape.Direction.Y == 0.0f)
+            {
+                shape.Direction.X = 0.0f;
+            }
             _player.Shape.Move();
         }
         
         /// <summary>
-        /// 
+        /// sets the position of the player 
         /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
+        /// <param name="x">players x value</param>
+        /// <param name="y">players y value</param>
         public void SetPosition(float x, float y)
         {
             shape.Position.X = x;
             shape.Position.Y = y;         
         }
         
+        /// <summary>
+        /// Makes it possible to change the physics if need so it is possible for the player
+        /// to stand still without falling. 
+        /// </summary>
         public void Changephysics()
         {
             gravity = new Vec2F(0.0f, 0.0f);
             shape.Direction = new Vec2F(0.0f,0.0f);
         }
-
-        public void ChangeGravity(float newGravity)
-        {
-            gravity = new Vec2F(0.0f, newGravity);
-        }
-        
         
         /// <summary>
-        /// 
+        /// Gets the shap of the player 
         /// </summary>
-        /// <returns></returns>
+        /// <returns>shape</returns>
         public DynamicShape GetsShape()
         {
             return shape;
@@ -86,19 +90,18 @@ namespace SpaceTaxi_1
       
         
         /// <summary>
-        /// 
+        /// sets the extent of the player 
         /// </summary>
-        /// <param name="width"></param>
-        /// <param name="height"></param>
+        /// <param name="width">players extend x value</param>
+        /// <param name="height">players extend y value</param>
         public void SetExtent(float width, float height)
         {
             shape.Extent.X = width;
             shape.Extent.Y = height;
         }
-
         
         /// <summary>
-        /// 
+        /// Render the player 
         /// </summary>
         public void RenderPlayer()
         {
@@ -109,9 +112,9 @@ namespace SpaceTaxi_1
             }
         }
         
-        
         /// <summary>
-        /// 
+        /// Proccesses the events of the type player event.
+        /// In which it takes player inputs
         /// </summary>
         /// <param name="eventType"></param>
         /// <param name="gameEvent"></param>
