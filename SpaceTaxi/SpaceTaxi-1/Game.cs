@@ -10,6 +10,7 @@ using DIKUArcade.Timers;
 
 namespace SpaceTaxi_1{
     public class Game : IGameEventProcessor<object>{
+        //Fields
         private Window _win;
         private GameTimer _gameTimer;
         private Player _player;
@@ -31,7 +32,7 @@ namespace SpaceTaxi_1{
 
         private static List<Dictionary<char,List<Entity>>> levelDiffrentPlatforms;
         
-      
+        //TODO: Er XML nødvendigt i game?
         public Game(){
 
             // window
@@ -65,19 +66,30 @@ namespace SpaceTaxi_1{
             
             for (int i = 0; i < filePath.Length; i++){
                 CreateMap(filePath,i);  
-            }
-            
-            }
+            }     
+        }
         
+        /// <summary>
+        /// Method creates a dictionary which holds all the legends from the file of the level
+        /// </summary>
+        /// <param name="_filePath">File of the level</param>
+        /// <param name="filePathNum">File number of the level</param>
+        /// <returns></returns>
         private Dictionary<char, string> CreateLegendDictionary(string[] _filePath, int filePathNum)
         {
             levelInfo.Add(Level.ReadFile((_filePath[filePathNum])));
             legendsDictionary = new Dictionary<char, string>();
-            Level.SetLegendDictionaryToNew();
+            Level.SetLegendsDictionaryToNew();
             Level.ReadLegends(levelInfo[filePathNum]);
             return Level.GetLegendsDictionary();
         }
 
+        /// <summary>
+        /// Method creates the map with the platform, obstacles and the player position
+        /// with use of other methods such as CreateLegendDictionary
+        /// </summary>
+        /// <param name="_filePath">File of the level</param>
+        /// <param name="filePathNum">File number of the level</param>
         private void CreateMap(string[] _filePath, int filePathNum)
         {
             legendsDictionary = CreateLegendDictionary(_filePath, filePathNum);
@@ -94,49 +106,74 @@ namespace SpaceTaxi_1{
             playerYcoordinates.Add(Level.GetPlayerPosY());
 
         }
-
+        
+        /// <summary>
+        /// Method that gets the different platforms in the levels. 
+        /// </summary>
+        /// <returns>levelDifferentPlatforms</returns>
         public static List<Dictionary<char, List<Entity>>> GetLevelDiffrentPlatforms()
         {
             return levelDiffrentPlatforms;
         }
 
+        /// <summary>
+        /// Get level info
+        /// </summary>
+        /// <returns>levelInfo</returns>
         public static List<string[]> GetLevelInfo()
         {
             return levelInfo;
         }
         
+        /// <summary>
+        /// Get level obstacles
+        /// </summary>
+        /// <returns>levelObstacles</returns>
         public static List<EntityContainer> GetLevelObstacles()
         {
             return levelObstacles;
         }
         
+        /// <summary>
+        /// get level platforms 
+        /// </summary>
+        /// <returns>levelPlatforms</returns>
         public static List<EntityContainer> GetLevelPlatforms()
         {
             return levelPlatforms;
         }
 
+        /// <summary>
+        /// get levels
+        /// </summary>
+        /// <returns>levels</returns>
         public static List<EntityContainer> GetLevels()
         {
             return levels;
         }
 
+        /// <summary>
+        /// Get player x coordinates
+        /// </summary>
+        /// <returns>playerXcoordinates</returns>
         public static List<float> GetPlayerXCoordinates()
         {
             return playerXcoordinates;
         }
         
+        /// <summary>
+        /// Get player y coordinates
+        /// </summary>
+        /// <returns>playerYcoordinates</returns>
         public static List<float> GetPlayerYCoordinates()
         {
             return playerYcoordinates;
         }
 
-        /// <summary>
-        /// This method takes two arguments and render the map by using the methods from the level class. 
-        /// </summary>
-        /// <param name="_filePath"> Directory of levels </param>
-        /// <param name="filePathNum"> Number of the level in the level container </param>
-
-                
+       /// <summary>
+       /// Runs all the features and methods that are being used in the game.
+       /// Takes the active states features and methods and render those. 
+       /// </summary>
         public void GameLoop(){
             while (_win.IsRunning()){
                 _gameTimer.MeasureTime();
@@ -162,6 +199,12 @@ namespace SpaceTaxi_1{
             }
         }
         
+        /// <summary>
+        /// Method that processes window events. 
+        /// </summary>
+        /// <param name="eventType">which kind of event, such as input event</param>
+        /// TODO: Tjek lige gameEvent om det er rigtigt.
+        /// <param name="gameEvent">The different state events</param>
         public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent) {
             if (eventType == GameEventType.WindowEvent) {
                 switch (gameEvent.Message){
@@ -171,9 +214,6 @@ namespace SpaceTaxi_1{
                 default: 
                     break;
                 }
-            }
-            else if (eventType == GameEventType.InputEvent){
-                    stateMachine.ActiveState.HandleKeyEvent(gameEvent.Message, gameEvent.Parameter1);
             }
         }
     }

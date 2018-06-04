@@ -10,22 +10,20 @@ using DIKUArcade.Math;
 namespace SpaceTaxi_1
 {
     
-    /// <summary>
-    /// 
-    /// </summary>
-    public static class PlayerImage
+  public static class PlayerImage
     {
         //Field
         private static IBaseImage _taxiImage;
 
         /// <summary>
-        /// 
+        /// Decide which image to use for the player. Depending on which key that the user
+        /// are pressing.  
         /// </summary>
-        /// <param name="Value"></param>
+        /// <param name="Value">integer that changes depending on which input it gets from the
+        /// player</param>
         /// <returns></returns>
         public static IBaseImage ImageDecider(int Value)
         {
-
             // rightstill -1
             // leftstill 1
             // rightMove -2

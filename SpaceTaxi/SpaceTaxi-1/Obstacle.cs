@@ -20,9 +20,9 @@ namespace SpaceTaxi_1 {
         
 
         /// <summary>
-        /// 
+        /// get obstacles
         /// </summary>
-        /// <returns></returns>
+        /// <returns>obstacles</returns>
         public static List<Entity> GetObstacles()
         {
             return obstacles;
@@ -30,11 +30,11 @@ namespace SpaceTaxi_1 {
         
         
         /// <summary>
-        /// 
+        /// Checks collision between obstacle and player
         /// </summary>
-        /// <param name="Player"></param>
-        /// <param name="obstacles"></param>
-        /// <returns></returns>
+        /// <param name="Player">DynamicShape player</param>
+        /// <param name="obstacles">EntityContainer of obstacles</param>
+        /// <returns>bool if the collsion is true or false</returns>
         public static bool CollisionObstacle (DynamicShape Player, EntityContainer obstacles)
         {
             foreach (Entity obstacle in obstacles)
@@ -47,6 +47,12 @@ namespace SpaceTaxi_1 {
             }
             return false;
         }
+        
+        /// <summary>
+        /// If collision happens with obstacle or hits the platform to hard
+        /// explosion happends.
+        /// </summary>
+        /// <param name="player">Player</param>
         public static void CreateExplosion(Player player)
         {
             
@@ -60,6 +66,10 @@ namespace SpaceTaxi_1 {
 
         }
 
+        /// <summary>
+        /// get explosion 
+        /// </summary>
+        /// <returns>explosion</returns>
         public static AnimationContainer getExplosion()
         {
             return explosion;

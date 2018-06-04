@@ -26,36 +26,65 @@ namespace SpaceTaxi_1 {
 
         private static string[] LevelInfo;
 
-        public static void SetLegendDictionaryToNew()
+        /// <summary>
+        /// Set PlatformLegends to new.
+        /// </summary>
+        public static void SetPlatformLegendsToNew()
+        {
+            PlatformLegends = new List<char>();
+        }
+        
+        /// <summary>
+        /// set legend dictionary to new 
+        /// </summary>
+        public static void SetLegendsDictionaryToNew()
         {
             legendsDictionary = new Dictionary<char, string>();
         }
-
+        
+        /// <summary>
+        /// set passegner infor to new 
+        /// </summary>
         public static void SetPassengerInfoToNew()
         {
             PassengerInfo = new Dictionary<int, string>();
         }
 
+        /// <summary>
+        /// set passenger info list to new 
+        /// </summary>
         public static void SetPassengerInfoListToNew()
         {
             passengerInfoList = new List<Dictionary<int, string>>();
         }
 
+        /// <summary>
+        /// set all entities to new 
+        /// </summary>
         public static void SetAllEntitiesToNew()
         {
             AllEntities = new EntityContainer();
         }
         
+        /// <summary>
+        /// set obstacles to new 
+        /// </summary>
         public static void SetObstaclesToNew()
         {
             Obstacles = new EntityContainer();
         }
         
+        /// <summary>
+        /// set platforms to new 
+        /// </summary>
         public static void SetPlatformsToNew()
         {
             Platforms = new EntityContainer();
         }
 
+        /// <summary>
+        /// set diffrent platforms to new 
+        /// </summary>
         public static void SetDiffrentPlatformsToNew()
         {
             diffrentPlatforms = new Dictionary<char, List<Entity>>();
@@ -70,7 +99,6 @@ namespace SpaceTaxi_1 {
         /// <returns> Returns file as a string array </returns>
         /// <exception cref="ArgumentException"> If the file
         /// doesn't exist, it throw an exception </exception>
-
         public static string[] ReadFile(string path)
         {
             if (!File.Exists(path))
@@ -88,9 +116,6 @@ namespace SpaceTaxi_1 {
         /// argument and checks if it is a legend and finds the png. 
         /// </summary>
         /// <param name="line"> Is a certain line in the file </param>
-
-        
-
         public static void ReadLegend(string line)
         {
             if (line.Length != 0 && line[1] == ')')
@@ -99,7 +124,29 @@ namespace SpaceTaxi_1 {
                 legendsDictionary.Add((line[0]), pngName);
             }
         }
+        
+        /// <summary>
+        /// The method "Dictionary" takes a string[] "filetext" as an argument and
+        /// returns a dictionary and uses the method "ReadLegend" to add all legends to
+        /// a dictionary. 
+        /// </summary>
+        /// <param name="fileText"> Array of each line of the file in a string </param>
+        /// <returns> Dictionary containing the Legends </returns>
+        public static void ReadLegends (string[] fileText)
+        {
+            SetLegendsDictionaryToNew();
+            for (int i = 27; i < fileText.Length; i++)
+            {
+                ReadLegend(fileText[i]);
+            }
+        }
 
+        //TODO: burde være i passenger?
+        /// <summary>
+        /// Updates the info on each passenger in the dictionary.
+        /// Such as names, spawn time, position, drop off, time for points and points.
+        /// </summary>
+        /// <param name="mapString">The map/level string of all the ASCII.</param>
         public static void UpdatePassengerInfo(string[] mapString)
         {
             SetPassengerInfoListToNew();
@@ -165,24 +212,12 @@ namespace SpaceTaxi_1 {
             }
         }
 
+        
+
         /// <summary>
-        /// The method "Dictionary" takes a string[] "filetext" as an argument and
-        /// returns a dictionary and uses the method "ReadLegend" to add all legends to
-        /// a dictionary. 
+        /// Reads the platform and sets PlatformLegends and differentPlatforms to hold info about platforms.
         /// </summary>
-        /// <param name="fileText"> Array of each line of the file in a string </param>
-        /// <returns> Dictionary containing the Legends </returns>
-        /// 
-        public static void ReadLegends (string[] fileText)
-
-        {
-            SetLegendDictionaryToNew();
-            for (int i = 27; i < fileText.Length; i++)
-            {
-                ReadLegend(fileText[i]);
-            }
-        }
-
+        /// <param name="platformLine">The line of platform symbols</param>
         public static void ReadPlatforms(string platformLine)
         {  
             SetDiffrentPlatformsToNew();
@@ -191,26 +226,35 @@ namespace SpaceTaxi_1 {
                 if (platformLine[i - 1] == ' ')
                 {
                     PlatformLegends.Add(platformLine[i]);
-                    diffrentPlatforms.Add(platformLine[i], new List<Entity>());
-                    
+                    diffrentPlatforms.Add(platformLine[i], new List<Entity>());                    
                 }
             }
         }
 
-        public static void SpecifyPlatforms(string[] mapString, Dictionary<char, string> legendsDictionary, int row,
-            int stringIndeks, int platformIndeks){
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="mapString"></param>
+        /// <param name="legendsDictionary"></param>
+        /// <param name="row"></param>
+        /// <param name="stringIndeks"></param>
+        /// <param name="platformIndeks"></param>
+        public static void SpecifyPlatforms(string[] mapString,
+            Dictionary<char, string> legendsDictionary, int row,
+            int stringIndeks, int platformIndeks) {
             if (diffrentPlatforms.ContainsKey(mapString[row][stringIndeks]) &&
-                mapString[row][stringIndeks] == PlatformLegends[platformIndeks])
-            {
+                mapString[row][stringIndeks] == PlatformLegends[platformIndeks]) {
                 diffrentPlatforms[mapString[row][stringIndeks]].Add(new Entity(new StationaryShape(
-                        new Vec2F((float) (((stringIndeks + (1.0f)) / mapString[0].Length) - (1.0f / mapString[0].Length)),
-                                  (float) ((21 - row + 1.0f) / 23.0f)),
+                        new Vec2F(
+                            (float) (((stringIndeks + (1.0f)) / mapString[0].Length) -
+                                     (1.0f / mapString[0].Length)),
+                            (float) ((21 - row + 1.0f) / 23.0f)),
                         new Vec2F((float) (1.0f / mapString[0].Length), 1.0f / 23.0f)),
-                        new Image(Path.Combine("Assets", "Images", legendsDictionary[mapString[row][stringIndeks]]))));
+                    new Image(Path.Combine("Assets", "Images",
+                        legendsDictionary[mapString[row][stringIndeks]]))));
             }
         }
-
+        
         /// <summary>
         /// The method takes four arguments and adds a stationary entity to an entity container.
         /// </summary>
@@ -232,6 +276,14 @@ namespace SpaceTaxi_1 {
             }
         }
 
+        /// <summary>
+        /// If it's not a Plateform then sets the obstacles in the ASCII file to stationary shapes.
+        /// And gives the image path.
+        /// </summary>
+        /// <param name="mapString">Array of strings of the map</param>
+        /// <param name="legendsDictionary">Dictionary of the legends</param>
+        /// <param name="row">The row in the ASCII file</param>
+        /// <param name="indeks"> The indeks in the ASCII file</param>
         public static void AddObstacle(string[] mapString, Dictionary<char, string> legendsDictionary, int row,
             int indeks)
         {
@@ -243,8 +295,16 @@ namespace SpaceTaxi_1 {
                             (float) ((21 - row + 1.0f) / 23.0f)),
                         new Vec2F((float) (1.0f / mapString[0].Length), 1.0f / 23.0f)),
                     new Image(Path.Combine("Assets", "Images", legendsDictionary[mapString[row][indeks]])));
-            
         }
+        
+        /// <summary>
+        /// If it is a Plateform then sets the platform in the ASCII file to stationary shapes.
+        /// And gives the image path.
+        /// </summary>
+        /// <param name="mapString">Array of strings of the map</param>
+        /// <param name="legendsDictionary">Dictionary of the legends</param>
+        /// <param name="row">The row in the ASCII file</param>
+        /// <param name="indeks"> The indeks in the ASCII file</param>
         public static void AddPlatform(string[] mapString, Dictionary<char, string> legendsDictionary, int row,
             int indeks)
         {
@@ -266,7 +326,6 @@ namespace SpaceTaxi_1 {
         /// <param name="mapString"> array of strings of the map</param>
         /// <param name="row"> dictionary of legends </param>
         /// <param name="indeks"> indexing in the row </param>
-
         public static void PlayerPosOfLevel(string[] mapString, int row, int indeks)
         {
             if (mapString[row][indeks] == '>')
@@ -276,6 +335,11 @@ namespace SpaceTaxi_1 {
             }
         }
 
+        /// <summary>
+        /// Adds all the entities to a container.
+        /// </summary>
+        /// <param name="mapString"> array of strings of the map</param>
+        /// <param name="legendsDictionary">Dictionary of the legends</param>
         public static void AddAllEntitiesToContainer(string[] mapString, Dictionary<char, string> legendsDictionary)
         {
             SetAllEntitiesToNew();
@@ -298,51 +362,96 @@ namespace SpaceTaxi_1 {
             }
         }       
 
+        /// <summary>
+        /// Change player position X
+        /// </summary>
+        /// <param name="newX"></param>
         public static void ChangePosX(float newX)
         {
             PlayerPosX = newX;
         }
         
+        
+        /// <summary>
+        /// Change player position Y
+        /// </summary>
+        /// <param name="newY"></param>
         public static void ChangePosY(float newY)
         {
             PlayerPosY = newY;
         }
 
+        /// <summary>
+        /// Get legends dictionary 
+        /// </summary>
+        /// <returns>legendsDictionary</returns>
         public static Dictionary<char, string> GetLegendsDictionary()
         {
             return legendsDictionary;
         }
 
+        public static List<char> GetPlatformLegends()
+        {
+            return PlatformLegends;
+        }
+        /// <summary>
+        /// get diffrenplatform
+        /// </summary>
+        /// <returns>diffrentplatforms</returns>
         public static Dictionary<char ,List<Entity>> GetDiffrenPlatforms()
         {
             return diffrentPlatforms;
         }
-
+        
+        /// <summary>
+        /// get passenger info 
+        /// </summary>
+        /// <returns>passengerInfoList</returns>
         public static List<Dictionary<int, string>> GetPassengerInfo()
         {
             return passengerInfoList;
         }
         
+        /// <summary>
+        /// get all level entities 
+        /// </summary>
+        /// <returns>AllEntities</returns>
         public static EntityContainer GetLevelEntities()
         {
             return AllEntities;
         }
 
+        /// <summary>
+        /// get all level obstacles 
+        /// </summary>
+        /// <returns>Obstacles</returns>
         public static EntityContainer GetLevelObstacles()
         {
             return Obstacles;
         }
         
+        /// <summary>
+        /// get all level platforms 
+        /// </summary>
+        /// <returns>Platforms</returns>
         public static EntityContainer GetLevelPlatforms()
         {
             return Platforms;
         }
 
+        /// <summary>
+        /// get player position X
+        /// </summary>
+        /// <returns>PlayerPosX</returns>
         public static float GetPlayerPosX()
         {
             return PlayerPosX;
         }
 
+        /// <summary>
+        /// get player position Y
+        /// </summary>
+        /// <returns>PlayerPosY</returns>
         public static float GetPlayerPosY()
         {
             return PlayerPosY;

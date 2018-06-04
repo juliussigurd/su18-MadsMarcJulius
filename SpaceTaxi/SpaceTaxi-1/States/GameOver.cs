@@ -10,9 +10,6 @@ using Image = DIKUArcade.Graphics.Image;
 
 namespace SpaceTaxi_1.States {
     
-    /// <summary>
-    /// 
-    /// </summary>
     public class GameOver : IGameState {
 
 
@@ -27,24 +24,24 @@ namespace SpaceTaxi_1.States {
         public static int Levelcount;
 
 
-        //Methods
         /// <summary>
-        /// 
+        ///GetInstance looks if there is any control instance. If it's not the case it returns
+        /// new GameControls 
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Either the game instance or a new if its null</returns>
         public static GameOver GetInstance() {
             return GameOver.instance ?? (GameOver.instance = new GameOver());
         }
 
         /// <summary>
-        /// 
+        /// Left empty because use of IGameState.
         /// </summary>
         public void GameLoop() {
         // Left empty on purpose
         }
 
         /// <summary>
-        /// 
+        /// Sets the GameState features and the entities as new.
         /// </summary>
         public void InitializeGameState() {
                      maxMenuButtons = 2;
@@ -60,7 +57,7 @@ namespace SpaceTaxi_1.States {
                  }
 
         /// <summary>
-        /// 
+        /// Left empty because use of IGameState.
         /// </summary>
         public void UpdateGameLogic() {
             //Left empty on purpose
@@ -68,7 +65,7 @@ namespace SpaceTaxi_1.States {
 
         
         /// <summary>
-        /// 
+        /// Render the different entities and features.
         /// </summary>
         public void RenderState() {
             //Sets the color of the active button to green
@@ -87,10 +84,10 @@ namespace SpaceTaxi_1.States {
 
         
         /// <summary>
-        /// 
+        /// Handles the key events. For key up, key down and enter.
         /// </summary>
-        /// <param name="keyValue"></param>
-        /// <param name="keyAction"></param>
+        /// <param name="keyValue">The given key pressed</param>
+        /// <param name="keyAction">Registers if a certain button is pressed or released</param>
         public void HandleKeyEvent(string keyValue, string keyAction) {
 
             if (keyAction == "KEY_PRESS") {
@@ -117,6 +114,7 @@ namespace SpaceTaxi_1.States {
                 case "KEY_ENTER":
                     switch (activeMenuButton) {
                     case 0:
+                        //GameRunning.ResetGameRunning();
                         GameLevels.Levelcount = 0;
                         SpaceBus.GetBus().RegisterEvent(
                             GameEventFactory<object>.CreateGameEventForAllProcessors(
