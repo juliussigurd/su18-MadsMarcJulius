@@ -79,7 +79,7 @@ namespace SpaceTaxi_1{
         {
             levelInfo.Add(Level.ReadFile((_filePath[filePathNum])));
             legendsDictionary = new Dictionary<char, string>();
-            Level.SetLegendDictionaryToNew();
+            Level.SetLegendsDictionaryToNew();
             Level.ReadLegends(levelInfo[filePathNum]);
             return Level.GetLegendsDictionary();
         }

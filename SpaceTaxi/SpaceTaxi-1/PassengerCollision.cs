@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using DIKUArcade.Entities;
 using DIKUArcade.Physics;
 using SpaceTaxi_1.States;
@@ -12,23 +13,35 @@ namespace SpaceTaxi_1
     /// </summary>
     public class PassengerCollision
     {
-        private static Passenger passengerPickups;
+        private static List<Passenger> passengerPickups = new List<Passenger>();
         private static List<Entity> ReleasePlatforms = new List<Entity>();
+        //private static List<List<Entity>> ReleasePlatforms = new List<List<Entity>>();
 
         public static bool CheckCollisionPassenger(List<Passenger> levelPassengers, Player player, 
             List<Dictionary<Char, List<Entity>>> diffrentPlatforms)
         {
             foreach (Passenger passenger in levelPassengers)
             {
-                if (CollisionDetection.Aabb(player.GetsShape(), 
-                            passenger.GetShape().AsStationaryShape()).Collision && !passenger.pickedUp && 
-                    diffrentPlatforms[passenger.setOffLevel].ContainsKey(passenger.GetReleasePlatform())){
+                 if  (CollisionDetection.Aabb(passenger.GetShape(), 
+                      player.GetsShape().AsStationaryShape()).Collision && !passenger.pickedUp && 
+                      diffrentPlatforms[passenger.setOffLevel].ContainsKey(passenger.GetReleasePlatformChar()) &&
+                      player.GetsShape().Direction.Y == 0 && player.GetsShape().Direction.Y == 0) {
+                    
+                    passenger.pickedUp = true;
+                    passenger.GetShape().Direction.X = 0.0f;
+                    passengerPickups.Add(passenger);
+                    ReleasePlatforms = diffrentPlatforms[passenger.setOffLevel][passenger.GetReleasePlatformChar()];
+                    
+                    return true;
+                }if (CollisionDetection.Aabb(player.GetsShape(), 
+                    passenger.GetShape().AsStationaryShape()).Collision && !passenger.pickedUp && 
+                    diffrentPlatforms[passenger.setOffLevel].ContainsKey(passenger.GetReleasePlatformChar())){
                     
                     Console.WriteLine("setOffLevel: " + passenger.setOffLevel);
                     Console.WriteLine("Current Level: " + GameLevels.Levelcount);
                     passenger.pickedUp = true;
-                    passengerPickups = passenger;
-                    ReleasePlatforms = diffrentPlatforms[passenger.setOffLevel][passenger.GetReleasePlatform()];
+                    passengerPickups.Add(passenger);
+                    ReleasePlatforms = diffrentPlatforms[passenger.setOffLevel][passenger.GetReleasePlatformChar()];
                     
                     return true;
                 }
@@ -42,24 +55,21 @@ namespace SpaceTaxi_1
         /// </summary>
         /// <param name="releasePlatform"></param>
         /// <param name="allPickedUpPassengers"></param>
-        public static void CheckDropOffCollision(List<Entity> releasePlatform,
-            List<Passenger> allPickedUpPassengers){
-            foreach (Passenger passenger in allPickedUpPassengers){
+        public static void CheckDropOffCollision(){
+            foreach (Passenger passenger in passengerPickups){
                
                     if (passenger.pickedUp && !passenger.droppedOff &&
                         GameRunning.GetLevelCounter() == passenger.setOffLevel){
                         
                         passenger.SetPosition(
-                            releasePlatform[0].Shape.Position.X,
-                            releasePlatform[0].Shape.Position.Y + 0.04f);
-                        passenger.GetShape().Direction.X = 0.0f;
+                            passenger.GetReleasePlatform()[0].Shape.Position.X,
+                            passenger.GetReleasePlatform()[0].Shape.Position.Y + 0.04f);
+                        //passenger.GetShape().Direction.X = 0.0f;
                         passenger.droppedOff = true;
-                    
                 }
             }
         }
 
-     
 
         /// <summary>
         /// Get release platforms which is where a given passenger should be dropped off.
@@ -74,26 +84,9 @@ namespace SpaceTaxi_1
         /// Get passenger pickups 
         /// </summary>
         /// <returns>passengerPickups</returns>
-        public static Passenger GetPassengerPickups()
+        public static List<Passenger> GetPassengerPickups()
         {
             return passengerPickups;
-
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -25,14 +25,18 @@ namespace TestProject1
         private EntityContainer _testCollisionObstacle;
         private EntityContainer _testCollisionPlatform;
         private Player _testPlayer;
-        private StateMachine _testStateMachine; //
+        private StateMachine _testStateMachine;
         private Game _game;
-        
+        private Passenger _testPassenger;
+        private List<Passenger> _testPassengerList;
+        private List<Dictionary<char, List<Entity>>> _testSpecifiedPlatform;
+
         [SetUp]
         public void OpenWindows()
         {
             var _win = new Window("Space Taxi Game v0.1", 500, AspectRatio.R1X1);
         }
+        
         
         [Test]
         public void ReadFileTest1()
@@ -75,28 +79,28 @@ namespace TestProject1
         [Test]
         public void ReadLegendTest1()
         {
-            Level.SetLegendDictionaryToNew();
+            Level.SetLegendsDictionaryToNew();
             Level.ReadLegend("j) ironstone-lower-right.png");
             Assert.AreEqual(Level.GetLegendsDictionary()['j'], "ironstone-lower-right.png");
         }
         [Test]
         public void ReadLegendTest2()
         {    
-            Level.SetLegendDictionaryToNew();
+            Level.SetLegendsDictionaryToNew();
             Level.ReadLegend("");
             Assert.AreEqual(Level.GetLegendsDictionary().Count, 0);
         }
         [Test]
         public void ReadLegendTest3()
         {
-            Level.SetLegendDictionaryToNew();
+            Level.SetLegendsDictionaryToNew();
             Level.ReadLegend("asds,jdhbfslkdf");
             Assert.AreEqual(Level.GetLegendsDictionary().Count, 0);
         }
         [Test]
         public void ReadLegendTest4()
         {
-            Level.SetLegendDictionaryToNew();
+            Level.SetLegendsDictionaryToNew();
             Level.ReadLegend("019283joijalksasd");
             Level.ReadLegend("l) ironstone-lower-left.png");
             Level.ReadLegend("");
@@ -108,7 +112,7 @@ namespace TestProject1
         public void AddEntityToContainerTest1()
         {
             _levelinfo = Level.ReadFile(_filePath[1]);
-            Level.SetLegendDictionaryToNew();
+            Level.SetLegendsDictionaryToNew();
             Level.ReadLegends(_levelinfo);
             _dictionary = Level.GetLegendsDictionary();
             Level.AddEntityToContainer(_levelinfo, _dictionary, 0, 0);
@@ -120,7 +124,7 @@ namespace TestProject1
         {
             Level.SetAllEntitiesToNew();
             _levelinfo = Level.ReadFile(_filePath[1]);
-            Level.SetLegendDictionaryToNew();
+            Level.SetLegendsDictionaryToNew();
             Level.ReadLegends(_levelinfo);
             _dictionary = Level.GetLegendsDictionary();
             Level.AddEntityToContainer(_levelinfo, _dictionary, 12, 3);
@@ -131,7 +135,7 @@ namespace TestProject1
         {
             Level.SetAllEntitiesToNew();
             _levelinfo = Level.ReadFile(_filePath[0]);
-            Level.SetLegendDictionaryToNew();
+            Level.SetLegendsDictionaryToNew();
             Level.ReadLegends(_levelinfo);
             _dictionary = Level.GetLegendsDictionary();
             Level.AddEntityToContainer(_levelinfo, _dictionary, 21, 13);
@@ -143,7 +147,7 @@ namespace TestProject1
         {
             _levelinfo = Level.ReadFile(_filePath[1]);
             Level.ReadPlatforms(_levelinfo[25]);
-            Level.SetLegendDictionaryToNew();
+            Level.SetLegendsDictionaryToNew();
             Level.ReadLegends(_levelinfo);
             _dictionary = Level.GetLegendsDictionary();
             Level.AddObstacle(_levelinfo, _dictionary, 0, 0);
@@ -155,7 +159,7 @@ namespace TestProject1
             Level.SetObstaclesToNew();
             _levelinfo = Level.ReadFile(_filePath[0]);
             Level.ReadPlatforms(_levelinfo[25]);
-            Level.SetLegendDictionaryToNew();
+            Level.SetLegendsDictionaryToNew();
             Level.ReadLegends(_levelinfo);
             _dictionary = Level.GetLegendsDictionary();
             Level.AddObstacle(_levelinfo, _dictionary, 12, 3);
@@ -167,7 +171,7 @@ namespace TestProject1
             Level.SetObstaclesToNew();
             _levelinfo = Level.ReadFile(_filePath[0]);
             Level.ReadPlatforms(_levelinfo[25]);
-            Level.SetLegendDictionaryToNew();
+            Level.SetLegendsDictionaryToNew();
             Level.ReadLegends(_levelinfo);
             _dictionary = Level.GetLegendsDictionary();
             Level.AddObstacle(_levelinfo, _dictionary, 21, 13);
@@ -179,7 +183,7 @@ namespace TestProject1
         {
             _levelinfo = Level.ReadFile(_filePath[1]);
             Level.ReadPlatforms(_levelinfo[25]);
-            Level.SetLegendDictionaryToNew();
+            Level.SetLegendsDictionaryToNew();
             Level.ReadLegends(_levelinfo);
             _dictionary = Level.GetLegendsDictionary();
             Level.AddPlatform(_levelinfo, _dictionary, 0, 0);
@@ -192,7 +196,7 @@ namespace TestProject1
             Level.SetPlatformsToNew();
             _levelinfo = Level.ReadFile(_filePath[0]);
             Level.ReadPlatforms(_levelinfo[25]);
-            Level.SetLegendDictionaryToNew();
+            Level.SetLegendsDictionaryToNew();
             Level.ReadLegends(_levelinfo);
             _dictionary = Level.GetLegendsDictionary();
             Level.AddPlatform(_levelinfo, _dictionary, 12, 3);
@@ -204,7 +208,7 @@ namespace TestProject1
             Level.SetPlatformsToNew();
             _levelinfo = Level.ReadFile(_filePath[0]);
             Level.ReadPlatforms(_levelinfo[25]);
-            Level.SetLegendDictionaryToNew();
+            Level.SetLegendsDictionaryToNew();
             Level.ReadLegends(_levelinfo);
             _dictionary = Level.GetLegendsDictionary();
             Level.AddPlatform(_levelinfo, _dictionary, 21, 13);
@@ -276,7 +280,7 @@ namespace TestProject1
             Assert.AreEqual(_testImage, new Image(Path.Combine("Assets", "Images", "Taxi_Thrust_None.png")));
         }
 
-        [Test]
+       [Test]
         public void PlayerImageTest3()
         {
             _testImage = PlayerImage.ImageDecider(12);
@@ -289,17 +293,21 @@ namespace TestProject1
         {
             _testCollisionObstacle = new EntityContainer();
             _testCollisionPlatform = new EntityContainer();
+            _testSpecifiedPlatform = new List<Dictionary<char, List<Entity>>>();
+            _testPassengerList = new List<Passenger>();
             
             var stationaryShape = new StationaryShape(new Vec2F(0.5f,0.0f) , new Vec2F(0.5f,1.0f));
             var image = new Image(Path.Combine("Assets", "Images", "Taxi_Thrust_None.png"));
             
             _testPlayer = new Player();
             _testPlayer.SetPosition(0.3f, 0.5f);
-            _testPlayer.GetsShape().Direction.X = 0.01f;
+            _testPlayer.GetsShape().Direction.X = 0.001f;
+            _testPlayer.GetsShape().Direction.Y = 0.00000000001f;
             
             _testCollisionObstacle.AddStationaryEntity(stationaryShape,image);
             
-            CollisionChecker collisionTest = new CollisionChecker(_testCollisionObstacle,_testCollisionPlatform,_testPlayer);
+            CollisionChecker collisionTest = new CollisionChecker(_testCollisionObstacle,_testCollisionPlatform,
+                _testPlayer,_testPassengerList,_testSpecifiedPlatform);
             
             while (!collisionTest.GetGameOverChecker())
             {
@@ -314,6 +322,8 @@ namespace TestProject1
         {
             _testCollisionObstacle = new EntityContainer();
             _testCollisionPlatform = new EntityContainer();
+            _testSpecifiedPlatform = new List<Dictionary<char, List<Entity>>>();
+            _testPassengerList = new List<Passenger>();
             
             var stationaryShape = new StationaryShape(new Vec2F(0.0f,0.0f) , new Vec2F(1.0f,0.5f));
             var image = new Image(Path.Combine("Assets", "Images", "Taxi_Thrust_None.png"));
@@ -324,7 +334,8 @@ namespace TestProject1
             
             _testCollisionPlatform.AddStationaryEntity(stationaryShape,image);
             
-            CollisionChecker collisionTest = new CollisionChecker(_testCollisionObstacle,_testCollisionPlatform,_testPlayer);
+            CollisionChecker collisionTest = new CollisionChecker(_testCollisionObstacle,_testCollisionPlatform,
+                _testPlayer,_testPassengerList,_testSpecifiedPlatform);
             
             while (!collisionTest.GetPlatFormChecker())
             {
@@ -339,6 +350,8 @@ namespace TestProject1
         {
             _testCollisionObstacle = new EntityContainer();
             _testCollisionPlatform = new EntityContainer();
+            _testSpecifiedPlatform = new List<Dictionary<char, List<Entity>>>();
+            _testPassengerList = new List<Passenger>();
             
             var stationaryShape = new StationaryShape(new Vec2F(0.0f,0.0f) , new Vec2F(1.0f,0.5f));
             var image = new Image(Path.Combine("Assets", "Images", "Taxi_Thrust_None.png"));
@@ -349,7 +362,8 @@ namespace TestProject1
             
             _testCollisionPlatform.AddStationaryEntity(stationaryShape,image);
             
-            CollisionChecker collisionTest = new CollisionChecker(_testCollisionObstacle,_testCollisionPlatform,_testPlayer);
+            CollisionChecker collisionTest = new CollisionChecker(_testCollisionObstacle,_testCollisionPlatform,
+                _testPlayer,_testPassengerList,_testSpecifiedPlatform);
             
             while (!collisionTest.GetGameOverChecker())
             {
@@ -357,8 +371,95 @@ namespace TestProject1
                 collisionTest.CheckCollsion();
             }          
             Assert.AreEqual(collisionTest.GetGameOverChecker(), true);
-
         }
 
+        [Test]
+        public void UpdatePassengerInfoTest1()
+        {
+            _levelinfo = Level.ReadFile(_filePath[0]);
+            Level.UpdatePassengerInfo(_levelinfo);
+            Assert.AreEqual(Level.GetPassengerInfo()[0][1], "Alice");
+            Assert.AreEqual(Level.GetPassengerInfo()[0][2], "10");
+            Assert.AreEqual(Level.GetPassengerInfo()[0][3], "1");
+            Assert.AreEqual(Level.GetPassengerInfo()[0][4], "^J");
+            Assert.AreEqual(Level.GetPassengerInfo()[0][5], "10");
+            Assert.AreEqual(Level.GetPassengerInfo()[0][6], "100");
+        }
+
+        [Test]
+        public void UpdatePassengerInfoTest2()
+        {
+            _levelinfo = Level.ReadFile(_filePath[1]);
+            Level.UpdatePassengerInfo(_levelinfo);
+            Assert.AreEqual(Level.GetPassengerInfo()[0][1], "Bob");
+            Assert.AreEqual(Level.GetPassengerInfo()[0][2], "10");
+            Assert.AreEqual(Level.GetPassengerInfo()[0][3], "J");
+            Assert.AreEqual(Level.GetPassengerInfo()[0][4], "r");
+            Assert.AreEqual(Level.GetPassengerInfo()[0][5], "10");
+            Assert.AreEqual(Level.GetPassengerInfo()[0][6], "100");
+        }
+        
+        [Test]
+        public void UpdatePassengerInfoTest3()
+        {
+            _levelinfo = Level.ReadFile(_filePath[1]);
+            Level.UpdatePassengerInfo(_levelinfo);
+            Assert.AreEqual(Level.GetPassengerInfo()[1][1], "Carol");
+            Assert.AreEqual(Level.GetPassengerInfo()[1][2], "30");
+            Assert.AreEqual(Level.GetPassengerInfo()[1][3], "r");
+            Assert.AreEqual(Level.GetPassengerInfo()[1][4], "^");
+            Assert.AreEqual(Level.GetPassengerInfo()[1][5], "10");
+            Assert.AreEqual(Level.GetPassengerInfo()[1][6], "100");
+        }
+
+        [Test]
+        public void SpecifyplatformTest1()
+        {
+            Level.SetLegendsDictionaryToNew();
+            Level.SetDiffrentPlatformsToNew();
+            Level.SetPlatformLegendsToNew();
+            
+            _levelinfo = Level.ReadFile(_filePath[0]);
+            Level.ReadPlatforms(_levelinfo[25]);
+            Level.ReadLegends(_levelinfo);
+            for (int j = 0; j < 23; j++)
+            {
+                for (int c = 0; c < Level.GetPlatformLegends().Count; c++)
+                {
+                    for (int i = 0; i < _levelinfo[0].Length; i++)
+                    {
+                        Level.SpecifyPlatforms(_levelinfo,Level.GetLegendsDictionary(),j,i,c);
+                    }
+                }
+            }
+            Assert.AreEqual(Level.GetDiffrenPlatforms()['1'].Count,13);
+          }
+        
+        
+        [Test]
+        public void SpecifyplatformTest2()
+        {
+            Level.SetLegendsDictionaryToNew();
+            Level.SetDiffrentPlatformsToNew();
+            Level.SetPlatformLegendsToNew();
+            
+            _levelinfo = Level.ReadFile(_filePath[1]);
+            Level.ReadPlatforms(_levelinfo[25]);
+            Level.ReadLegends(_levelinfo);
+            for (int j = 0; j < 23; j++)
+            {
+                for (int c = 0; c < Level.GetPlatformLegends().Count; c++)
+                {
+                    for (int i = 0; i < _levelinfo[0].Length; i++)
+                    {
+                        Level.SpecifyPlatforms(_levelinfo,Level.GetLegendsDictionary(),j,i,c);
+                    }
+                }
+            }
+            Assert.AreEqual(Level.GetDiffrenPlatforms()['J'].Count,8);
+            Assert.AreEqual(Level.GetDiffrenPlatforms()['i'].Count, 14);
+            Assert.AreEqual(Level.GetDiffrenPlatforms()['r'].Count,5);;
+        }
+        
     }
 }

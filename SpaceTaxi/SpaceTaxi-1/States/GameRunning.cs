@@ -23,7 +23,7 @@ namespace SpaceTaxi_1.States {
         private List<float> playerXcoordinates;
         private List<float> playerYcoordinates;
         private Dictionary<char, string> legendsDictionary;
-        private static int LevelCounter = GameLevels.Levelcount;
+        private static int LevelCounter;
         private List<EntityContainer> levels;
         private List<EntityContainer> levelobstacles;
         private List<EntityContainer> levelplatforms;
@@ -70,6 +70,9 @@ namespace SpaceTaxi_1.States {
             player = new Player();
             player.SetExtent(0.05f, 0.05f);
             
+            //set level counter
+            GameRunning.LevelCounter = GameLevels.Levelcount;
+            
             // defines the different events
             // game assets
             backGroundImage = new Entity(
@@ -108,7 +111,7 @@ namespace SpaceTaxi_1.States {
             // creating obstacles
             for (int i = 0; i < levels.Count; i++)
             {
-                CreateLevelCollision(filePath,i);
+                CreateLevelCollision(i);
             }
             
             player.SetPosition(playerXcoordinates[LevelCounter], playerYcoordinates[LevelCounter]);
@@ -130,8 +133,7 @@ namespace SpaceTaxi_1.States {
                     GameEventFactory<object>.CreateGameEventForAllProcessors(
                         GameEventType.GameStateEvent, this, "GAME_OVER", "", "")); 
                 //TODO: Fjern unødig kode!
-                    //deathtimer.Enabled = true;
-                
+                    //deathtimer.Enabled = true;                
             }
         }
         //TODO: er den nødvendig?
@@ -170,8 +172,7 @@ namespace SpaceTaxi_1.States {
             {
                 passenger = new Passenger(passengerinfo[1], int.Parse(passengerinfo[2]), char.Parse(passengerinfo[3]),
                     passengerinfo[4], int.Parse(passengerinfo[5]), int.Parse(passengerinfo[6]),
-                    levelDiffrentPlatforms[filePathNum], filePathNum);
-                
+                    levelDiffrentPlatforms, filePathNum);
                 passenger.SetExtent(0.02f, 0.05f);
 
                 passenger.SetPosition(
@@ -187,7 +188,7 @@ namespace SpaceTaxi_1.States {
         /// </summary>
         /// <param name="_filePath">File directory</param>
         /// <param name="levelNum"">The number of the current level</param>
-        private void CreateLevelCollision(string[] _filePath, int levelNum)
+        private void CreateLevelCollision( int levelNum)
         {
              //legendsDictionary = CreateLegendDictionary(_filePath, levelNum);
              _levelCollisionCheckers.Add(new CollisionChecker(levelobstacles[levelNum], levelplatforms[levelNum],
@@ -221,6 +222,7 @@ namespace SpaceTaxi_1.States {
             return LevelCounter;
         }
         
+        
         /// <summary>
         /// Method that updates all logic features, which could be gravity.
         /// </summary>
@@ -232,6 +234,8 @@ namespace SpaceTaxi_1.States {
             {
                 passenger.PassengerMove();
             }
+
+            
             _levelCollisionCheckers[LevelCounter].CheckCollsion();
             CheckGameOver(LevelCounter);
             if (player.GetsShape().Position.Y >= 1.0f){
@@ -251,9 +255,14 @@ namespace SpaceTaxi_1.States {
             {
                 passenger.RenderPassenger();
             }
+            foreach (Passenger passenger in PassengerCollision.GetPassengerPickups())
+            {
+                passenger.RenderPassenger();
+            }
             player.RenderPlayer();  
             levels[LevelCounter].RenderEntities();
             Obstacle.getExplosion().RenderAnimations();
+            Console.WriteLine(GameLevels.Levelcount);
         }
         
         /// <summary>

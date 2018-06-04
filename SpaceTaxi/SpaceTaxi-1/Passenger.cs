@@ -23,10 +23,10 @@ namespace SpaceTaxi_1 {
         public bool pickedUp = false;
         public bool droppedOff = false;
         public int setOffLevel = 0;
+        private int spawnLevel;
         
-        private Dictionary<char, List<Entity>> thePlatform;
-      //  private System.Timers.Timer spawnTimer;
-
+        private List<Dictionary<char, List<Entity>>> thePlatform;
+        //  private System.Timers.Timer spawnTimer;
         
         /// <summary>
         /// Parameters and methods the passenger needs to be created
@@ -41,7 +41,7 @@ namespace SpaceTaxi_1 {
         /// <param name="spawnLevel">In which level to spawn</param>
         public Passenger(
             string name, int timeBeforeSpawning, char platformSpawn, string platformRelease, int timeBeforeRelease,
-            int points, Dictionary<char, List<Entity>> thePlatform, int spawnLevel) {
+            int points, List<Dictionary<char, List<Entity>>> thePlatform, int spawnLevel) {
             shape = new DynamicShape(new Vec2F(), new Vec2F());
             imageWalk = new ImageStride(80, ImageStride.CreateStrides(2, Path.Combine("Assets", "Images", "CustomerWalkLeft.png")));
             _passenger = new Entity(shape, imageWalk);
@@ -52,6 +52,8 @@ namespace SpaceTaxi_1 {
             this.timeBeforeReleased = timeBeforeRelease;
             this.points = points;
             this.thePlatform = thePlatform;
+            this.spawnLevel = spawnLevel;
+            
             if (platformRelease.Length > 1)
             {
                 setOffLevel = spawnLevel + 1;
@@ -120,12 +122,12 @@ namespace SpaceTaxi_1 {
         {
             if (!pickedUp || droppedOff)
             {
-                if (shape.Direction.X >= 0.0f)
+                if (shape.Direction.X > 0.0f)
                 {
                     _passenger.Image = new ImageStride(80,
                         ImageStride.CreateStrides(2, Path.Combine("Assets", "Images", "CustomerWalkRight.png")));
                 }
-                else if (shape.Direction.X <= -0.0f)
+                else if (shape.Direction.X < -0.0f)
                 {
                     _passenger.Image = new ImageStride(80,
                         ImageStride.CreateStrides(2, Path.Combine("Assets", "Images", "CustomerWalkLeft.png")));
@@ -145,14 +147,19 @@ namespace SpaceTaxi_1 {
         /// </summary>
         public void PassengerMove()
         {
-            var platformLength = thePlatform[platformSpawn].Count;
-            if (shape.Position.X >= thePlatform[platformSpawn][platformLength - 1].Shape.Position.X)
+            if (shape.Direction.X != 0.0f)
             {
-                shape.Direction.X = -0.00045f;
-            } else if (shape.Position.X <= thePlatform[platformSpawn][0].Shape.Position.X)
-            {
-                shape.Direction.X = 0.00045f;
+                var platformLength = thePlatform[spawnLevel][platformSpawn].Count;
+                if (shape.Position.X >= thePlatform[spawnLevel][platformSpawn][platformLength - 1].Shape.Position.X)
+                {
+                    shape.Direction.X = -0.00045f;
+                }
+                else if (shape.Position.X <= thePlatform[spawnLevel][platformSpawn][0].Shape.Position.X)
+                {
+                    shape.Direction.X = 0.00045f;
+                }
             }
+            
             shape.Move();
         }
 
@@ -170,7 +177,7 @@ namespace SpaceTaxi_1 {
         /// The entire length of the platform is counted to be one platform. 
         /// </summary>
         /// <returns></returns>
-        public char GetReleasePlatform()
+        public char GetReleasePlatformChar()
         {
             if (platformRelease.Length == 2)
             {
@@ -180,6 +187,12 @@ namespace SpaceTaxi_1 {
             }
 
             return Char.Parse(platformRelease);
+        }
+
+        public List<Entity> GetReleasePlatform()
+        {
+            var platformReleaseLength = platformRelease.Length;
+            return thePlatform[setOffLevel][platformRelease[platformReleaseLength - 1]];
         }
     }
 }

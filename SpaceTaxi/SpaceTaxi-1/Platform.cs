@@ -2,7 +2,7 @@
 using DIKUArcade.Physics;
 using System;
 using System.Collections.Generic;
-
+using SpaceTaxi_1.States;
 
 
 namespace SpaceTaxi_1 {
@@ -36,6 +36,7 @@ namespace SpaceTaxi_1 {
         /// <param name="Player"> Dynamic shape player</param>
         /// <param name="platforms">Entity container with all the platforms</param>
         /// <returns></returns>
+        /// 
         public static bool CollisionPlatform(DynamicShape Player, List<Entity> platforms)
         {
             foreach (Entity platform in platforms)
@@ -46,6 +47,18 @@ namespace SpaceTaxi_1 {
                     {
                         return true;
                     }
+                }
+            }
+            return false;
+        }
+        public static bool CollisionReleasePlatform(DynamicShape Player, List<Dictionary<char, List<Entity>>> specifiedPlatform)
+        {
+            foreach (Passenger passenger in PassengerCollision.GetPassengerPickups())
+            {                
+                if (CollisionPlatform(Player, passenger.GetReleasePlatform()) &&
+                    GameRunning.GetLevelCounter() == passenger.setOffLevel)
+                {
+                    return true;
                 }
             }
             return false;

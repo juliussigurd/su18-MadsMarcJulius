@@ -27,9 +27,17 @@ namespace SpaceTaxi_1 {
         private static string[] LevelInfo;
 
         /// <summary>
+        /// Set PlatformLegends to new.
+        /// </summary>
+        public static void SetPlatformLegendsToNew()
+        {
+            PlatformLegends = new List<char>();
+        }
+        
+        /// <summary>
         /// set legend dictionary to new 
         /// </summary>
-        public static void SetLegendDictionaryToNew()
+        public static void SetLegendsDictionaryToNew()
         {
             legendsDictionary = new Dictionary<char, string>();
         }
@@ -116,6 +124,22 @@ namespace SpaceTaxi_1 {
                 legendsDictionary.Add((line[0]), pngName);
             }
         }
+        
+        /// <summary>
+        /// The method "Dictionary" takes a string[] "filetext" as an argument and
+        /// returns a dictionary and uses the method "ReadLegend" to add all legends to
+        /// a dictionary. 
+        /// </summary>
+        /// <param name="fileText"> Array of each line of the file in a string </param>
+        /// <returns> Dictionary containing the Legends </returns>
+        public static void ReadLegends (string[] fileText)
+        {
+            SetLegendsDictionaryToNew();
+            for (int i = 27; i < fileText.Length; i++)
+            {
+                ReadLegend(fileText[i]);
+            }
+        }
 
         //TODO: burde være i passenger?
         /// <summary>
@@ -183,21 +207,7 @@ namespace SpaceTaxi_1 {
             }
         }
 
-        /// <summary>
-        /// The method "Dictionary" takes a string[] "filetext" as an argument and
-        /// returns a dictionary and uses the method "ReadLegend" to add all legends to
-        /// a dictionary. 
-        /// </summary>
-        /// <param name="fileText"> Array of each line of the file in a string </param>
-        /// <returns> Dictionary containing the Legends </returns>
-        public static void ReadLegends (string[] fileText)
-        {
-            SetLegendDictionaryToNew();
-            for (int i = 27; i < fileText.Length; i++)
-            {
-                ReadLegend(fileText[i]);
-            }
-        }
+        
 
         /// <summary>
         /// Reads the platform and sets PlatformLegends and differentPlatforms to hold info about platforms.
@@ -211,12 +221,10 @@ namespace SpaceTaxi_1 {
                 if (platformLine[i - 1] == ' ')
                 {
                     PlatformLegends.Add(platformLine[i]);
-                    diffrentPlatforms.Add(platformLine[i], new List<Entity>());
-                    
+                    diffrentPlatforms.Add(platformLine[i], new List<Entity>());                    
                 }
             }
         }
-
 
         /// <summary>
         /// 
@@ -358,6 +366,7 @@ namespace SpaceTaxi_1 {
             PlayerPosX = newX;
         }
         
+        
         /// <summary>
         /// Change player position Y
         /// </summary>
@@ -375,7 +384,11 @@ namespace SpaceTaxi_1 {
         {
             return legendsDictionary;
         }
-        
+
+        public static List<char> GetPlatformLegends()
+        {
+            return PlatformLegends;
+        }
         /// <summary>
         /// get diffrenplatform
         /// </summary>

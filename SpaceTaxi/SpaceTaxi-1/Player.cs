@@ -20,7 +20,7 @@ namespace SpaceTaxi_1
         private Vec2F boostForce;
         public bool alive = true;
         private readonly DynamicShape shape;
-       
+        
         
         /// <summary>
         /// Values and features for player
@@ -35,7 +35,7 @@ namespace SpaceTaxi_1
 
         /// <summary>
         /// Creates gravity which makes the player fall downwards.
-        /// Does this with a vector with boostForce. And calls PlayerMove
+        /// Does this with a vector with boostForce. And calls PlayerMove.
         /// </summary>
         public void Physics() {
             if (alive) {
@@ -47,12 +47,11 @@ namespace SpaceTaxi_1
         }
 
         /// <summary>
-        /// Moves the player 
+        /// Moves the player. 
         /// </summary>
         public void PlayerMove()
         {
-            if (shape.Direction.Y == 0.0f)
-            {
+            if (shape.Direction.Y == 0.0f){
                 shape.Direction.X = 0.0f;
             }
             _player.Shape.Move();
@@ -142,12 +141,10 @@ namespace SpaceTaxi_1
                          break;
                     
                     case "BOOSTER_TO_RIGHT":            
-                        if (shape.Direction.Y == 0.0f) {
-                            
+                        if (shape.Direction.Y == 0.0f)
                             boostForce.X = 0;
-                        } else {
+                        else
                             boostForce.X += 1;
-                        }
                         leftValue = 0;
                         rightValue = -2;
                         break;
