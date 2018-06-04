@@ -114,7 +114,7 @@ namespace SpaceTaxi_1.States {
                 case "KEY_ENTER":
                     switch (activeMenuButton) {
                     case 0:
-                        //GameRunning.ResetGameRunning();
+                        GameRunning.ResetGameRunning();
                         GameLevels.Levelcount = 0;
                         SpaceBus.GetBus().RegisterEvent(
                             GameEventFactory<object>.CreateGameEventForAllProcessors(

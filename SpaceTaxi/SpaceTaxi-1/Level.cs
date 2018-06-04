@@ -123,15 +123,14 @@ namespace SpaceTaxi_1 {
         /// Such as names, spawn time, position, drop off, time for points and points.
         /// </summary>
         /// <param name="mapString">The map/level string of all the ASCII.</param>
-        public static void UpdatePassengerInfo(string[] mapString)
-        {
+        public static void UpdatePassengerInfo(string[] mapString) {
             SetPassengerInfoListToNew();
             {
-                for (int row = 50; row < mapString.Length; row++)
-                {
-                    if (!mapString[row].StartsWith("Customer:")){
+                for (int row = 50; row < mapString.Length; row++) {
+                    if (!mapString[row].StartsWith("Customer:")) {
                         continue;
                     }
+
                     var counter = 0;
                     var name = "";
                     var spawnTime = "";
@@ -141,38 +140,34 @@ namespace SpaceTaxi_1 {
                     var pointsRecived = "";
                     {
                         SetPassengerInfoToNew();
-                        for (int i = 8; i < mapString[row].Length; i++)
-                        {
-                            if (mapString[row][i] == ' ')
-                            {
+                        for (int i = 8; i < mapString[row].Length; i++) {
+                            if (mapString[row][i] == ' ') {
                                 counter += 1;
                             }
 
-                            if (mapString[row][i] == ' ')
-                            {
+                            if (mapString[row][i] == ' ') {
                                 continue;
                             }
 
-                            switch (counter)
-                            {
-                                case 1:
-                                    name += mapString[row][i];
-                                    break;
-                                case 2:
-                                    spawnTime += mapString[row][i];
-                                    break;
-                                case 3:
-                                    spawnPlatform += mapString[row][i];
-                                    break;
-                                case 4:
-                                    releasePlatform += mapString[row][i];
-                                    break;
-                                case 5:
-                                    timeForPoints += mapString[row][i];
-                                    break;
-                                case 6:
-                                    pointsRecived += mapString[row][i];
-                                    break;
+                            switch (counter) {
+                            case 1:
+                                name += mapString[row][i];
+                                break;
+                            case 2:
+                                spawnTime += mapString[row][i];
+                                break;
+                            case 3:
+                                spawnPlatform += mapString[row][i];
+                                break;
+                            case 4:
+                                releasePlatform += mapString[row][i];
+                                break;
+                            case 5:
+                                timeForPoints += mapString[row][i];
+                                break;
+                            case 6:
+                                pointsRecived += mapString[row][i];
+                                break;
                             }
                         }
 
