@@ -1,5 +1,4 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 using System.IO;
 using DIKUArcade.Entities;
 using DIKUArcade.EventBus;
@@ -14,13 +13,13 @@ namespace SpaceTaxi_1.States {
 
 
         //Fields
-        private static GameOver instance;
+        private static GameOver _instance;
 
-        private Entity backGroundImage;
-        private Entity gameOver;
-        private Text[] menuButtons;
-        private int activeMenuButton;
-        private int maxMenuButtons;
+        private Entity _backGroundImage;
+        private Entity _gameOver;
+        private Text[] _menuButtons;
+        private int _activeMenuButton;
+        private int _maxMenuButtons;
         public static int Levelcount;
 
 
@@ -30,7 +29,7 @@ namespace SpaceTaxi_1.States {
         /// </summary>
         /// <returns>Either the game instance or a new if its null</returns>
         public static GameOver GetInstance() {
-            return GameOver.instance ?? (GameOver.instance = new GameOver());
+            return GameOver._instance ?? (GameOver._instance = new GameOver());
         }
 
         /// <summary>
@@ -44,16 +43,16 @@ namespace SpaceTaxi_1.States {
         /// Sets the GameState features and the entities as new.
         /// </summary>
         public void InitializeGameState() {
-                     maxMenuButtons = 2;
-                     menuButtons = new Text[maxMenuButtons];
-                     backGroundImage = new Entity(new StationaryShape(0.0f, 0.0f, 1.0f, 1.0f),
+                     _maxMenuButtons = 2;
+                     _menuButtons = new Text[_maxMenuButtons];
+                     _backGroundImage = new Entity(new StationaryShape(0.0f, 0.0f, 1.0f, 1.0f),
                          new Image(Path.Combine("Assets", "Images", "SpaceBackground2.png")));
-                     gameOver = new Entity(new StationaryShape(0.1f, 0.4f, 0.8f, 0.5f),
+                     _gameOver = new Entity(new StationaryShape(0.1f, 0.4f, 0.8f, 0.5f),
                         new Image(Path.Combine("Assets", "Images", "GameOver.png")));
          
                      //Size of the buttons
-                     menuButtons[0] = new Text("Restart", new Vec2F(0.31f, 0.15f), new Vec2F(0.4f, 0.3f));
-                     menuButtons[1] = new Text("Main Menu", new Vec2F(0.31f, 0.05f), new Vec2F(0.4f, 0.3f));
+                     _menuButtons[0] = new Text("Restart", new Vec2F(0.31f, 0.15f), new Vec2F(0.4f, 0.3f));
+                     _menuButtons[1] = new Text("Main Menu", new Vec2F(0.31f, 0.05f), new Vec2F(0.4f, 0.3f));
                  }
 
         /// <summary>
@@ -70,16 +69,16 @@ namespace SpaceTaxi_1.States {
         public void RenderState() {
             //Sets the color of the active button to green
             InitializeGameState();
-            menuButtons[(activeMenuButton + 1) % 2].SetColor(Color.White);
-            menuButtons[activeMenuButton].SetColor(Color.Yellow);
+            _menuButtons[(_activeMenuButton + 1) % 2].SetColor(Color.White);
+            _menuButtons[_activeMenuButton].SetColor(Color.Yellow);
             
 
-            backGroundImage.RenderEntity();
-            gameOver.RenderEntity();
+            _backGroundImage.RenderEntity();
+            _gameOver.RenderEntity();
 
             //Draws the button 
-            menuButtons[0].RenderText();
-            menuButtons[1].RenderText();
+            _menuButtons[0].RenderText();
+            _menuButtons[1].RenderText();
         }
 
         
@@ -93,26 +92,26 @@ namespace SpaceTaxi_1.States {
             if (keyAction == "KEY_PRESS") {
                 switch (keyValue) {
                 case "KEY_UP":
-                    if (activeMenuButton ==  0) {
-                        activeMenuButton = maxMenuButtons -1;
+                    if (_activeMenuButton ==  0) {
+                        _activeMenuButton = _maxMenuButtons -1;
                     } 
                     else {
-                        activeMenuButton -= 1;
+                        _activeMenuButton -= 1;
                     }
 
                     break;
                 case "KEY_DOWN":
                     //Console.WriteLine(activeMenuButton);
-                    if (activeMenuButton == maxMenuButtons - 1) {
-                        activeMenuButton = 0;
+                    if (_activeMenuButton == _maxMenuButtons - 1) {
+                        _activeMenuButton = 0;
                     } else {
-                        activeMenuButton += 1;
+                        _activeMenuButton += 1;
                     }
 
                     break;
 
                 case "KEY_ENTER":
-                    switch (activeMenuButton) {
+                    switch (_activeMenuButton) {
                     case 0:
                         GameRunning.ResetGameRunning();
                         GameLevels.Levelcount = 0;

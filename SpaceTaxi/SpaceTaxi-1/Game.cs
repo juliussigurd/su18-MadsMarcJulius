@@ -4,68 +4,65 @@ using System.IO;
 using DIKUArcade;
 using DIKUArcade.Entities;
 using DIKUArcade.EventBus;
-using DIKUArcade.Graphics;
-using DIKUArcade.Math;
 using DIKUArcade.Timers;
+using SpaceTaxi_1.States;
 
 namespace SpaceTaxi_1{
     public class Game : IGameEventProcessor<object>{
         //Fields
-        private Window _win;
-        private GameTimer _gameTimer;
-        private Player _player;
-        private StateMachine stateMachine;
-        public static int keepTrackOfUpdates;
+        private readonly Window _win;
+        private readonly GameTimer _gameTimer;
+        private readonly StateMachine _stateMachine;
+        public static int KeepTrackOfUpdates;
         
         
-        private string[] filePath = Directory.GetFiles("Levels");
+        private readonly string[] _filePath = Directory.GetFiles("Levels");
 
         
-        private static List<string[]> levelInfo;
-        private static List<EntityContainer> levels;
-        //private static List<CollisionChecker> _levelObstacles;
-        private static Dictionary<char, string> legendsDictionary;
-        private static List<EntityContainer> levelObstacles;
-        private static List<EntityContainer> levelPlatforms;
-        private static List<float> playerXcoordinates;
-        private static List<float> playerYcoordinates;
+        private static List<string[]> _levelInfo;
+        private static List<EntityContainer> _levels;
+        private static Dictionary<char, string> _legendsDictionary;
+        private static List<EntityContainer> _levelObstacles;
+        private static List<EntityContainer> _levelPlatforms;
+        private static List<float> _playerXcoordinates;
+        private static List<float> _playerYcoordinates;
 
-        private static List<Dictionary<char,List<Entity>>> levelDiffrentPlatforms;
+        private static List<Dictionary<char,List<Entity>>> _levelDiffrentPlatforms;
         
-        //TODO: Er XML nødvendigt i game?
         public Game(){
 
             // window
             _win = new Window("Space Taxi Game v0.1", 500, AspectRatio.R1X1);
-             stateMachine = new StateMachine();
+             _stateMachine = new StateMachine();
 
             // event bus
             SpaceBus.GetBus().InitializeEventBus(new List<GameEventType>() {
                 GameEventType.InputEvent,      // key press / key release
                 GameEventType.WindowEvent,     // messages to the window, e.g. CloseWindow()
                 GameEventType.PlayerEvent,      // commands issued to the player object, e.g. move, destroy, receive health, etc.
-                GameEventType.GameStateEvent
+                GameEventType.GameStateEvent,
+                GameEventType.TimedEvent
             });
             _win.RegisterEventBus(SpaceBus.GetBus());
             SpaceBus.GetBus().Subscribe(GameEventType.WindowEvent, this);
-            SpaceBus.GetBus().Subscribe(GameEventType.GameStateEvent, stateMachine);
-            SpaceBus.GetBus().Subscribe(GameEventType.InputEvent, stateMachine);
+            SpaceBus.GetBus().Subscribe(GameEventType.GameStateEvent, _stateMachine);
+            SpaceBus.GetBus().Subscribe(GameEventType.InputEvent, _stateMachine);
 
             // game timer, events
             _gameTimer = new GameTimer(60, 60); // 60 UPS, no FPS limit
 
-            levelInfo = new List<string[]>();
-            levels = new List<EntityContainer>();
+            _levelInfo = new List<string[]>();
+            _levels = new List<EntityContainer>();
             //_levelObstacles = new List<CollisionChecker>();
-            legendsDictionary = new Dictionary<char, string>();
-            levelDiffrentPlatforms = new List<Dictionary<char, List<Entity>>>();
-            levelObstacles = new List<EntityContainer>();
-            levelPlatforms = new List<EntityContainer>();
-            playerXcoordinates = new List<float>();
-            playerYcoordinates = new List<float>();
+            _legendsDictionary = new Dictionary<char, string>();
+            _levelDiffrentPlatforms = new List<Dictionary<char, List<Entity>>>();
+            _levelObstacles = new List<EntityContainer>();
+            _levelPlatforms = new List<EntityContainer>();
+            _playerXcoordinates = new List<float>();
+            _playerYcoordinates = new List<float>();
             
-            for (int i = 0; i < filePath.Length; i++){
-                CreateMap(filePath,i);  
+            for (int i = 0; i < _filePath.Length; i++){
+                CreateMap(_filePath,i);  
             }     
         }
         
@@ -77,10 +74,10 @@ namespace SpaceTaxi_1{
         /// <returns></returns>
         private Dictionary<char, string> CreateLegendDictionary(string[] _filePath, int filePathNum)
         {
-            levelInfo.Add(Level.ReadFile((_filePath[filePathNum])));
-            legendsDictionary = new Dictionary<char, string>();
+            _levelInfo.Add(Level.ReadFile((_filePath[filePathNum])));
+            _legendsDictionary = new Dictionary<char, string>();
             Level.SetLegendsDictionaryToNew();
-            Level.ReadLegends(levelInfo[filePathNum]);
+            Level.ReadLegends(_levelInfo[filePathNum]);
             return Level.GetLegendsDictionary();
         }
 
@@ -92,18 +89,18 @@ namespace SpaceTaxi_1{
         /// <param name="filePathNum">File number of the level</param>
         private void CreateMap(string[] _filePath, int filePathNum)
         {
-            legendsDictionary = CreateLegendDictionary(_filePath, filePathNum);
-            Level.ReadPlatforms(levelInfo[filePathNum][25]);
+            _legendsDictionary = CreateLegendDictionary(_filePath, filePathNum);
+            Level.ReadPlatforms(_levelInfo[filePathNum][25]);
             Console.WriteLine(Level.GetDiffrenPlatforms().Count);
-            Level.AddAllEntitiesToContainer(levelInfo[filePathNum], legendsDictionary);
-            levels.Add(Level.GetLevelEntities());
-            levelDiffrentPlatforms.Add(Level.GetDiffrenPlatforms());
-            levelObstacles.Add(Level.GetLevelObstacles());
-            levelPlatforms.Add(Level.GetLevelPlatforms());
+            Level.AddAllEntitiesToContainer(_levelInfo[filePathNum], _legendsDictionary);
+            _levels.Add(Level.GetLevelEntities());
+            _levelDiffrentPlatforms.Add(Level.GetDiffrenPlatforms());
+            _levelObstacles.Add(Level.GetLevelObstacles());
+            _levelPlatforms.Add(Level.GetLevelPlatforms());
             
             
-            playerXcoordinates.Add(Level.GetPlayerPosX());
-            playerYcoordinates.Add(Level.GetPlayerPosY());
+            _playerXcoordinates.Add(Level.GetPlayerPosX());
+            _playerYcoordinates.Add(Level.GetPlayerPosY());
 
         }
         
@@ -113,7 +110,7 @@ namespace SpaceTaxi_1{
         /// <returns>levelDifferentPlatforms</returns>
         public static List<Dictionary<char, List<Entity>>> GetLevelDiffrentPlatforms()
         {
-            return levelDiffrentPlatforms;
+            return _levelDiffrentPlatforms;
         }
 
         /// <summary>
@@ -122,7 +119,7 @@ namespace SpaceTaxi_1{
         /// <returns>levelInfo</returns>
         public static List<string[]> GetLevelInfo()
         {
-            return levelInfo;
+            return _levelInfo;
         }
         
         /// <summary>
@@ -131,7 +128,7 @@ namespace SpaceTaxi_1{
         /// <returns>levelObstacles</returns>
         public static List<EntityContainer> GetLevelObstacles()
         {
-            return levelObstacles;
+            return _levelObstacles;
         }
         
         /// <summary>
@@ -140,7 +137,7 @@ namespace SpaceTaxi_1{
         /// <returns>levelPlatforms</returns>
         public static List<EntityContainer> GetLevelPlatforms()
         {
-            return levelPlatforms;
+            return _levelPlatforms;
         }
 
         /// <summary>
@@ -149,7 +146,7 @@ namespace SpaceTaxi_1{
         /// <returns>levels</returns>
         public static List<EntityContainer> GetLevels()
         {
-            return levels;
+            return _levels;
         }
 
         /// <summary>
@@ -158,7 +155,7 @@ namespace SpaceTaxi_1{
         /// <returns>playerXcoordinates</returns>
         public static List<float> GetPlayerXCoordinates()
         {
-            return playerXcoordinates;
+            return _playerXcoordinates;
         }
         
         /// <summary>
@@ -167,7 +164,7 @@ namespace SpaceTaxi_1{
         /// <returns>playerYcoordinates</returns>
         public static List<float> GetPlayerYCoordinates()
         {
-            return playerYcoordinates;
+            return _playerYcoordinates;
         }
 
        /// <summary>
@@ -180,13 +177,13 @@ namespace SpaceTaxi_1{
                 while (_gameTimer.ShouldUpdate()){
                     _win.PollEvents();
                     SpaceBus.GetBus().ProcessEvents();
-                    stateMachine.ActiveState.UpdateGameLogic();  
+                    _stateMachine.ActiveState.UpdateGameLogic();  
                 }
 
                 if (_gameTimer.ShouldRender())
                 {
                     _win.Clear();
-                    stateMachine.ActiveState.RenderState();
+                    _stateMachine.ActiveState.RenderState();
                     _win.SwapBuffers();
                 }
 
@@ -194,7 +191,7 @@ namespace SpaceTaxi_1{
                     // 1 second has passed - display last captured ups and fps from the timer
                     _win.Title = "Space Taxi | UPS: " + _gameTimer.CapturedUpdates + ", FPS: " +
                                 _gameTimer.CapturedFrames;
-                    Game.keepTrackOfUpdates = _gameTimer.CapturedUpdates;
+                    KeepTrackOfUpdates = _gameTimer.CapturedUpdates;
                 }
             }
         }
@@ -202,8 +199,7 @@ namespace SpaceTaxi_1{
         /// <summary>
         /// Method that processes window events. 
         /// </summary>
-        /// <param name="eventType">which kind of event, such as input event</param>
-        /// TODO: Tjek lige gameEvent om det er rigtigt.
+        /// <param name="eventType">which kind of event, such as window event</param>
         /// <param name="gameEvent">The different state events</param>
         public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent) {
             if (eventType == GameEventType.WindowEvent) {

@@ -1,37 +1,33 @@
 ﻿using System.Collections.Generic;
-using System.Runtime.Remoting.Messaging;
 using DIKUArcade.Entities;
 using System;
-using System.Dynamic;
 using System.IO;
 using DIKUArcade.Graphics;
 using DIKUArcade.Math;
-using System;
-using System.Diagnostics;
 
 namespace SpaceTaxi_1 {
     
     public static class Level
     {
-        private static EntityContainer Obstacles = new EntityContainer();
-        private static EntityContainer Platforms = new EntityContainer();
-        private static EntityContainer AllEntities = new EntityContainer();
-        private static List<char> PlatformLegends = new List<char>();
-        private static Dictionary<int, string> PassengerInfo = new Dictionary<int, string>();
-        private static Dictionary<char, string> legendsDictionary = new Dictionary<char, string>();
-        private static List<Dictionary<int, string>> passengerInfoList = new List<Dictionary<int, string>>();
-        private static Dictionary<char, List<Entity>> diffrentPlatforms = new Dictionary<char, List<Entity>>();
-        private static float PlayerPosX = 0f;
-        private static float PlayerPosY = 0f;
+        private static EntityContainer _obstacles = new EntityContainer();
+        private static EntityContainer _platforms = new EntityContainer();
+        private static EntityContainer _allEntities = new EntityContainer();
+        private static List<char> _platformLegends = new List<char>();
+        private static Dictionary<int, string> _passengerInfo = new Dictionary<int, string>();
+        private static Dictionary<char, string> _legendsDictionary = new Dictionary<char, string>();
+        private static List<Dictionary<int, string>> _passengerInfoList = new List<Dictionary<int, string>>();
+        private static Dictionary<char, List<Entity>> _diffrentPlatforms = new Dictionary<char, List<Entity>>();
+        private static float _playerPosX;
+        private static float _playerPosY;
 
-        private static string[] LevelInfo;
+        private static string[] _levelInfo;
 
         /// <summary>
         /// Set PlatformLegends to new.
         /// </summary>
         public static void SetPlatformLegendsToNew()
         {
-            PlatformLegends = new List<char>();
+            _platformLegends = new List<char>();
         }
         
         /// <summary>
@@ -39,7 +35,7 @@ namespace SpaceTaxi_1 {
         /// </summary>
         public static void SetLegendsDictionaryToNew()
         {
-            legendsDictionary = new Dictionary<char, string>();
+            _legendsDictionary = new Dictionary<char, string>();
         }
         
         /// <summary>
@@ -47,7 +43,7 @@ namespace SpaceTaxi_1 {
         /// </summary>
         public static void SetPassengerInfoToNew()
         {
-            PassengerInfo = new Dictionary<int, string>();
+            _passengerInfo = new Dictionary<int, string>();
         }
 
         /// <summary>
@@ -55,7 +51,7 @@ namespace SpaceTaxi_1 {
         /// </summary>
         public static void SetPassengerInfoListToNew()
         {
-            passengerInfoList = new List<Dictionary<int, string>>();
+            _passengerInfoList = new List<Dictionary<int, string>>();
         }
 
         /// <summary>
@@ -63,7 +59,7 @@ namespace SpaceTaxi_1 {
         /// </summary>
         public static void SetAllEntitiesToNew()
         {
-            AllEntities = new EntityContainer();
+            _allEntities = new EntityContainer();
         }
         
         /// <summary>
@@ -71,7 +67,7 @@ namespace SpaceTaxi_1 {
         /// </summary>
         public static void SetObstaclesToNew()
         {
-            Obstacles = new EntityContainer();
+            _obstacles = new EntityContainer();
         }
         
         /// <summary>
@@ -79,7 +75,7 @@ namespace SpaceTaxi_1 {
         /// </summary>
         public static void SetPlatformsToNew()
         {
-            Platforms = new EntityContainer();
+            _platforms = new EntityContainer();
         }
 
         /// <summary>
@@ -87,7 +83,7 @@ namespace SpaceTaxi_1 {
         /// </summary>
         public static void SetDiffrentPlatformsToNew()
         {
-            diffrentPlatforms = new Dictionary<char, List<Entity>>();
+            _diffrentPlatforms = new Dictionary<char, List<Entity>>();
         }
 
 
@@ -106,8 +102,8 @@ namespace SpaceTaxi_1 {
                 throw new ArgumentException("File does not exist");
             }
 
-            LevelInfo = File.ReadAllLines(path);
-            return LevelInfo;
+            _levelInfo = File.ReadAllLines(path);
+            return _levelInfo;
         }
 
 
@@ -121,7 +117,7 @@ namespace SpaceTaxi_1 {
             if (line.Length != 0 && line[1] == ')')
             {
                 var pngName = line.Substring(3, (line.Length - 3));
-                legendsDictionary.Add((line[0]), pngName);
+                _legendsDictionary.Add((line[0]), pngName);
             }
         }
         
@@ -141,7 +137,6 @@ namespace SpaceTaxi_1 {
             }
         }
 
-        //TODO: burde være i passenger?
         /// <summary>
         /// Updates the info on each passenger in the dictionary.
         /// Such as names, spawn time, position, drop off, time for points and points.
@@ -195,13 +190,13 @@ namespace SpaceTaxi_1 {
                             }
                         }
 
-                        PassengerInfo.Add(1, name);
-                        PassengerInfo.Add(2, spawnTime);
-                        PassengerInfo.Add(3, spawnPlatform);
-                        PassengerInfo.Add(4, releasePlatform);
-                        PassengerInfo.Add(5, timeForPoints);
-                        PassengerInfo.Add(6, pointsRecived);
-                        passengerInfoList.Add(PassengerInfo);
+                        _passengerInfo.Add(1, name);
+                        _passengerInfo.Add(2, spawnTime);
+                        _passengerInfo.Add(3, spawnPlatform);
+                        _passengerInfo.Add(4, releasePlatform);
+                        _passengerInfo.Add(5, timeForPoints);
+                        _passengerInfo.Add(6, pointsRecived);
+                        _passengerInfoList.Add(_passengerInfo);
                     }
                 }
             }
@@ -220,8 +215,8 @@ namespace SpaceTaxi_1 {
             {
                 if (platformLine[i - 1] == ' ')
                 {
-                    PlatformLegends.Add(platformLine[i]);
-                    diffrentPlatforms.Add(platformLine[i], new List<Entity>());                    
+                    _platformLegends.Add(platformLine[i]);
+                    _diffrentPlatforms.Add(platformLine[i], new List<Entity>());                    
                 }
             }
         }
@@ -237,14 +232,14 @@ namespace SpaceTaxi_1 {
         public static void SpecifyPlatforms(string[] mapString,
             Dictionary<char, string> legendsDictionary, int row,
             int stringIndeks, int platformIndeks) {
-            if (diffrentPlatforms.ContainsKey(mapString[row][stringIndeks]) &&
-                mapString[row][stringIndeks] == PlatformLegends[platformIndeks]) {
-                diffrentPlatforms[mapString[row][stringIndeks]].Add(new Entity(new StationaryShape(
+            if (_diffrentPlatforms.ContainsKey(mapString[row][stringIndeks]) &&
+                mapString[row][stringIndeks] == _platformLegends[platformIndeks]) {
+                _diffrentPlatforms[mapString[row][stringIndeks]].Add(new Entity(new StationaryShape(
                         new Vec2F(
-                            (float) (((stringIndeks + (1.0f)) / mapString[0].Length) -
-                                     (1.0f / mapString[0].Length)),
-                            (float) ((21 - row + 1.0f) / 23.0f)),
-                        new Vec2F((float) (1.0f / mapString[0].Length), 1.0f / 23.0f)),
+                            ((stringIndeks + (1.0f)) / mapString[0].Length) -
+                            (1.0f / mapString[0].Length),
+                            (21 - row + 1.0f) / 23.0f),
+                        new Vec2F(1.0f / mapString[0].Length, 1.0f / 23.0f)),
                     new Image(Path.Combine("Assets", "Images",
                         legendsDictionary[mapString[row][stringIndeks]]))));
             }
@@ -263,10 +258,10 @@ namespace SpaceTaxi_1 {
         {
             if (legendsDictionary.ContainsKey(mapString[row][indeks]))
             {
-                AllEntities.AddStationaryEntity(
-                    new StationaryShape(new Vec2F((float) (((indeks + (1.0f)) / mapString[0].Length) - (1.0f / mapString[0].Length)),
-                        (float) ((21 - row + 1.0f) / 23.0f)),
-                    new Vec2F((float) (1.0f / mapString[0].Length), 1.0f / 23.0f)),
+                _allEntities.AddStationaryEntity(
+                    new StationaryShape(new Vec2F(((indeks + (1.0f)) / mapString[0].Length) - (1.0f / mapString[0].Length),
+                        (21 - row + 1.0f) / 23.0f),
+                    new Vec2F(1.0f / mapString[0].Length, 1.0f / 23.0f)),
                     new Image(Path.Combine("Assets", "Images", legendsDictionary[mapString[row][indeks]])));
             }
         }
@@ -282,13 +277,13 @@ namespace SpaceTaxi_1 {
         public static void AddObstacle(string[] mapString, Dictionary<char, string> legendsDictionary, int row,
             int indeks)
         {
-            if (!PlatformLegends.Contains(mapString[row][indeks]) && legendsDictionary.ContainsKey(mapString[row][indeks]))
-                Obstacles.AddStationaryEntity(
+            if (!_platformLegends.Contains(mapString[row][indeks]) && legendsDictionary.ContainsKey(mapString[row][indeks]))
+                _obstacles.AddStationaryEntity(
                     new StationaryShape(
                         new Vec2F(
-                            (float) (((indeks + (1.0f)) / mapString[0].Length) - (1.0f / mapString[0].Length)),
-                            (float) ((21 - row + 1.0f) / 23.0f)),
-                        new Vec2F((float) (1.0f / mapString[0].Length), 1.0f / 23.0f)),
+                            ((indeks + (1.0f)) / mapString[0].Length) - (1.0f / mapString[0].Length),
+                            (21 - row + 1.0f) / 23.0f),
+                        new Vec2F(1.0f / mapString[0].Length, 1.0f / 23.0f)),
                     new Image(Path.Combine("Assets", "Images", legendsDictionary[mapString[row][indeks]])));
         }
         
@@ -303,13 +298,13 @@ namespace SpaceTaxi_1 {
         public static void AddPlatform(string[] mapString, Dictionary<char, string> legendsDictionary, int row,
             int indeks)
         {
-            if (PlatformLegends.Contains(mapString[row][indeks]) && legendsDictionary.ContainsKey(mapString[row][indeks]))
-                Platforms.AddStationaryEntity(
+            if (_platformLegends.Contains(mapString[row][indeks]) && legendsDictionary.ContainsKey(mapString[row][indeks]))
+                _platforms.AddStationaryEntity(
                     new StationaryShape(
                         new Vec2F(
-                            (float) (((indeks + (1.0f)) / mapString[0].Length) - (1.0f / mapString[0].Length)),
-                            (float) ((21 - row + 1.0f) / 23.0f)),
-                        new Vec2F((float) (1.0f / mapString[0].Length), 1.0f / 23.0f)),
+                            (((indeks + (1.0f)) / mapString[0].Length) - (1.0f / mapString[0].Length)),
+                            (21 - row + 1.0f) / 23.0f),
+                        new Vec2F(1.0f / mapString[0].Length, 1.0f / 23.0f)),
                         new Image(Path.Combine("Assets", "Images", legendsDictionary[mapString[row][indeks]])));
             
         }
@@ -325,8 +320,8 @@ namespace SpaceTaxi_1 {
         {
             if (mapString[row][indeks] == '>')
             {
-                PlayerPosX = (((indeks + (1.0f)) / mapString[0].Length) - (1.0f / mapString[0].Length));
-                PlayerPosY = (float) ((21 - row + 1.0f) / 23.0f);
+                _playerPosX = (((indeks + (1.0f)) / mapString[0].Length) - (1.0f / mapString[0].Length));
+                _playerPosY = (21 - row + 1.0f) / 23.0f;
             }
         }
 
@@ -343,7 +338,7 @@ namespace SpaceTaxi_1 {
             
             for (int j = 0; j < 23; j++)
             {
-                for (int c = 0; c < PlatformLegends.Count; c++)
+                for (int c = 0; c < _platformLegends.Count; c++)
                 {
                     for (int i = 0; i < mapString[0].Length; i++)
                     {
@@ -363,7 +358,7 @@ namespace SpaceTaxi_1 {
         /// <param name="newX"></param>
         public static void ChangePosX(float newX)
         {
-            PlayerPosX = newX;
+            _playerPosX = newX;
         }
         
         
@@ -373,7 +368,7 @@ namespace SpaceTaxi_1 {
         /// <param name="newY"></param>
         public static void ChangePosY(float newY)
         {
-            PlayerPosY = newY;
+            _playerPosY = newY;
         }
 
         /// <summary>
@@ -382,12 +377,12 @@ namespace SpaceTaxi_1 {
         /// <returns>legendsDictionary</returns>
         public static Dictionary<char, string> GetLegendsDictionary()
         {
-            return legendsDictionary;
+            return _legendsDictionary;
         }
 
         public static List<char> GetPlatformLegends()
         {
-            return PlatformLegends;
+            return _platformLegends;
         }
         /// <summary>
         /// get diffrenplatform
@@ -395,7 +390,7 @@ namespace SpaceTaxi_1 {
         /// <returns>diffrentplatforms</returns>
         public static Dictionary<char ,List<Entity>> GetDiffrenPlatforms()
         {
-            return diffrentPlatforms;
+            return _diffrentPlatforms;
         }
         
         /// <summary>
@@ -404,7 +399,7 @@ namespace SpaceTaxi_1 {
         /// <returns>passengerInfoList</returns>
         public static List<Dictionary<int, string>> GetPassengerInfo()
         {
-            return passengerInfoList;
+            return _passengerInfoList;
         }
         
         /// <summary>
@@ -413,7 +408,7 @@ namespace SpaceTaxi_1 {
         /// <returns>AllEntities</returns>
         public static EntityContainer GetLevelEntities()
         {
-            return AllEntities;
+            return _allEntities;
         }
 
         /// <summary>
@@ -422,7 +417,7 @@ namespace SpaceTaxi_1 {
         /// <returns>Obstacles</returns>
         public static EntityContainer GetLevelObstacles()
         {
-            return Obstacles;
+            return _obstacles;
         }
         
         /// <summary>
@@ -431,7 +426,7 @@ namespace SpaceTaxi_1 {
         /// <returns>Platforms</returns>
         public static EntityContainer GetLevelPlatforms()
         {
-            return Platforms;
+            return _platforms;
         }
 
         /// <summary>
@@ -440,7 +435,7 @@ namespace SpaceTaxi_1 {
         /// <returns>PlayerPosX</returns>
         public static float GetPlayerPosX()
         {
-            return PlayerPosX;
+            return _playerPosX;
         }
 
         /// <summary>
@@ -449,7 +444,7 @@ namespace SpaceTaxi_1 {
         /// <returns>PlayerPosY</returns>
         public static float GetPlayerPosY()
         {
-            return PlayerPosY;
+            return _playerPosY;
         }
         
     }

@@ -15,10 +15,11 @@ namespace SpaceTaxi_1.States {
     public class GameVictory : IGameState {
 
         //Fields
-        private static GameVictory instance;
-        private Entity backGroundImage;
-        private Entity gameVictory;
-        private Text button;
+        private static GameVictory _instance;
+        private Entity _backGroundImage;
+        private Entity _gameVictory;
+        private Text _button;
+        private Text _cash;
 
 
         /// <summary>
@@ -27,7 +28,7 @@ namespace SpaceTaxi_1.States {
         /// </summary>
         /// <returns>Either the game instance or a new if its null</returns>
         public static GameVictory GetInstance() {
-            return GameVictory.instance ?? (GameVictory.instance = new GameVictory());
+            return GameVictory._instance ?? (GameVictory._instance = new GameVictory());
 
         }
 
@@ -43,12 +44,14 @@ namespace SpaceTaxi_1.States {
         /// Sets the GameState features and the entities as new.
         /// </summary>
         public void InitializeGameState() {
-            backGroundImage = new Entity(new StationaryShape(0.0f, 0.0f, 1.0f, 1.0f),
+            _backGroundImage = new Entity(new StationaryShape(0.0f, 0.0f, 1.0f, 1.0f),
                 new Image(Path.Combine("Assets", "Images", "GameSpaceBaground.png")));
-            gameVictory = new Entity(new StationaryShape(0.0f, 0.2f, 1.1f, 0.65f),
+            _gameVictory = new Entity(new StationaryShape(0.0f, 0.2f, 1.1f, 0.65f),
                 new Image(Path.Combine("Assets", "Images", "GameVictory.png")));
-            button = new Text("Main Menu", new Vec2F(0.31f, 0.0f), new Vec2F(0.4f, 0.3f));
-            button.SetColor(Color.Yellow);
+            _button = new Text("Main Menu", new Vec2F(0.31f, 0.0f), new Vec2F(0.4f, 0.3f));
+            _button.SetColor(Color.Yellow);
+            _cash = new Text($"Total Cash: {GameRunning.GetCash()}",new Vec2F(0.31f, 0.1f), new Vec2F(0.4f, 0.3f));
+            _cash.SetColor(Color.Red);
         }
 
         
@@ -66,9 +69,10 @@ namespace SpaceTaxi_1.States {
         public void RenderState() {
             //Sets the color of the active button to green
             InitializeGameState();
-            backGroundImage.RenderEntity();
-            gameVictory.RenderEntity();
-            button.RenderText();
+            _backGroundImage.RenderEntity();
+            _gameVictory.RenderEntity();
+            _button.RenderText();
+            _cash.RenderText();
         }
         
         
