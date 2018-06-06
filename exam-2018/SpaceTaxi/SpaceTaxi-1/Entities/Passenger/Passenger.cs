@@ -9,24 +9,24 @@ using DIKUArcade.Timers;
 namespace SpaceTaxi_1.Entities.Passenger {
     public class Passenger {
         private Entity _passenger { get; set; }
-        private readonly DynamicShape _shape;
-        private readonly IBaseImage _imageWalk;
+        private readonly DynamicShape shape;
+        private readonly IBaseImage imageWalk;
         private string name;
-        private readonly int _timeBeforeSpawning;
-        private readonly char _platformSpawn;
-        private readonly int _timeBeforeRelease;
-        private readonly int _points;
-        private readonly string _platformRelease;
+        private readonly int timeBeforeSpawning;
+        private readonly char platformSpawn;
+        private readonly int timeBeforeRelease;
+        private readonly int cash;
+        private readonly string platformRelease;
         public bool PickedUp = false;
         public bool DroppedOff = false;
         public readonly int SetOffLevel = 0;
-        private readonly int _spawnLevel;
-        private TimedEvent _spawnTimer;
-        private TimedEvent _releaseTimer = new TimedEvent(TimeSpanType.Minutes,10,"");
-        private bool _spawnTimerStarted;
-        private bool _releaseTimerStarted;
-        private bool _releasedWithinTimer;
-        private bool _checker = true; 
+        private readonly int spawnLevel;
+        private TimedEvent spawnTimer;
+        private TimedEvent releaseTimer = new TimedEvent(TimeSpanType.Minutes,10,"");
+        private bool spawnTimerStarted;
+        private bool releaseTimerStarted;
+        private bool releasedWithinTimer;
+        private bool checker = true; 
         
         private readonly List<Dictionary<char, List<Entity>>> _thePlatform;
         
@@ -38,37 +38,34 @@ namespace SpaceTaxi_1.Entities.Passenger {
         /// <param name="platformSpawn">Which platform to spawn on</param>
         /// <param name="platformRelease">Which platform to be dropped off at</param>
         /// <param name="timeBeforeRelease">Time before release</param>
-        /// <param name="points">Points given</param>
+        /// <param name="cash">Points given</param>
         /// <param name="thePlatform">The platform to be dropped at</param>
         /// <param name="spawnLevel">In which level to spawn</param>
         public Passenger(
             string name, int timeBeforeSpawning, char platformSpawn, string platformRelease, int timeBeforeRelease,
-            int points, List<Dictionary<char, List<Entity>>> thePlatform, int spawnLevel) {
-            _shape = new DynamicShape(new Vec2F(), new Vec2F());
-            _imageWalk = new ImageStride(80, ImageStride.CreateStrides(2, Path.Combine("Assets", "Images", "CustomerWalkLeft.png")));
-            _passenger = new Entity(_shape, _imageWalk);
+            int cash, List<Dictionary<char, List<Entity>>> thePlatform, int spawnLevel) {
+            shape = new DynamicShape(new Vec2F(), new Vec2F());
+            imageWalk = new ImageStride(80, ImageStride.CreateStrides(2, Path.Combine("Assets", "Images", "CustomerWalkLeft.png")));
+            _passenger = new Entity(shape, imageWalk);
             this.name = name;
-            _timeBeforeSpawning = timeBeforeSpawning;
-            _platformSpawn = platformSpawn;
-            _platformRelease = platformRelease;
-            _timeBeforeRelease = timeBeforeRelease;
-            _points = points;
+            this.timeBeforeSpawning = timeBeforeSpawning;
+            this.platformSpawn = platformSpawn;
+            this.platformRelease = platformRelease;
+            this.timeBeforeRelease = timeBeforeRelease;
+            this.cash = cash;
             _thePlatform = thePlatform;
-            _spawnLevel = spawnLevel;
+            this.spawnLevel = spawnLevel;
             
             
-            if (platformRelease.Length > 1)
-            {
+            if (platformRelease.Length > 1){
                 SetOffLevel = spawnLevel + 1;
             }
-            else
-            {
+            else{
                 SetOffLevel = spawnLevel;
             }
 
           
-          //spawnTimer = new System.Timers.Timer(interval: timeBeforeSpawning*1000);
-            _shape.Direction.X = 0.00045f;
+            shape.Direction.X = 0.00045f;
         }
         
         /// <summary>
@@ -77,8 +74,8 @@ namespace SpaceTaxi_1.Entities.Passenger {
         /// <param name="x">shape position x value</param>
         /// <param name="y">shape position y value </param>
         public void SetPosition(float x, float y){
-            _shape.Position.X = x;
-            _shape.Position.Y = y;
+            shape.Position.X = x;
+            shape.Position.Y = y;
             
         }
         
@@ -88,93 +85,112 @@ namespace SpaceTaxi_1.Entities.Passenger {
         /// <param name="x">The players extent x value</param>
         /// <param name="y">The players extent y value</param>
         public void SetExtent(float x, float y){
-            _shape.Extent.X = x;
-            _shape.Extent.Y = y;
+            shape.Extent.X = x;
+            shape.Extent.Y = y;
         }
         
         /// <summary>
         /// Get shape of the player
         /// </summary>
         /// <returns>shape</returns>
-        public DynamicShape GetShape()
-        {
-            return _shape;
+        public DynamicShape GetShape(){
+            return shape;
         }
 
         /// <summary>
-        /// Get the image of the player
+        /// Get spawn timer
         /// </summary>
-        /// <returns>imageWalk</returns>
-
-        public bool GetSpawnTimerStarted()
-        {
-            return _spawnTimerStarted;
+        /// <returns>spwan timer</returns>
+        public bool GetSpawnTimerStarted(){
+            return spawnTimerStarted;
         }
         
-        public void SetSpawnTimerStarted(bool setBool)
-        {
-            _spawnTimerStarted = setBool;
+        /// <summary>
+        /// Set spawn timer bool
+        /// </summary>
+        /// <param name="setBool">boolean</param>
+        public void SetSpawnTimerStarted(bool setBool){
+            spawnTimerStarted = setBool;
         }
 
-        public void ResetSpawnTimer()
-        {
-            _spawnTimer.ResetTimer();
+        /// <summary>
+        /// reset spawn timer
+        /// </summary>
+        public void ResetSpawnTimer(){
+            spawnTimer.ResetTimer();
         }
         
-        public void StartSpawnTimer()
-        {
-            _spawnTimer = new TimedEvent(TimeSpanType.Seconds, _timeBeforeSpawning, "");
+        /// <summary>
+        /// Start spawn timer
+        /// </summary>
+        public void StartSpawnTimer(){
+            spawnTimer = new TimedEvent(TimeSpanType.Seconds, timeBeforeSpawning, "");
         }
         
-        public bool SpawnTimer()
-        {
-            return _spawnTimer.HasExpired();
+        /// <summary>
+        /// Has spawn timer expired
+        /// </summary>
+        /// <returns>boolean telling if timer has expired</returns>
+        public bool SpawnTimer(){
+            return spawnTimer.HasExpired();
         }
 
-        public void ResetReleaseTimer()
-        {
-            _releaseTimer.ResetTimer();
-        }
-        public void StartRelaseTimer()
-        {
-            _releaseTimer = new TimedEvent(TimeSpanType.Seconds, _timeBeforeRelease,"");
-        }
-
-        public bool ReleaseTimer()
-        {
-            return !_releaseTimer.HasExpired();
+        /// <summary>
+        /// Reset timer for release
+        /// </summary>
+        public void ResetReleaseTimer(){
+            releaseTimer.ResetTimer();
         }
         
-        public bool GetReleaseTimerStarted()
-        {
-            return _releaseTimerStarted;
+        /// <summary>
+        /// Start timer
+        /// </summary>
+        public void StartRelaseTimer(){
+            releaseTimer = new TimedEvent(TimeSpanType.Seconds, timeBeforeRelease,"");
         }
 
-        public void SetReleaseTimerStarted(bool setBool)
-        {
-            _releaseTimerStarted = setBool;
+        /// <summary>
+        /// Checks if release timer has not expired
+        /// </summary>
+        /// <returns>Bool checking if it has not expired</returns>
+        public bool ReleaseTimer(){
+            return !releaseTimer.HasExpired();
+        }
+        
+        /// <summary>
+        /// get release timer
+        /// </summary>
+        /// <returns>_releaseTimerStarted</returns>
+        public bool GetReleaseTimerStarted(){
+            return releaseTimerStarted;
+        }
+
+        /// <summary>
+        /// Makes a bool giving if release timer has started
+        /// </summary>
+        /// <param name="setBool">bool to be set</param>
+        public void SetReleaseTimerStarted(bool setBool){
+            releaseTimerStarted = setBool;
         }
 
         /// <summary>
         /// Render the passenger and the image depending on which direction the player is going.
         /// </summary>
-        public void RenderPassenger()
-        {
+        public void RenderPassenger(){
         
-            if ((!PickedUp || DroppedOff) && SpawnTimer())
-            {
-                if (_shape.Direction.X > 0.0f)
-                {
+            if ((!PickedUp || DroppedOff) && SpawnTimer()){
+                
+                if (shape.Direction.X > 0.0f){
                     _passenger.Image = new ImageStride(80,
                         ImageStride.CreateStrides(2, Path.Combine("Assets", "Images", "CustomerWalkRight.png")));
                 }
-                else if (_shape.Direction.X < -0.0f)
-                {
+                
+                else if (shape.Direction.X < -0.0f){
                     _passenger.Image = new ImageStride(80,
                         ImageStride.CreateStrides(2, Path.Combine("Assets", "Images", "CustomerWalkLeft.png")));
                 }
-                else
-                {
+                
+                else{
                     _passenger.Image = new Image(Path.Combine("Assets", "Images", "CustomerStandRight.png"));
                 }
 
@@ -186,31 +202,28 @@ namespace SpaceTaxi_1.Entities.Passenger {
         /// <summary>
         /// How fast the passenger should move and when to switch directions.
         /// </summary>
-        public void PassengerMove()
-        {
-            if (_shape.Direction.X != 0.0f)
-            {
-                var platformLength = _thePlatform[_spawnLevel][_platformSpawn].Count;
-                if (_shape.Position.X >= _thePlatform[_spawnLevel][_platformSpawn][platformLength - 1].Shape.Position.X)
-                {
-                    _shape.Direction.X = -0.00045f;
+        public void PassengerMove(){
+            
+            if (shape.Direction.X != 0.0f){
+                var platformLength = _thePlatform[spawnLevel][platformSpawn].Count;
+                if (shape.Position.X >= _thePlatform[spawnLevel][platformSpawn][platformLength - 1].Shape.Position.X){
+                    shape.Direction.X = -0.00045f;
                 }
-                else if (_shape.Position.X <= _thePlatform[_spawnLevel][_platformSpawn][0].Shape.Position.X)
-                {
-                    _shape.Direction.X = 0.00045f;
+                
+                else if (shape.Position.X <= _thePlatform[spawnLevel][platformSpawn][0].Shape.Position.X){
+                    shape.Direction.X = 0.00045f;
                 }
             }
             
-            _shape.Move();
+            shape.Move();
         }
 
         /// <summary>
         /// Gets the spawn of the platform
         /// </summary>
         /// <returns>platformSpawn</returns>
-        public char GetPlatFormSpawn()
-        {
-            return _platformSpawn;
+        public char GetPlatFormSpawn(){
+            return platformSpawn;
         }
 
 
@@ -219,48 +232,64 @@ namespace SpaceTaxi_1.Entities.Passenger {
         /// The entire length of the platform is counted to be one platform. 
         /// </summary>
         /// <returns></returns>
-        public char GetReleasePlatformChar()
-        {
-            if (_platformRelease.Length == 2)
-            {
-                var platformReleaseLength = _platformRelease.Length;
+        public char GetReleasePlatformChar(){
+            if (platformRelease.Length == 2){
+                var platformReleaseLength = platformRelease.Length;
                 
-                return _platformRelease[platformReleaseLength - 1];
+                return platformRelease[platformReleaseLength - 1];
             }
 
-            return Char.Parse(_platformRelease);
+            return Char.Parse(platformRelease);
         }
 
-        public List<Entity> GetReleasePlatform()
-        {
-            
-            var platformReleaseLength = _platformRelease.Length;
-            return _thePlatform[SetOffLevel][_platformRelease[platformReleaseLength - 1]];
-        }
-
-        public bool GetreleasedWithinTimer()
-        {
-            return _releasedWithinTimer;
-        }
-
-        public void SetReleasedWithinTimer(bool setBool)
-        {
-            _releasedWithinTimer = setBool;
-        }
-
-        public int GetPoints()
-        {
-            return _points;
+        /// <summary>
+        /// Get release platform
+        /// </summary>
+        /// <returns>The platform to be set off at</returns>
+        public List<Entity> GetReleasePlatform(){
+            var platformReleaseLength = platformRelease.Length;
+            return _thePlatform[SetOffLevel][platformRelease[platformReleaseLength - 1]];
         }
         
-        public bool GetChecker()
-        {
-            return _checker;
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="setBool"></param>
+        public void SetReleasedWithinTimer(bool setBool){
+            releasedWithinTimer = setBool;
         }
 
-        public void SetChecker(bool setBool)
-        {
-            _checker = setBool;
+        /// <summary>
+        /// Get bool if released within the time of drop of
+        /// </summary>
+        /// <returns>_releasedWithinTimer</returns>
+        public bool GetreleasedWithinTimer(){
+            return releasedWithinTimer;
         }
+
+        /// <summary>
+        /// Get amount of cash
+        /// </summary>
+        /// <returns>cash</returns>
+        public int GetCash(){
+            return cash;
+        }
+        
+        /// <summary>
+        /// Checks false or true
+        /// </summary>
+        /// <param name="setBool">bool to be set</param>
+        public void SetChecker(bool setBool){
+            checker = setBool;
+        }
+        
+        /// <summary>
+        /// a checker
+        /// </summary>
+        /// <returns>checks</returns>
+        public bool GetChecker(){
+            return checker;
+        }
+
     }
 }

@@ -7,29 +7,25 @@ namespace SpaceTaxi_1.Entities.Player
     public class Player : IGameEventProcessor<object>
     {
         //Fields
-        //private readonly DynamicShape shape = new DynamicShape(new Vec2F(), new Vec2F());
-
         private Entity _player { get; set; }
-        
-        private int _leftValue = 1;
-        private int _rightValue = 0;
-        private int _upValue = 0;
-        private int _totalValue;
-        private Vec2F _gravity;
-        private readonly Vec2F _boostForce;
+        private int leftValue = 1;
+        private int rightValue = 0;
+        private int upValue = 0;
+        private int totalValue;
+        private Vec2F gravity;
+        private readonly Vec2F boostForce;
         public bool Alive = true;
-        private readonly DynamicShape _shape;
+        private readonly DynamicShape shape;
         
         
         /// <summary>
         /// Values and features for player
         /// </summary>
-        public Player()
-        {
-            _shape = new DynamicShape(new Vec2F(), new Vec2F());
-            _player = new Entity(_shape, PlayerImage.ImageDecider(_totalValue));
-            _gravity = new Vec2F(0.0f, -0.3f);
-            _boostForce =  new Vec2F(0.0f, 0.0f);
+        public Player(){
+            shape = new DynamicShape(new Vec2F(), new Vec2F());
+            _player = new Entity(shape, PlayerImage.ImageDecider(totalValue));
+            gravity = new Vec2F(0.0f, -0.3f);
+            boostForce =  new Vec2F(0.0f, 0.0f);
         }
 
         /// <summary>
@@ -38,8 +34,8 @@ namespace SpaceTaxi_1.Entities.Player
         /// </summary>
         public void Physics() {
             if (Alive) {
-                var netForce = _boostForce + _gravity;
-                _shape.Direction +=
+                var netForce = boostForce + gravity;
+                shape.Direction +=
                     netForce * (Game.KeepTrackOfUpdates / 300000.0f);
                 PlayerMove();
             }
@@ -48,10 +44,9 @@ namespace SpaceTaxi_1.Entities.Player
         /// <summary>
         /// Moves the player. 
         /// </summary>
-        public void PlayerMove()
-        {
-            if (_shape.Direction.Y == 0.0f){
-                _shape.Direction.X = 0.0f;
+        public void PlayerMove(){
+            if (shape.Direction.Y == 0.0f){
+                shape.Direction.X = 0.0f;
             }
             _player.Shape.Move();
         }
@@ -61,29 +56,26 @@ namespace SpaceTaxi_1.Entities.Player
         /// </summary>
         /// <param name="x">players x value</param>
         /// <param name="y">players y value</param>
-        public void SetPosition(float x, float y)
-        {
-            _shape.Position.X = x;
-            _shape.Position.Y = y;         
+        public void SetPosition(float x, float y){
+            shape.Position.X = x;
+            shape.Position.Y = y;         
         }
         
         /// <summary>
         /// Makes it possible to change the physics if need so it is possible for the player
         /// to stand still without falling. 
         /// </summary>
-        public void Changephysics()
-        {
-            _gravity = new Vec2F(0.0f, 0.0f);
-            _shape.Direction = new Vec2F(0.0f,0.0f);
+        public void Changephysics(){
+            gravity = new Vec2F(0.0f, 0.0f);
+            shape.Direction = new Vec2F(0.0f,0.0f);
         }
         
         /// <summary>
         /// Gets the shap of the player 
         /// </summary>
         /// <returns>shape</returns>
-        public DynamicShape GetsShape()
-        {
-            return _shape;
+        public DynamicShape GetsShape(){
+            return shape;
         }
       
         
@@ -92,20 +84,18 @@ namespace SpaceTaxi_1.Entities.Player
         /// </summary>
         /// <param name="width">players extend x value</param>
         /// <param name="height">players extend y value</param>
-        public void SetExtent(float width, float height)
-        {
-            _shape.Extent.X = width;
-            _shape.Extent.Y = height;
+        public void SetExtent(float width, float height){
+            shape.Extent.X = width;
+            shape.Extent.Y = height;
         }
         
         /// <summary>
         /// Render the player 
         /// </summary>
-        public void RenderPlayer()
-        {
+        public void RenderPlayer(){
             if (Alive) {
-                _totalValue = _rightValue + _leftValue + _upValue;
-                _player.Image = PlayerImage.ImageDecider(_totalValue);
+                totalValue = rightValue + leftValue + upValue;
+                _player.Image = PlayerImage.ImageDecider(totalValue);
                 _player.RenderEntity(); 
             }
         }
@@ -116,53 +106,53 @@ namespace SpaceTaxi_1.Entities.Player
         /// </summary>
         /// <param name="eventType"></param>
         /// <param name="gameEvent"></param>
-        public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent)
-        {
-            if (eventType == GameEventType.PlayerEvent)
-            {
-                switch (gameEvent.Message)
-                {
+        public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent){
+            
+            if (eventType == GameEventType.PlayerEvent){
+                switch (gameEvent.Message){
                      case "BOOSTER_UPWARDS":
-                         _boostForce.Y += 1;
-                         _gravity = new Vec2F(0.0f,-0.3f);
-                         _upValue = 10;
+                         boostForce.Y += 1;
+                         gravity = new Vec2F(0.0f,-0.3f);
+                         upValue = 10;
                          break;
                      
                     case "BOOSTER_TO_LEFT":
-                        if (_shape.Direction.Y == 0.0f) {
+                        if (shape.Direction.Y == 0.0f) {
                             
-                            _boostForce.X = 0;
+                            boostForce.X = 0;
                         } else {
-                            _boostForce.X -= 1;
+                            boostForce.X -= 1;
                         }
-                        _rightValue = 0;
-                         _leftValue = 2;
+                        rightValue = 0;
+                         leftValue = 2;
                          break;
                     
                     case "BOOSTER_TO_RIGHT":            
-                        if (_shape.Direction.Y == 0.0f)
-                            _boostForce.X = 0;
-                        else
-                            _boostForce.X += 1;
-                        _leftValue = 0;
-                        _rightValue = -2;
+                        if (shape.Direction.Y == 0.0f) {
+                            boostForce.X = 0;
+                        } else {
+                            boostForce.X += 1;
+                        }
+
+                        leftValue = 0;
+                        rightValue = -2;
                         break;
                     
                     case "STOP_ACCELERATE_LEFT":
-                        _boostForce.X = 0;
-                        _rightValue = 0;
-                        _leftValue = 1;
+                        boostForce.X = 0;
+                        rightValue = 0;
+                        leftValue = 1;
                         break;
 
                     case "STOP_ACCELERATE_RIGHT":
-                        _boostForce.X = 0;
-                        _rightValue = -1;
-                        _leftValue = 0;
+                        boostForce.X = 0;
+                        rightValue = -1;
+                        leftValue = 0;
                         break;
 
                     case "STOP_ACCELERATE_UP":
-                        _boostForce.Y = 0;
-                        _upValue = 0;
+                        boostForce.Y = 0;
+                        upValue = 0;
                         break;
                     
                     default:

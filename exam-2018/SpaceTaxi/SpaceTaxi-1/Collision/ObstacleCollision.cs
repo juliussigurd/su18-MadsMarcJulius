@@ -6,12 +6,11 @@ using DIKUArcade.Math;
 using DIKUArcade.Physics;
 
 namespace SpaceTaxi_1.Collision {
-    public static class ObstacleCollision
-    {
+    public static class ObstacleCollision {
         //Fields
-        private static StationaryShape _explsionShape;
-        private static List<Image> _explosionStrides = new List<Image>();
-        private static readonly AnimationContainer Explosion = new AnimationContainer(8);
+        private static StationaryShape explsionShape;
+        private static List<Image> explosionStrides = new List<Image>();
+        private static readonly AnimationContainer EXPLOSION = new AnimationContainer(8);
         
         
         /// <summary>
@@ -20,13 +19,10 @@ namespace SpaceTaxi_1.Collision {
         /// <param name="player">DynamicShape player</param>
         /// <param name="obstacles">EntityContainer of obstacles</param>
         /// <returns>bool if the collsion is true or false</returns>
-        public static bool CollisionObstacle (DynamicShape player, EntityContainer obstacles)
-        {
-            foreach (Entity obstacle in obstacles)
-            {
+        public static bool CollisionObstacle (DynamicShape player, EntityContainer obstacles){
+            foreach (Entity obstacle in obstacles){
             var check = CollisionDetection.Aabb(player, obstacle.Shape);
-                if (check.Collision)
-                {
+                if (check.Collision){
                     return true;
                 }
             }
@@ -38,16 +34,15 @@ namespace SpaceTaxi_1.Collision {
         /// explosion happends.
         /// </summary>
         /// <param name="player">Player</param>
-        public static void CreateExplosion(Entities.Player.Player player)
-        {
+        public static void CreateExplosion(Entities.Player.Player player){
             
-            _explsionShape = new StationaryShape(new Vec2F(player.GetsShape().Position.X, player.GetsShape().Position.Y),
+            ObstacleCollision.explsionShape = new StationaryShape(new Vec2F(player.GetsShape().Position.X, player.GetsShape().Position.Y),
                                                 new Vec2F(player.GetsShape().Extent.X, player.GetsShape().Extent.Y));
-            _explosionStrides = ImageStride.CreateStrides(8,
+            ObstacleCollision.explosionStrides = ImageStride.CreateStrides(8,
                 Path.Combine("Assets", "Images", "Explosion.png"));
 
-            Explosion.AddAnimation(_explsionShape, 500,
-                                   new ImageStride(500 / 8, _explosionStrides));
+            ObstacleCollision.EXPLOSION.AddAnimation(ObstacleCollision.explsionShape, 500,
+                                   new ImageStride(500 / 8, ObstacleCollision.explosionStrides));
 
         }
 
@@ -55,9 +50,8 @@ namespace SpaceTaxi_1.Collision {
         /// get explosion 
         /// </summary>
         /// <returns>explosion</returns>
-        public static AnimationContainer GetExplosion()
-        {
-            return Explosion;
+        public static AnimationContainer GetExplosion(){
+            return ObstacleCollision.EXPLOSION;
         }
     }
 }

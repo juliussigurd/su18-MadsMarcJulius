@@ -2,22 +2,22 @@
 
 namespace SpaceTaxi_1.Entities.Passenger
 {
-    public class TimeHandler
-    {
+    
+    public class TimeHandler{
         private List<Passenger> passengers;
         
-        public TimeHandler(List<Passenger> passengers)
-        {
+        public TimeHandler(List<Passenger> passengers){
             this.passengers = passengers;
         }
         
 
-        public void SpawnPassengerTimer()
-        {
-            foreach (Passenger passenger in passengers)
-            {
-                if (!passenger.GetSpawnTimerStarted())
-                {
+        /// <summary>
+        /// Handles each passengers spawn timer.
+        /// </summary>
+        public void SpawnPassengerTimer(){
+            foreach (var passenger in passengers){
+
+                if (!passenger.GetSpawnTimerStarted()){
                     passenger.ResetSpawnTimer();
                     passenger.StartSpawnTimer();
                     
@@ -26,12 +26,12 @@ namespace SpaceTaxi_1.Entities.Passenger
             }
         }
 
-        public void SetPickUpTimer()
-        {
-            foreach (Passenger passenger in passengers)
-            {
-                if (!passenger.GetReleaseTimerStarted() && passenger.PickedUp)
-                {
+        /// <summary>
+        /// Starts the passenger pick up/release time.
+        /// </summary>
+        public void SetPickUpTimer(){
+            foreach (var passenger in passengers){
+                if (!passenger.GetReleaseTimerStarted() && passenger.PickedUp){
                     passenger.ResetReleaseTimer();
                     passenger.StartRelaseTimer();
                     

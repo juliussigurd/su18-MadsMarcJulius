@@ -12,10 +12,10 @@ namespace SpaceTaxi_1.States {
     public class GameControls : IGameState {
 
         //Fields
-        private static GameControls _instance;
-        private Entity _backGroundImage;
-        private Entity _gameControls;
-        private Text _button;
+        private static GameControls instance;
+        private Entity backGroundImage;
+        private Entity gameControls;
+        private Text button;
 
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace SpaceTaxi_1.States {
         /// </summary>
         /// <returns>Either the game instance or a new if its null</returns>
         public static GameControls GetInstance() {
-            return GameControls._instance ?? (GameControls._instance = new GameControls());
+            return GameControls.instance ?? (GameControls.instance = new GameControls());
 
         }
 
@@ -40,12 +40,12 @@ namespace SpaceTaxi_1.States {
         /// Sets the GameState features and the entities as new.
         /// </summary>
         public void InitializeGameState() {
-            _backGroundImage = new Entity(new StationaryShape(0.0f, 0.0f, 1.0f, 1.0f),
+            backGroundImage = new Entity(new StationaryShape(0.0f, 0.0f, 1.0f, 1.0f),
                 new Image(Path.Combine("Assets", "Images", "SpaceBackground.png")));
-            _gameControls = new Entity(new StationaryShape(0.05f, 0.40f, 0.9f, 0.6f),
+            gameControls = new Entity(new StationaryShape(0.05f, 0.40f, 0.9f, 0.6f),
                 new Image(Path.Combine("Assets", "Images", "GameControls.png")));
-            _button = new Text("Back", new Vec2F(0.31f, 0.0f), new Vec2F(0.4f, 0.3f));
-            _button.SetColor(Color.Yellow);
+            button = new Text("Back", new Vec2F(0.31f, 0.0f), new Vec2F(0.4f, 0.3f));
+            button.SetColor(Color.Yellow);
         }
 
         
@@ -63,9 +63,9 @@ namespace SpaceTaxi_1.States {
         public void RenderState() {
             //Sets the color of the active button to green
             InitializeGameState();
-            _backGroundImage.RenderEntity();
-            _gameControls.RenderEntity();
-            _button.RenderText();
+            backGroundImage.RenderEntity();
+            gameControls.RenderEntity();
+            button.RenderText();
         }
         
         
