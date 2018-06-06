@@ -1,0 +1,5 @@
+.idea/
+DIKUArcade
+*.DS_STORE
+*obj\
+*OpenTK.2.0.0/
